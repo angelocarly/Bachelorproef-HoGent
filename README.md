@@ -41,4 +41,3 @@ Volgende personen hebben bijgedragen aan deze sjablonen:
 - Niels Corneille
 - Patrick Van Brussel
 - Simon Rondelez
-
