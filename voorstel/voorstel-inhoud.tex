@@ -3,14 +3,16 @@
 \section{Introductie} % The \section*{} command stops section numbering
 \label{sec:introductie}
 
-Hier introduceer je werk. Je hoeft hier nog niet te technisch te gaan.
+Vaak zijn voertuigen te identificeren door hun nummerplaat, voor mensen zijn deze zeer leesbaar, maar niet voor machines. Machines moeten beroep doen op Automatic License Plate Recognition systemen of kortom ALPR. Deze systemen zorgen voor een vertaling van een analoge omgeving naar verstaanbare data voor machines, en kunnen gebruikt worden voor het identificeren van verkeersovertreders maar ook voor authenticatie bij parkeergarages.
 
-Je beschrijft zeker:
+ALPR is geen nieuwe technologie, al sinds 1970 wordt deze bestudeert en heeft het vele evoluties gekend. Dit door nieuwe camera-technologieën, betere hardware en de opkomst van Artificial Intelligence. ~\autocite{han2015real}.
+
+Dit onderzoek wordt uitgevoerd met als doel te bekijken of een open source ALPR-technologie genaamd openalpr gebruikt kan worden in een professionele omgeving voor het beheren van een parkeergarage.
 
 \begin{itemize}
-  \item de probleemstelling en context
-  \item de motivatie en relevantie voor het onderzoek
-  \item de doelstelling en onderzoeksvraag/-vragen
+  \item Hoe werkt een ALPR systeem en wat zijn de wetgevingen hierrond?
+  \item Is openalpr nauwkeurig genoeg voor gebruik in een professionele omgeving?
+  \item Kan men openalpr draaien op een standaard Raspberry Pi 3 B+ met Pi-cam?
 \end{itemize}
 
 %---------- Stand van zaken ---------------------------------------------------
@@ -18,9 +20,13 @@ Je beschrijft zeker:
 \section{State-of-the-art}
 \label{sec:state-of-the-art}
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein. Dit kan bijvoorbeeld een literatuurstudie zijn. Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek? Wat is de relevantie met jouw onderzoek?
+Hedendaags zijn er meerdere firma's beschikbaar die ALPR systemen aanbieden, zo bestaat dit voor parkeergarages, snelheidsdetectie maar ook het opsporen van gestolen voertuigen.
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Doll1954}! Denk zeker goed na welke werken je refereert en waarom.
+Hedendaags zijn er een grote variëteit van ALPR technieken, alhoewel dat deze bijna altijd in hetzelfde patroon worden uitgevoerd. Eerst zal men een afbeelding van het voertuig bemachtigen, dit gebeurt adhv. een sensor die een voertuig detecteerd en de instructie naar een camera stuurt voor een foto te nemen. Vervolgens wordt de gekeken waar de nummerplaat zich op de afbeelding bevind, waarop men daarna de tekst van de nummerplaat kan aflezen. Ieder van deze stappen kan op verschillende technieken worden uitgevoerd en er bestaan dus ook een groot aantal implementaties hiervan~\autocite{azam2016automatic}.
+
+ALPR systemen zijn complexe algoritmen en vragen dus redelijk wat rekenkracht, toch zijn ze haalbaar om op kleine computers zoals een Raspberry Pi uit te voeren. Zo is er reeds al een onderzoek uitgevoerd door \citeauthor{buhus2016automatic}. Hierbij werd een automatisch toegangssysteem met succes geïmplementeerd op een Raspberry Pi 3 met een Pi Noir camera board. Deze resultaten doen vermoeden dat openalpr zeker zal functioneren op een Raspberry Pi 3 B+, maar het is mogelijk dat door de Pi-Cam andere resultaten opleveren zullen worden~\autocite{buhus2016automatic}.
+
+In een vergelijkende studie tussen openalpr en Sighthound door \citeauthor{masood2017license} kwam men uit op een nauwkeurigheid tussen de 84.80\% en 91.09\% voor openalpr. Deze resultaten is men bekomen door openalpr uit te voeren op een Europese dataset waarbij belichting, grootte, kijkhoek, etc. varieert. Indien deze studie met een Belgische dataset uitgevoerd wordt is het mogelijk dat we andere resultaten zullen verkrijgen, ook zal bij gebruik bij een parkeergarage veel van deze factoren niet veranderen en zal bijgevolg de score hoger liggen~\autocite{masood2017license}.
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
@@ -29,23 +35,26 @@ Verwijs bij elke introductie van een term of bewering over het domein naar de va
 %   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
 %   ...'')
 
-Je mag gerust gebruik maken van subsecties in dit onderdeel.
-
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}
 \label{sec:methodologie}
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor experimenten, vragenlijsten, simulaties? Je beschrijft ook al welke tools je denkt hiervoor te gebruiken of te ontwikkelen.
+Om de eerste onderzoeksvraag te beantwoorden zal een literatuurstudie gemaakt worden waarin verschillende technieken gebruikt in ALPR beschreven worden. Ook zal in deze literatuurstudie aandacht gegeven worden aan de wetgevingen die hierrond vasthangen. 
+
+Voor de tweede onderzoeksvraag zal bekeken worden hoe nauwkeurig openalpr scoort adhv. een dataset van Belgische nummerplaten. Er zal vervolgens gekeken worden op welke afbeeldingen openalpr slecht scoort en welke factoren hierop een rol spelen.
+
+Voor de laatste vraag wordt een testbed opgezet op een Raspberry Pi B+ en zullen de statistieken zoals temperatuur, cpu gebruik en RAM geanalyseerd worden. Dit om af te leiden of deze hardware volstaat om openalpr 24/7 uit te voeren.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
 
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de stukken van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data gaat moeten structureren.
+Voor de eerste onderzoeksvraag wordt er verwacht dat er een heel uitgebreide collectie van technieken te vinden is, dit doordat ALPR al een oude technologie is die vele evoluties gekend heeft.
+Verder wordt er verwacht dat openalpr zeker geschikt is voor gebruik in een professionele omgeving, de data wordt niet naar derden verzonden, wat al geen beveiligingsrisico is. Ook is een parkeergarage een statische omgeving, wat de resultaten van openalpr zal bevorderen. Voor de laatste onderzoeksvraag, om na te gaan of een Raspberry Pi B+ geschikte hardware is voor dit probleem, kunnen we wel verwachten dat deze geschikt is. Dit door het de eerdere resultaten uit het onderzoek van \citeauthor{buhus2016automatic}, waar men een gelijkaardig systeem succesvol heeft kunnen gebruiken op een Raspberry Pi 3.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
 
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
-
+Er wordt verwacht dat dit een moeilijk domein is omtrent de privacywetgeving in België, zeker door de intrede van de GDPR in Europa. Zo is er weliswaar geen grote kans dat het bijhouden van de foto's legaal is. 
+Ook wordt er verwacht dat openalpr zeker geschikt is voor professionele omgevingen, in een gecontroleerde omgeving zoals een parkeergarage kunnen meerdere instellingen nauwkeurig aangepast worden om goede resultaten te bekomen. Ten laatste lijkt het zeker mogelijk om openalpr uit te voeren op de Raspberry Pi 3 B+ aangezien dit ook al lukte op een oudere en beperktere revisie van de Raspberry Pi~\autocite{buhus2016automatic}.
