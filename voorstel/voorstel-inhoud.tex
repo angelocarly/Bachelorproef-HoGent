@@ -3,16 +3,17 @@
 \section{Introductie} % The \section*{} command stops section numbering
 \label{sec:introductie}
 
-Vaak zijn voertuigen te identificeren door hun nummerplaat, voor mensen zijn deze zeer leesbaar, maar niet voor machines. Machines moeten beroep doen op Automatic License Plate Recognition systemen of kortom ALPR. Deze systemen zorgen voor een vertaling van een analoge omgeving naar verstaanbare data voor machines, en kunnen gebruikt worden voor het identificeren van verkeersovertreders maar ook voor authenticatie bij parkeergarages.
+Parkings zijn een belangrijk onderdeel van het dagelijkse leven. Iedere dag rijden talloze wagens door hun toegangspunten om na een drukke werkdag weer verlaten te worden. Ieder van deze wagens zal zich dan ook moeten identificeren om toegang te kunnen verkrijgen tot hun parking. Dit is een reden van opstroppingen bij drukke toegangspunten, maar ook vervuiling van de omstreken door het weggooien van tickets.
 
-ALPR is geen nieuwe technologie, al sinds 1970 wordt deze bestudeert en heeft het vele evoluties gekend. Dit door nieuwe camera-technologieën, betere hardware en de opkomst van Artificial Intelligence. ~\autocite{han2015real}.
+Hedendaags zijn er al vele alternatieve oplossingen voor de hand om toegang te regelen. Zo gebruikt men de standaard methoden zoals tickets, maar ook NFC chips op badges en zelfs smartphones en nummerplaatdetectie worden gebruikt. Deze technologieen brengen vraag naar welke van deze de beste optie voordraagt bij het gebruik van parkeergarages.
 
-Dit onderzoek wordt uitgevoerd met als doel te bekijken of een open source ALPR-technologie genaamd openalpr gebruikt kan worden in een professionele omgeving voor het beheren van een parkeergarage.
+Dit onderzoek wordt uitgevoerd met oog op de parking van UGent, waar men nood heeft aan een nieuw toegangssysteem. Momenteel worden er tokens gebruikt om de parking te verlaten, maar dit brengt enkele negatieve punten mee. Zo worden de tokens snel kwijtgeraakt en zijn deze duur om te maken. Enkele oplossingen werden bekeken om dit slimmer aan te pakken, maar een grote favoriet is het gebruik van alpr camera's die via een centraal systeem bepaalde wagens toegang kunnen verlenen. Hierbij moet wel rekening gehouden worden met wetgevingen zoals de GDPR. Verder zal bekeken worden op welke hardware deze camera's kunnen werken. Zo zal er vanuit een financieel perspectief gekozen worden voor Raspberry Pi 3 B+ met Pi-cam waarop open-source software van openALPR zal gerunt worden. Dit moet vlot werken en indien niet, zal er geopteerd moeten worden voor andere hardware.
 
+Zo komen we aan volgende onderzoeksvragen:
 \begin{itemize}
-  \item Hoe werkt een ALPR systeem en wat zijn de wetgevingen hierrond?
-  \item Is openalpr nauwkeurig genoeg voor gebruik in een professionele omgeving?
-  \item Kan men openalpr draaien op een standaard Raspberry Pi 3 B+ met Pi-cam?
+  \item Welke toegangstechniek brengen het meest profijt voor de parkings van UGent?
+  \item Is nummerplaatdetectie een haalbare techniek omtrent privacy en GDPR?
+  \item Kan men openalpr runnen op een Raspberry Pi 3 B+ met Pi-cam?
 \end{itemize}
 
 %---------- Stand van zaken ---------------------------------------------------
@@ -20,13 +21,12 @@ Dit onderzoek wordt uitgevoerd met als doel te bekijken of een open source ALPR-
 \section{State-of-the-art}
 \label{sec:state-of-the-art}
 
-Hedendaags zijn er meerdere firma's beschikbaar die ALPR systemen aanbieden, zo bestaat dit voor parkeergarages, snelheidsdetectie maar ook het opsporen van gestolen voertuigen.
 
-Hedendaags zijn er een grote variëteit van ALPR technieken, alhoewel dat deze bijna altijd in hetzelfde patroon worden uitgevoerd. Eerst zal men een afbeelding van het voertuig bemachtigen, dit gebeurt adhv. een sensor die een voertuig detecteerd en de instructie naar een camera stuurt voor een foto te nemen. Vervolgens wordt de gekeken waar de nummerplaat zich op de afbeelding bevind, waarop men daarna de tekst van de nummerplaat kan aflezen. Ieder van deze stappen kan op verschillende technieken worden uitgevoerd en er bestaan dus ook een groot aantal implementaties hiervan~\autocite{azam2016automatic}.
+Hedendaags kampt UGent met verscheidene problemen omtrent hun huidig toegangssysteem. Tokens worden gebruikt om de parkeergarage te kunnen verlaten, maar deze hebben een grote kans om verloren te geraken. Wat zorgt voor een grote kost om deze bij te laten maken, en een negatieve impact op het milieu. Verder zijn deze tokens universeel en kunnen in eender welke tokenslikker ingevoerd worden.
+Verder zijn er enkele andere toegangsmethoden voorgesteld waaronder, het gebruik van briefjes met een geprinte barcode. Dit zou het probleem van de hoge kost van de tokens verhelpen, maar is milieubelastend en men moet nog steeds de slikkers legen.
+Nog een mogelijke techniek zou het gebruik van ALPR-camera's zijn die m.b.v. een centraal systeem toegang kan verlenen aan bepaalde auto's. Dit zou geen milieubelasting veroorzaken maar heeft wel een hoge opzetkost. Ook moet er onderzocht worden hoe de privacy-wetgeving hierop invloed speelt en hoe dit aangepakt kan worden.
 
-ALPR systemen zijn complexe algoritmen en vragen dus redelijk wat rekenkracht, toch zijn ze haalbaar om op kleine computers zoals een Raspberry Pi uit te voeren. Zo is er reeds al een onderzoek uitgevoerd door \citeauthor{buhus2016automatic}. Hierbij werd een automatisch toegangssysteem met succes geïmplementeerd op een Raspberry Pi 3 met een Pi Noir camera board. Deze resultaten doen vermoeden dat openalpr zeker zal functioneren op een Raspberry Pi 3 B+, maar het is mogelijk dat door de Pi-Cam andere resultaten opleveren zullen worden~\autocite{buhus2016automatic}.
-
-In een vergelijkende studie tussen openalpr en Sighthound door \citeauthor{masood2017license} kwam men uit op een nauwkeurigheid tussen de 84.80\% en 91.09\% voor openalpr. Deze resultaten is men bekomen door openalpr uit te voeren op een Europese dataset waarbij belichting, grootte, kijkhoek, etc. varieert. Indien deze studie met een Belgische dataset uitgevoerd wordt is het mogelijk dat we andere resultaten zullen verkrijgen, ook zal bij gebruik bij een parkeergarage veel van deze factoren niet veranderen en zal bijgevolg de score hoger liggen~\autocite{masood2017license}.
+Dit onderzoek zal nagaan welke toegangstechnieken het meest voordelig zijn om uit te werken in deze case aan UGent. Dit door een vergelijkende studie op vlak van: benodigde werkuren, miliebelastbaarheid, transparantie voor opvolging en een betere controle op de toegang. Verder zal er uitgebreid gekeken worden hoe ALPR-camera's gebruikt kunnen worden zodat deze niet ten strijde gaan met wetgevingen zoals de privacy-wetgeving en de GDPR. Allerlaats wordt ook gekeken of deze software voor ALPR uitgevoerd kan worden op een kleine microcontroller zoals de Raspberry pi 3 B+.
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
@@ -39,22 +39,20 @@ In een vergelijkende studie tussen openalpr en Sighthound door \citeauthor{masoo
 \section{Methodologie}
 \label{sec:methodologie}
 
-Om de eerste onderzoeksvraag te beantwoorden zal een literatuurstudie gemaakt worden waarin verschillende technieken gebruikt in ALPR beschreven worden. Ook zal in deze literatuurstudie aandacht gegeven worden aan de wetgevingen die hierrond vasthangen. 
+Vooraleer de onderzoeksvragen beantwoordt worden is er nood aan inzicht in verschillende mogelijke toegangstechnieken voor parkings. Dit zal gedaan worden a.d.h.v. een literatuurstudie, waarbij dan ook de eerste onderzoeksvraag zal beantwoordt worden. In deze literatuurstudie zullen de karakteristieken op vlak van milieuvriendelijkheid, gebruiksvriendelijkheid en kost vergeleken worden. Vervolgens zal hieruit de keuze gemaakt worden welke techniek gewenst is voor een grote parkeergarage met meerdere toegangspunten.
 
-Voor de tweede onderzoeksvraag zal bekeken worden hoe nauwkeurig openalpr scoort adhv. een dataset van Belgische nummerplaten. Er zal vervolgens gekeken worden op welke afbeeldingen openalpr slecht scoort en welke factoren hierop een rol spelen.
+Om de tweede onderzoeksvraag te kunnen beantwoorden zal nog een literatuurstudie uitgevoerd worden omtrent privacy en GDPR. Met als doel richtlijnen te bekomen voor het legaal gebruik van camera's op een parking.
 
-Voor de laatste vraag wordt een testbed opgezet op een Raspberry Pi B+ en zullen de statistieken zoals temperatuur, cpu gebruik en RAM geanalyseerd worden. Dit om af te leiden of deze hardware volstaat om openalpr 24/7 uit te voeren.
+Voor de laatste onderzoeksvraag zal onderzocht worden of OpenALPR een mogelijke optie is om te gebruiken op een Raspberry Pi 3B+. Er zullen foto's genomen worden van voertuigen aan de toegangspunten van UGent, waarna er getest wordt of deze nummerplaten detecteerbaar zijn met de Raspberry Pi.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
-
-Voor de eerste onderzoeksvraag wordt er verwacht dat er een heel uitgebreide collectie van technieken te vinden is, dit doordat ALPR al een oude technologie is die vele evoluties gekend heeft.
-Verder wordt er verwacht dat openalpr zeker geschikt is voor gebruik in een professionele omgeving, de data wordt niet naar derden verzonden, wat al geen beveiligingsrisico is. Ook is een parkeergarage een statische omgeving, wat de resultaten van openalpr zal bevorderen. Voor de laatste onderzoeksvraag, om na te gaan of een Raspberry Pi B+ geschikte hardware is voor dit probleem, kunnen we wel verwachten dat deze geschikt is. Dit door het de eerdere resultaten uit het onderzoek van \citeauthor{buhus2016automatic}, waar men een gelijkaardig systeem succesvol heeft kunnen gebruiken op een Raspberry Pi 3.
+Er wordt verwacht dat in de case van UGent, nummerplaatdetectie het meest profijtelijk is. Dit doordat er een groot aantal toegangspunten zijn tot de parking waar enkel alpr-camera's en controllers moeten komen. Ook is de netwerkinfrastructuur al gelegd rond de campus. Het implementeren van andere technieken zoals tickets zouden wel een verbetering leveren, maar hebben nog steeds onderhoud nodig zoals de slikkers legen.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
 
-Er wordt verwacht dat dit een moeilijk domein is omtrent de privacywetgeving in België, zeker door de intrede van de GDPR in Europa. Zo is er weliswaar geen grote kans dat het bijhouden van de foto's legaal is. 
-Ook wordt er verwacht dat openalpr zeker geschikt is voor professionele omgevingen, in een gecontroleerde omgeving zoals een parkeergarage kunnen meerdere instellingen nauwkeurig aangepast worden om goede resultaten te bekomen. Ten laatste lijkt het zeker mogelijk om openalpr uit te voeren op de Raspberry Pi 3 B+ aangezien dit ook al lukte op een oudere en beperktere revisie van de Raspberry Pi~\autocite{buhus2016automatic}.
+
+Conclusie: alpr
