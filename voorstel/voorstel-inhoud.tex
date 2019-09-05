@@ -3,17 +3,17 @@
 \section{Introductie} % The \section*{} command stops section numbering
 \label{sec:introductie}
 
-Parkings zijn een belangrijk onderdeel van het dagelijkse leven. Iedere dag rijden talloze wagens door hun toegangspunten om na een drukke werkdag weer verlaten te worden. Ieder van deze wagens zal zich dan ook moeten identificeren om toegang te kunnen verkrijgen tot hun parking. Dit is een reden van opstroppingen bij drukke toegangspunten, maar ook vervuiling van de omstreken door het weggooien van tickets.
+Parkings zijn van groot belang in het dagelijks leven. Iedere dag rijden talloze wagens naar hun plaats om daar na een achttal uren weer opgepikt te worden. Ieder van deze wagens moet zich dan ook telkens identificeren om deze te betreden of te verlaten. Dit doen ze met behulp van tickets, badges of andere toegangssystemen en kunnen voor heel wat negatieve impact zorgen indien ze slecht gekozen zijn. Deze zijn bijvoorbeeld de vervuiling van de omgeving door weggegooide tickets of opstoppingen door te trage identificatie.
 
-Hedendaags zijn er al vele alternatieve oplossingen voor de hand om toegang te regelen. Zo gebruikt men de standaard methoden zoals tickets, maar ook NFC chips op badges en zelfs smartphones en nummerplaatdetectie worden gebruikt. Deze technologieen brengen vraag naar welke van deze de beste optie voordraagt bij het gebruik van parkeergarages.
+Dit onderzoek wordt uitgevoerd met oog op de parking van UGent, waar men kampt met gelijkaardige problemen aan hun toegangssysteem. Momenteel worden er tokens gebruikt om de parking te verlaten, maar deze hebben enkele negatieve punten. Zo worden de tokens snel kwijtgeraakt en zijn deze duur om bij te maken. Deze tokens zijn ook universeel en kunnen gebruikt worden bij andere diensten die soortgelijke tokens gebruiken. Men heeft al enkele oplossingen bekeken om dit systeem te vervangen en een grote favoriet is het gebruik van nummerplaatdetectie waarbij via een centraal systeem specifieke wagens toegang kunnen krijgen.
+\\
+Vele manieren van toegangscontrole zijn allicht mogelijk en niets is perfect. In dit onderzoek wordt gekeken naar welke toegangstechnieken haalbaar zijn en welke voordelen deze leveren. Ook zal met oog op de voorkeur van UGent dieper ingegaan worden op nummerplaatdetectie. Zo zal er gekeken worden met welke wetgevingen rekening gehouden moet worden bij nummerplaatdetectie en of dit haalbaar is om uit te voeren op lichte hardware zoals een Raspberry PI.
 
-Dit onderzoek wordt uitgevoerd met oog op de parking van UGent, waar men nood heeft aan een nieuw toegangssysteem. Momenteel worden er tokens gebruikt om de parking te verlaten, maar dit brengt enkele negatieve punten mee. Zo worden de tokens snel kwijtgeraakt en zijn deze duur om te maken. Enkele oplossingen werden bekeken om dit slimmer aan te pakken, maar een grote favoriet is het gebruik van alpr camera's die via een centraal systeem bepaalde wagens toegang kunnen verlenen. Hierbij moet wel rekening gehouden worden met wetgevingen zoals de GDPR. Verder zal bekeken worden op welke hardware deze camera's kunnen werken. Zo zal er vanuit een financieel perspectief gekozen worden voor Raspberry Pi 3 B+ met Pi-cam waarop open-source software van openALPR zal gerunt worden. Dit moet vlot werken en indien niet, zal er geopteerd moeten worden voor andere hardware.
-
-Zo komen we aan volgende onderzoeksvragen:
+Zo bekomen we volgende onderzoeksvragen:
 \begin{itemize}
-  \item Welke toegangstechniek brengen het meest profijt voor de parkings van UGent?
+  \item Welke toegangstechnieken brengen het meest profijt voor de parking van UGent?
   \item Is nummerplaatdetectie een haalbare techniek omtrent privacy en GDPR?
-  \item Kan men openalpr runnen op een Raspberry Pi 3 B+ met Pi-cam?
+  \item Kan men nummerplaatdetectie uitvoeren op een Raspberry PI?
 \end{itemize}
 
 %---------- Stand van zaken ---------------------------------------------------
@@ -22,11 +22,13 @@ Zo komen we aan volgende onderzoeksvragen:
 \label{sec:state-of-the-art}
 
 
-Hedendaags kampt UGent met verscheidene problemen omtrent hun huidig toegangssysteem. Tokens worden gebruikt om de parkeergarage te kunnen verlaten, maar deze hebben een grote kans om verloren te geraken. Wat zorgt voor een grote kost om deze bij te laten maken, en een negatieve impact op het milieu. Verder zijn deze tokens universeel en kunnen in eender welke tokenslikker ingevoerd worden.
-Verder zijn er enkele andere toegangsmethoden voorgesteld waaronder, het gebruik van briefjes met een geprinte barcode. Dit zou het probleem van de hoge kost van de tokens verhelpen, maar is milieubelastend en men moet nog steeds de slikkers legen.
-Nog een mogelijke techniek zou het gebruik van ALPR-camera's zijn die m.b.v. een centraal systeem toegang kan verlenen aan bepaalde auto's. Dit zou geen milieubelasting veroorzaken maar heeft wel een hoge opzetkost. Ook moet er onderzocht worden hoe de privacy-wetgeving hierop invloed speelt en hoe dit aangepakt kan worden.
+Hedendaags kampt UGent met verscheidene problemen omtrent hun huidig toegangssysteem. Om de parking te kunnen verlaten is een token nodig om in een tokenslikker te steken. Hierna gaat de poort open en kan de gebruiker het terrein verlaten. Deze tokens hebben weliswaar enkele nadelen. Zo worden deze snel kwijtgeraakt en moeten deze bijgemaakt worden, wat een redelijke kost is en niet milieubewust is. Ook zijn deze tokens universeel en kunnen in eender welke tokenslikker ingevoerd worden.
 
-Dit onderzoek zal nagaan welke toegangstechnieken het meest voordelig zijn om uit te werken in deze case aan UGent. Dit door een vergelijkende studie op vlak van: benodigde werkuren, miliebelastbaarheid, transparantie voor opvolging en een betere controle op de toegang. Verder zal er uitgebreid gekeken worden hoe ALPR-camera's gebruikt kunnen worden zodat deze niet ten strijde gaan met wetgevingen zoals de privacy-wetgeving en de GDPR. Allerlaats wordt ook gekeken of deze software voor ALPR uitgevoerd kan worden op een kleine microcontroller zoals de Raspberry pi 3 B+.
+Verder zijn er enkele andere toegangsmethoden voorgesteld waaronder het gebruik van briefjes met een geprinte barcode. Dit zou het probleem van de hoge kost van de tokens verhelpen, maar is milieubelastend.
+
+Nog een mogelijke techniek is het gebruik van nummerplaatdetectie dat m.b.v. een centraal systeem toegang kunnen verlenen aan bepaalde auto’s. Deze techniek veroorzaakt geen milieubelasting, maar heeft wel een hoge installatiekost.
+\\
+Dit onderzoek zal nagaan welke toegangstechnieken het meest voordelig is, maar ook welke het beste is in de case van UGent. Dit gebeurt a.d.h.v. een vergelijkende studie op vlak van benodigde werkuren, milieubelastbaarheid, transparantie voor opvolging en toegangscontrole. Verder zal er uitgebreid gekeken worden hoe nummerplaatdetectie gebruikt kan worden zodat deze niet in strijd zijn met wetgevingen zoals de privacywetgeving en de GDPR. Ten slotte zal er ook gekeken of dit uitgevoerd kan worden op een kleine microcontroller zoals de Raspberry pi 3 B+ en of deze kwalitatieve resultaten biedt.
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
@@ -39,20 +41,19 @@ Dit onderzoek zal nagaan welke toegangstechnieken het meest voordelig zijn om ui
 \section{Methodologie}
 \label{sec:methodologie}
 
-Vooraleer de onderzoeksvragen beantwoordt worden is er nood aan inzicht in verschillende mogelijke toegangstechnieken voor parkings. Dit zal gedaan worden a.d.h.v. een literatuurstudie, waarbij dan ook de eerste onderzoeksvraag zal beantwoordt worden. In deze literatuurstudie zullen de karakteristieken op vlak van milieuvriendelijkheid, gebruiksvriendelijkheid en kost vergeleken worden. Vervolgens zal hieruit de keuze gemaakt worden welke techniek gewenst is voor een grote parkeergarage met meerdere toegangspunten.
+Vooraleer de onderzoeksvragen beantwoord worden is er nood aan inzicht in verschillende mogelijke toegangstechnieken voor parkings. Dit zal gedaan worden a.d.h.v. een literatuurstudie, waarbij dan ook de eerste onderzoeksvraag zal beantwoord worden. In deze literatuurstudie zullen de karakteristieken op vlak van milieuvriendelijkheid, gebruiksvriendelijkheid en kost vergeleken worden. Vervolgens zal hieruit de keuze gemaakt worden welke techniek het beste is voor een parking met meerdere toegangspunten.
 
-Om de tweede onderzoeksvraag te kunnen beantwoorden zal nog een literatuurstudie uitgevoerd worden omtrent privacy en GDPR. Met als doel richtlijnen te bekomen voor het legaal gebruik van camera's op een parking.
+Om de tweede onderzoeksvraag te kunnen beantwoorden zal nog een literatuurstudie uitgevoerd worden omtrent privacy en GDPR. Het doel hiervan is om richtlijnen te bekomen voor het gebruik van camera’s op een parking zonder wetgevingen te overtreden.
 
-Voor de laatste onderzoeksvraag zal onderzocht worden of OpenALPR een mogelijke optie is om te gebruiken op een Raspberry Pi 3B+. Er zullen foto's genomen worden van voertuigen aan de toegangspunten van UGent, waarna er getest wordt of deze nummerplaten detecteerbaar zijn met de Raspberry Pi.
+Voor de laatste onderzoeksvraag zal onderzocht worden of nummerplaatdetectie een haalbare technologie is om te gebruiken op een Raspberry Pi 3B+. Dit zal getest worden door foto’s te nemen van voertuigen aan de toegangspunten aan UGent, waarna er gekeken wordt of deze nummerplaten detecteerbaar zijn met de Raspberry Pi. En of dit in een realistische tijd uitgevoerd kan worden met een acceptabele foutratio.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
-Er wordt verwacht dat in de case van UGent, nummerplaatdetectie het meest profijtelijk is. Dit doordat er een groot aantal toegangspunten zijn tot de parking waar enkel alpr-camera's en controllers moeten komen. Ook is de netwerkinfrastructuur al gelegd rond de campus. Het implementeren van andere technieken zoals tickets zouden wel een verbetering leveren, maar hebben nog steeds onderhoud nodig zoals de slikkers legen.
+Er wordt verwacht dat nummerplaatdetectie het meest profijtelijk zal zijn in het geval van de parking van de UGent omdat er een groot aantal toegangspunten zijn. Aan deze toegangspunten zouden dus enkel camera’s en microcontrollers geïnstalleerd moeten worden wat met de huidige netwerkinfrastructuur geen probleem moet zijn. Het implementeren van andere technieken zoals tickets zou ook een verbetering zijn, maar is nadeliger voor het milieu en brengt meer personeelswerk met zich mee zoals het legen van de slikkers en het aanvullen van de tickets. Als foutmarge wordt verwacht dat 5\% van de inlezingen foutief zijn. Deze marge wordt genomen uit het onderzoek van \textcite{figuerola2016automated} waar men in optimale omstandigheden 94.4\% nauwkeurigheid gehaald heeft met gelijkaardige technologieen.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
 
-
-Conclusie: alpr
+Als de testresultaten van de nummerplaatdetectie hoog genoeg zijn en deze duidelijke voordelen heeft tegenover andere technieken, mogen we concluderen dat dit een haalbare toegangstechniek is voor de parking bij de UGent.
