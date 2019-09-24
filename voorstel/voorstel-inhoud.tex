@@ -3,11 +3,11 @@
 \section{Introductie} % The \section*{} command stops section numbering
 \label{sec:introductie}
 
-Parkings zijn van groot belang in het dagelijks leven. Iedere dag rijden talloze wagens naar hun plaats om daar na een achttal uren weer opgepikt te worden. Ieder van deze wagens moet zich dan ook telkens identificeren om deze te betreden of te verlaten. Dit doen ze met behulp van tickets, badges of andere toegangssystemen. Ieder systeem heeft zijn eigen voor- en nadelen, zo is een voordeel van RFID systemen dat men een verlaagde personeelskost heeft. \autocite{pala2007smart}
+Parkings zijn van groot belang in het dagelijks leven. Iedere dag rijden talloze wagens naar hun plaats om daar na een achttal uren weer opgepikt te worden. Ieder van deze wagens moet zich dan ook telkens identificeren om deze te betreden of te verlaten. Dit doen ze met behulp van tickets, badges of andere toegangssystemen. Ieder systeem heeft zijn eigen voor- en nadelen.
 
-Dit onderzoek wordt uitgevoerd met oog op de parking van UGent, waar men kampt met gelijkaardige problemen aan hun toegangssysteem. Momenteel worden er tokens gebruikt om de parking te verlaten, maar deze hebben enkele negatieve punten. Zo worden de tokens snel kwijtgeraakt en zijn deze duur om bij te maken. Deze tokens zijn ook universeel en kunnen gebruikt worden bij andere diensten die soortgelijke tokens gebruiken. Men heeft al enkele oplossingen bekeken om dit systeem te vervangen en een grote favoriet is het gebruik van nummerplaatdetectie waarbij via een centraal systeem specifieke wagens toegang kunnen krijgen.
+Dit onderzoek wordt uitgevoerd met oog op de parking van UGent, waar men kampt met enkele problemen met de toegang van de parking aan de Campus Sterre en Campus Coupure. Momenteel worden er op deze parkings tokens en badges gebruikt om de parking te verlaten, welke enkele negatieve punten met zich meebrengen. Zo worden de tokens snel kwijtgeraakt en zijn deze duur om bij te maken. Deze tokens zijn ook universeel en kunnen gebruikt worden bij andere diensten die soortgelijke tokens gebruiken. Verder moeten deze slikker regelmatig geleegd worden, wat dan weer een personeelskost met zich meebrengt. Men heeft al enkele oplossingen bekeken om dit systeem te vervangen en een grote favoriet is het gebruik van nummerplaatdetectie waarbij met een centraal systeem specifieke wagens toegang kunnen krijgen.
 \\
-Vele manieren van toegangscontrole zijn allicht mogelijk en niets is perfect. In dit onderzoek wordt gekeken naar welke toegangstechnieken haalbaar zijn en welke voordelen deze leveren. Ook zal met oog op de voorkeur van UGent dieper ingegaan worden op nummerplaatdetectie. Zo zal er gekeken worden met welke wetgevingen rekening gehouden moet worden bij nummerplaatdetectie en of dit haalbaar is om uit te voeren op lichte hardware zoals een Raspberry PI.
+Vele manieren van toegangscontrole zijn allicht mogelijk en niets is perfect. In dit onderzoek wordt gekeken naar welke toegangstechnieken haalbaar zijn en welke voordelen deze leveren. Ook zal met oog op de voorkeur van UGent dieper ingegaan worden op nummerplaatdetectie. Hierbij zal er gekeken worden hoe dit opgeleverd kan worden waarbij de General Data Protection Regulation (GDPR) nageleefd wordt en of dit haalbaar is om uit te voeren op lichte hardware zoals een Raspberry PI.
 
 Zo bekomen we volgende onderzoeksvragen:
 \begin{itemize}
@@ -21,14 +21,19 @@ Zo bekomen we volgende onderzoeksvragen:
 \section{State-of-the-art}
 \label{sec:state-of-the-art}
 
-
-Hedendaags kampt UGent met verscheidene problemen omtrent hun huidig toegangssysteem. Om de parking te kunnen verlaten moet een token ingeworpen worden. Hierna gaat de poort open en kan de gebruiker het terrein verlaten. Deze tokens hebben weliswaar enkele nadelen. Zo worden deze snel kwijtgeraakt en moeten deze bijgemaakt worden, wat een redelijke kost is en niet milieubewust is. Ook zijn deze tokens universeel en kunnen in eender welke tokenslikker ingevoerd worden.
-
-Verder zijn er enkele andere toegangsmethoden voorgesteld waaronder het gebruik van tickets met een geprinte barcode. Dit zou het probleem van de hoge kost van de tokens verhelpen, maar is milieubelastend.
-
-Nog een mogelijke techniek is het gebruik van nummerplaatdetectie dat m.b.v. een centraal systeem toegang kan verlenen aan bepaalde auto’s. Deze techniek veroorzaakt geen milieubelasting, maar heeft wel een hoge installatiekost en is niet werkzaam in alle weersomstandigheden. \autocite{azam2016automatic}
+% UGent hedendaags met tokens
+Vandaag de dag kampt UGent met verscheidene problemen met hun huidig toegangssysteem. Met het huidige systeem kunnen gebruikers de parking vrij binnenrijden, maar om deze te verlaten moeten ze een token verschaffen aan de campus zelf. Deze token moet vervolgens ingeworpen worden in de tokenslikker aan de uitgang, waarna de gebruiker de parking kan verlaten. Deze tokens hebben weliswaar enkele nadelen. Zo worden deze snel kwijtgeraakt en moeten deze bijgemaakt worden, wat een redelijke kost is en niet milieubewust is. Ook zijn deze tokens universeel en kunnen in eender welke tokenslikker ingevoerd worden.
+% Uitgang Campus Coupure met tickets
+\subsection{Papieren tickets}
+Door de problemen die bij het gebruik van tokens te kijk komen heeft men op Campus Sterre intussen één uitgang waar gebruikt gemaakt wordt van papieren tickets. Dit was bedoeld als alternatief voor de tokens, maar aangezien deze papieren tickets gelijkaardige problemen met zich meebrengen zou dit geen gewenste oplossing brengen.
+% RFID scanners op UGent
+\subsection{RFID}
+Verder heeft iedere uitgang ook een RFID-scanner die gebruikt wordt om toegang te verlenen aan personeel. RFID kan m.b.v. een centraal systeem personeelskosten verminderen \autocite{pala2007smart}, maar op een campus waar men soms bezoekers voor maar één dag heeft is het niet wenselijk om hiervoor badges te bedelen.
+% Mogelijkheid van nummerplaatdetectie
+\subsection{Nummerplaatdetectie}
+Een andere, nog niet geïmplementeerde techniek is nummerplaatdetectie. Deze techniek veroorzaakt geen directe milieubelasting aangezien er geen tickets of badges worden gebruikt, maar waar deze techniek wel onder lijdt is de zichtbaarheid van de nummerplaten in slechte weersomstandigheden \autocite{azam2016automatic}. Hierbij moet dus onderzocht worden in welke mate dit haalbaar is in deze case.
 \\
-Dit onderzoek zal nagaan welke toegangstechnieken het meest voordelig zijn en welke het beste is in de case van UGent. Dit gebeurt a.d.h.v. een vergelijkende studie op vlak van benodigde werkuren, milieubelastbaarheid, transparantie voor opvolging en toegangscontrole. Verder zal er uitgebreid gekeken worden hoe nummerplaatdetectie gebruikt kan worden zodat deze niet in strijd zijn met wetgevingen zoals de privacywetgeving en de GDPR. Ten slotte zal er gekeken of dit uitgevoerd kan worden op een kleine microcontroller zoals de Raspberry pi 3 B+ en of deze kwalitatieve resultaten biedt.
+Dit onderzoek zal nagaan welke toegangstechnieken het voordeligst zijn en welke het beste is in de case van UGent. Dit gebeurt a.d.h.v. een vergelijkende studie op vlak van benodigde werkuren, milieubelastbaarheid, transparantie voor opvolging en toegangscontrole. Verder zal er uitgebreid gekeken worden hoe nummerplaatdetectie gebruikt kan worden zodat deze niet in strijd zijn met wetgevingen zoals de privacywetgeving en de GDPR. Ten slotte zal er gekeken worden of dit uitgevoerd kan worden op een kleine microcontroller zoals de Raspberry pi 3 B+ en of deze kwalitatieve resultaten biedt.
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
@@ -50,7 +55,7 @@ Voor de laatste onderzoeksvraag zal onderzocht worden of nummerplaatdetectie een
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
-Er wordt verwacht dat nummerplaatdetectie het meest profijtelijk zal zijn in het geval van de parking van de UGent omdat er een groot aantal toegangspunten zijn. Aan deze toegangspunten zouden dus enkel camera’s en microcontrollers geïnstalleerd moeten worden wat met de huidige netwerkinfrastructuur geen probleem moet zijn. Het implementeren van andere technieken zoals tickets zou ook een verbetering zijn, maar is nadeliger voor het milieu en brengt meer personeelswerk met zich mee zoals het legen van de slikkers en het aanvullen van de tickets. Als foutmarge wordt verwacht dat 5\% van de inlezingen foutief zijn. Deze marge wordt genomen uit het onderzoek van \textcite{figuerola2016automated} waar men in optimale omstandigheden 94.4\% nauwkeurigheid gehaald heeft met gelijkaardige technologieen.
+Er wordt verwacht dat nummerplaatdetectie het meest profijtelijk zal zijn in het geval van de parking van de UGent door de lagere kosten. Aan de toegangspunten zouden enkel camera’s en microcontrollers geïnstalleerd moeten worden, wat met de huidige netwerkinfrastructuur geen probleem moet zijn. Het implementeren van andere technieken zoals tickets zou ook een verbetering zijn, maar is nadeliger voor het milieu en brengt meer personeelswerk met zich mee zoals het legen van de slikkers en het aanvullen van de tickets. Voor nummerplaatdetectie foutmarge wordt verwacht dat 5\% van de inlezingen foutief zijn. Deze marge wordt genomen uit het onderzoek van \textcite{figuerola2016automated} waar men in optimale omstandigheden 94.4\% nauwkeurigheid gehaald heeft met gelijkaardige technologieen.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
