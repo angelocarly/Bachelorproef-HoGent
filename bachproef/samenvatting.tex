@@ -17,15 +17,24 @@
 %
 % LET OP! Een samenvatting is GEEN voorwoord!
 
+%%---------- Nederlandse samenvatting -----------------------------------------
+%
+% TODO: Als je je bachelorproef in het Engels schrijft, moet je eerst een
+% Nederlandse samenvatting invoegen. Haal daarvoor onderstaande code uit
+% commentaar.
+% Wie zijn bachelorproef in het Nederlands schrijft, kan dit negeren, de inhoud
+% wordt niet in het document ingevoegd.
+
+\IfLanguageName{english}{%
+\selectlanguage{dutch}
+\chapter*{Samenvatting}
+\lipsum[1-4]
+\selectlanguage{english}
+}{}
+
 %%---------- Samenvatting -----------------------------------------------------
 % De samenvatting in de hoofdtaal van het document
 
 \chapter*{\IfLanguageName{dutch}{Samenvatting}{Abstract}}
 
-waarom belangrijk? vernieuwing van toegangsysteem is nodig, opstoppingen.
-Nood? Weinig info over ingebruikname van alpr systemen.
-Taak? Vergelijken van toegangssystemen en onderzoeken nauwkeurigheid in de context van UGent.
-Object?
-Resultaat?
-Conclusie?
-Perspectief?
+\lipsum[1-4]

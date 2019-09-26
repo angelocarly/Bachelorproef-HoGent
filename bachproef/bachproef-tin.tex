@@ -1,87 +1,93 @@
-%%=============================================================================
-%% LaTeX sjabloon voor bachelorproef, HoGent Bedrijf en Organisatie
-%% Opleiding Toegepaste Informatica
-%%=============================================================================
+%===============================================================================
+% LaTeX sjabloon voor de bachelorproef toegepaste informatica aan HOGENT
+% Meer info op https://github.com/HoGentTIN/bachproef-latex-sjabloon
+%===============================================================================
 
-\documentclass[fleqn,a4paper,12pt]{book}
+\documentclass{bachproef-tin}
 
-\input{structure}
+\usepackage{hogent-thesis-titlepage} % Titelpagina conform aan HOGENT huisstijl
 
-%%---------- Documenteigenschappen --------------------------------------------
-%% TODO: Vul dit aan met je eigen info:
+%%---------- Documenteigenschappen ---------------------------------------------
+% TODO: Vul dit aan met je eigen info:
+
+% De titel van het rapport/bachelorproef
+\title{Titel}
 
 % Je eigen naam
-\newcommand{\student}{Angelo Carly}
+\author{Angelo Carly}
 
 % De naam van je promotor (lector van de opleiding)
-\newcommand{\promotor}{Heide Roobrouck}
+\promotor{Jan Janssens}
 
 % De naam van je co-promotor. Als je promotor ook je opdrachtgever is en je
 % dus ook inhoudelijk begeleidt (en enkel dan!), mag je dit leeg laten.
-\newcommand{\copromotor}{Wannes Van Dorpe}
+\copromotor{Wannes Van Dorpe}
 
 % Indien je bachelorproef in opdracht van/in samenwerking met een bedrijf of
 % externe organisatie geschreven is, geef je hier de naam. Zoniet laat je dit
 % zoals het is.
-\newcommand{\instelling}{Vado Solutions}
-
-% De titel van het rapport/bachelorproef
-\newcommand{\titel}{Analyse van nummerplaatdetectie als toegangssysteem aan de parking van UGent.}
-
-% Datum van indienen (gebruik telkens de deadline, ook al geef je eerder af)
-\newcommand{\datum}{27 mei 2020 (check)}
+\instelling{---}
 
 % Academiejaar
-\newcommand{\academiejaar}{2019-2020}
+\academiejaar{2019-2020}
 
 % Examenperiode
 %  - 1e semester = 1e examenperiode => 1
 %  - 2e semester = 2e examenperiode => 2
 %  - tweede zit  = 3e examenperiode => 3
-\newcommand{\examenperiode}{3}
+\examenperiode{2}
 
-%%=============================================================================
-%% Inhoud document
-%%=============================================================================
+%===============================================================================
+% Inhoud document
+%===============================================================================
 
 \begin{document}
 
-%---------- Taalselectie ------------------------------------------------------
+%---------- Taalselectie -------------------------------------------------------
 % Als je je bachelorproef in het Engels schrijft, haal dan onderstaande regel
 % uit commentaar. Let op: de tekst op de voorkaft blijft in het Nederlands, en
 % dat is ook de bedoeling!
 
 %\selectlanguage{english}
 
-%---------- Titelblad ---------------------------------------------------------
+%---------- Titelblad ----------------------------------------------------------
 \inserttitlepage
 
-%---------- Samenvatting, voorwoord -------------------------------------------
+%---------- Samenvatting, voorwoord --------------------------------------------
 \usechapterimagefalse
 \input{voorwoord}
 \input{samenvatting}
 
-%---------- Inhoudstafel ------------------------------------------------------
-\pagestyle{empty} % No headers
-\tableofcontents % Print the table of contents itself
-\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
-\pagestyle{fancy} % Print headers again
+%---------- Inhoudstafel -------------------------------------------------------
+\pagestyle{empty} % Geen hoofding
+\tableofcontents  % Voeg de inhoudstafel toe
+\cleardoublepage  % Zorg dat volgende hoofstuk op een oneven pagina begint
+\pagestyle{fancy} % Zet hoofding opnieuw aan
 
-%---------- Lijst figuren, afkortingen, ... -----------------------------------
+%---------- Lijst figuren, afkortingen, ... ------------------------------------
 
 % Indien gewenst kan je hier een lijst van figuren/tabellen opgeven. Geef in
 % dat geval je figuren/tabellen altijd een korte beschrijving:
 %
 %  \caption[korte beschrijving]{uitgebreide beschrijving}
+%
+% De korte beschrijving wordt gebruikt voor deze lijst, de uitgebreide staat bij
+% de figuur of tabel zelf.
 
 \listoffigures
 \listoftables
 
 % Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
 % hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
-% https://www.sharelatex.com/learn/Glossaries
+% https://www.overleaf.com/learn/latex/Glossaries
 
-%%---------- Kern -------------------------------------------------------------
+%---------- Kern ---------------------------------------------------------------
+
+% De eerste hoofdstukken van een bachelorproef zijn meestal een inleiding op
+% het onderwerp, literatuurstudie en verantwoording methodologie.
+% Aarzel niet om een meer beschrijvende titel aan deze hoofstukken te geven of
+% om bijvoorbeeld de inleiding en/of stand van zaken over meerdere hoofdstukken
+% te verspreiden!
 
 \input{inleiding}
 \input{standvanzaken}
@@ -102,6 +108,7 @@
 %%=============================================================================
 
 \appendix
+\renewcommand{\chaptername}{Appendix}
 
 %%---------- Onderzoeksvoorstel -----------------------------------------------
 
@@ -119,6 +126,5 @@ Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat 
 %%---------- Referentielijst --------------------------------------------------
 
 \printbibliography[heading=bibintoc]
-%\addcontentsline{toc}{chapter}{\textcolor{maincolor}{\IfLanguageName{dutch}{Bibliografie}{Bibliography}}}
 
 \end{document}
