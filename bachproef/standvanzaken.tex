@@ -7,11 +7,90 @@
 
 % Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
 
-Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
+%Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
 
-Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz. naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin, gebruik je \texttt{$\backslash${}textcite\{\}}.
-Soms wil je de auteur niet expliciet vernoemen, dan gebruik je \texttt{$\backslash${}autocite\{\}}. In de volgende paragraaf een voorbeeld van elk.
+%Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz. naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin, gebruik je \texttt{$\backslash${}textcite\{\}}.
+%Soms wil je de auteur niet expliciet vernoemen, dan gebruik je \texttt{$\backslash${}autocite\{\}}. In de volgende paragraaf een voorbeeld van elk.
 
-\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
+%\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
 
-\lipsum[7-20]
+In dit hoofdstuk zal uitgelegd worden wat de huidige stand van zaken is van toegangssystemen bij de parking van UGent, welke andere technologieen hedendaags gebruikt worden en de maatregelingen die genomen moeten worden omtrent privacy en GDPR.
+% TODO Hoe zijn deze bekomen?
+
+\section{Huidige situatie UGent}
+% Huidige situatie UGent
+
+Het huidige toegangssysteem aan UGent is een systeem op basis van tokens. Een bezoeker rijdt de parking op zonder enige checks. Vervolgens bezoekt hij de campus en vraagt een token om de campus te verlaten. Ten laatste rijdt hij zijn wagen naar de slagboom en geeft zijn token in de gepaste tokenslikker.
+Op de campus Sterre zijn er 3 ingangen en 2 uitgangen, op de campus Coupure is dit gelijkaardig met 3 ingangen en 2 uitgangen.
+
+\subsection{Technologieen in gebruik}
+Enkele systemen zijn vandaag al in gebruik aan de campussen Coupure en Sterre. Voor de toegang van personeel, studenten en bezoekers.
+
+\subsubsection{Tokens}
+
+Tokens worden aan alle uitgangen van de campussen gebruikt om de parking te verlaten.
+Tokens worden hoofdzakelijk gebruikt om de parking te verlaten, alle uitgangen beschikken over een tokenslikker. Op deze manier kunnen studenten of bezoekers de campus verlaten nadat zij een token gaan afhalen op het onthaal.
+\begin{itemize}
+	\item verouderd simpelweg, moet buiten (?)
+	\item duur
+	\item Personeelskosten: legen van tokenslikkers, tokens uitdelen
+\end{itemize}
+%TODO voordelen
+%TODO nadelen
+
+\subsubsection{RFID}
+
+%Wat is RFID
+Radio frequency Identication (RFID) is een technologie die aan de hand van elektromagnetische golven objecten kan identificeren. Dit met het voordeel dat er geen direct contact of zicht moet zijn tussen de scanner en het object. RFID gebeurt a.d.h.v een RFID reader en een RFID tag. De reader zendt een elektromagnetisch signaal uit. De tag ontvangt deze golven en kan op zijn beurt de opgevraagde informatie verzenden. \autocite{li2009design}
+
+%RFID op UGent
+Aan iedere uitgang op UGent zijn RFID-kaartlezers te vinden. Deze zijn voorzien om een vlotte toegang te verlenen aan werknemers en worden via een centraal systeem beheerd. Studenten en bezoekers hebben geen toegang tot dit systeem omdat (?)
+%TODO Gino vragen over exacte werking van de RFID op ugent
+
+%TODO voordelen
+Heel draagbaar, geen slikkers nodig.
+%TODO nadelen
+\textcite{aalsalem2015automated} beschrijft wat onveilig is aan rfid. (kopieren van kaarten)
+
+\subsubsection{Barcodes}
+Aan een enkele uitgang op de Campus Coupure.
+Papier.
+
+In een poging tot de tokens te vervangen heeft UGent één uitgang waar barcodes worden gebruikt. Deze worden eerst geprint op de campus zelf, waarna de gebruiker de barcode in een slikker kan invoeren en toegang krijgen om de parking te verlaten.
+
+
+%TODO voordelen
+%TODO nadelen
+Milieubewust
+
+\subsection{Andere potentiele toegangstechnologieen}
+De technologieen in gebruik op UGent zijn weliswaar niet de enigste toegangsstechnieken die bestaan.
+%TODO bron andere toegangstechnieken
+
+\subsubsection{ANPR}
+
+Automatic Number Plate Recognition (ANPR), ook wel ALPR genoemd, is de techniek om automatisch nummerplaten te herkennen. Deze techniek wordt al sinds 1976 gebruikt voor voor de detectie van gestolen wagens \autocite{uk2011anpr}. Intussen is ANPR al veel toegangkelijker en kan het op vele plaatsen teruggevonden worden zoals bij bv. trajectcontrole \autocite{de2014snelheidscamera}, parkeersystemen, etc.
+\par
+heel modulair. mensen kunnen een dagpas krijgen, toegang kan simpel gerevoked worden. Weinig kosten. Nauwkeurigheid (?)
+Wat met snachts, regen, brommers, non-standaard nummerplaten. Is dit nog steeds de moeite dan?
+%TODO brommers geen regulatie parkeren.
+%TODO voordelen
+%TODO nadelen
+
+\section{Privacy en GDPR}
+\label{sec:privacy-en-gdpr}
+
+Sinds 25 Mei 2018 is de General Data Protection Regulation (GDPR) in gang gezet, een regulatie die ingevoerd is om het huidige  en toekomstige digitale tijdperk veiliger te maken voor alle EU inwoners.
+Deze wetgeving is gedreven op het concept dat privacy een mensenrecht is, en dat online-data ook zo behandeld moet worden. Dit houdt in data die direct of indirect gelinkt kan worden aan een individu zoals locatie-data, cookies en ip-adressen.\autocite{goddard2017eu}
+
+\subsection{Aanpassingen voor bedrijven}
+
+\subsection{ANPR camera systemen}
+\label{anpr-cameras}
+%TODO Hoe heeft gdpr invload op onze ANPR camera's
+%TODO ANPR verduidelijken in eerdere tekst.
+
+(?) Zolang er geen persoonlijke data bijgehouden is zijn we niet onderhevig aan van gdpr zoals toestemming van klant (?)
+Automatic Number Plate Recognition (ANPR)
+
+\subsection{GDPR toegepast als toegangssysteem aan UGent}

@@ -11,7 +11,7 @@ Vele manieren van toegangscontrole zijn allicht mogelijk en niets is perfect. In
 
 Zo bekomen we volgende onderzoeksvragen:
 \begin{itemize}
-	\item Welke toegangstechnieken brengen het meest profijt voor de parking van UGent?
+	\item Wat zijn de overeenkomsten en verschillen tussen de bestaande toegangstechnieken?
 	\item Is nummerplaatdetectie een haalbare techniek omtrent privacy en GDPR?
 	\item Kan men nummerplaatdetectie uitvoeren op een Raspberry PI?
 \end{itemize}
@@ -33,7 +33,7 @@ Verder heeft iedere uitgang ook een RFID-scanner die gebruikt wordt om toegang t
 \subsection{Nummerplaatdetectie}
 Een andere, nog niet geïmplementeerde techniek is nummerplaatdetectie. Deze techniek veroorzaakt geen directe milieubelasting aangezien er geen tickets of badges worden gebruikt, maar waar deze techniek wel onder lijdt is de zichtbaarheid van de nummerplaten in slechte weersomstandigheden \autocite{azam2016automatic}. Hierbij moet dus onderzocht worden in welke mate dit haalbaar is in deze case.
 \\
-Dit onderzoek zal nagaan welke toegangstechnieken het voordeligst zijn en welke het beste is in de case van UGent. Dit gebeurt a.d.h.v. een vergelijkende studie op vlak van benodigde werkuren, milieubelastbaarheid, transparantie voor opvolging en toegangscontrole. Verder zal er uitgebreid gekeken worden hoe nummerplaatdetectie gebruikt kan worden zodat deze niet in strijd zijn met wetgevingen zoals de privacywetgeving en de GDPR. Ten slotte zal er gekeken worden of dit uitgevoerd kan worden op een kleine microcontroller zoals de Raspberry pi 3 B+ en of deze kwalitatieve resultaten biedt.
+Dit onderzoek zal nagaan welke toegangstechnieken het voordeligst zijn en welke het beste is in de case van UGent. Dit gebeurt a.d.h.v. een literatuurstudie waarbij een overzicht van iedere techniek gegeven wordt op vlak van benodigde werkuren, milieubelastbaarheid, transparantie voor opvolging en toegangscontrole. Verder zal er uitgebreid gekeken worden hoe nummerplaatdetectie gebruikt kan worden zodat deze niet in strijd zijn met wetgevingen zoals de privacywetgeving en de GDPR. Ten slotte zal er gekeken worden of dit uitgevoerd kan worden op een kleine microcontroller zoals de Raspberry pi 3 B+ en of deze kwalitatieve resultaten biedt.
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
@@ -46,20 +46,23 @@ Dit onderzoek zal nagaan welke toegangstechnieken het voordeligst zijn en welke 
 \section{Methodologie}
 \label{sec:methodologie}
 
-Vooraleer de onderzoeksvragen beantwoord worden is er nood aan inzicht in verschillende mogelijke toegangstechnieken voor parkings. Dit zal gedaan worden a.d.h.v. een literatuurstudie, waarbij dan ook de eerste onderzoeksvraag zal beantwoord worden. In deze literatuurstudie zullen de karakteristieken op vlak van milieuvriendelijkheid, gebruiksvriendelijkheid en kost vergeleken worden. Vervolgens zal hieruit de keuze gemaakt worden welke techniek het beste is voor een parking met meerdere toegangspunten.
+Vooraleer de onderzoeksvragen beantwoord worden is er nood aan inzicht in verschillende mogelijke toegangstechnieken voor parkings. Dit zal gedaan worden a.d.h.v. een literatuurstudie, waarbij dan ook de eerste onderzoeksvraag zal beantwoord worden. In deze literatuurstudie zullen de karakteristieken op vlak van milieuvriendelijkheid, gebruiksvriendelijkheid en kost vergeleken worden. Vervolgens zal hieruit de keuze gemaakt worden welke techniek het beste is in de case van UGent.
 
 Om de tweede onderzoeksvraag te kunnen beantwoorden zal nog een literatuurstudie uitgevoerd worden omtrent privacy en GDPR. Het doel hiervan is om richtlijnen te bekomen voor het gebruik van camera’s op een parking zonder wetgevingen te overtreden.
 
-Voor de laatste onderzoeksvraag zal onderzocht worden of nummerplaatdetectie een haalbare technologie is om te gebruiken op een Raspberry Pi 3B+. Dit zal getest worden door foto’s te nemen van voertuigen aan de toegangspunten aan UGent, waarna er gekeken wordt of deze nummerplaten detecteerbaar zijn met de Raspberry Pi. En of dit in een realistische tijd uitgevoerd kan worden met een acceptabele foutratio.
+Voor de laatste onderzoeksvraag zal onderzocht worden of nummerplaatdetectie een haalbare technologie is om te gebruiken op een Raspberry Pi 3B+ met Pi-Cam. Dit zal getest worden door foto’s te nemen van voertuigen aan de toegangspunten aan UGent, waarna er gekeken wordt of deze nummerplaten detecteerbaar zijn met de Raspberry Pi, maar ook of dit in een realistische tijd uitgevoerd kan worden met een acceptabele foutratio.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
 
-Er wordt verwacht dat nummerplaatdetectie het meest profijtelijk zal zijn in het geval van de parking van de UGent door de lagere kosten. Aan de toegangspunten zouden enkel camera’s en microcontrollers geïnstalleerd moeten worden, wat met de huidige netwerkinfrastructuur geen probleem moet zijn. Het implementeren van andere technieken zoals tickets zou ook een verbetering zijn, maar is nadeliger voor het milieu en brengt meer personeelswerk met zich mee zoals het legen van de slikkers en het aanvullen van de tickets. Voor nummerplaatdetectie foutmarge wordt verwacht dat 5\% van de inlezingen foutief zijn. Deze marge wordt genomen uit het onderzoek van \textcite{figuerola2016automated} waar men in optimale omstandigheden 94.4\% nauwkeurigheid gehaald heeft met gelijkaardige technologieen.
+Er wordt verwacht dat nummerplaatdetectie het meest profijtelijk zal zijn in het geval van de parking van de UGent. Aan de toegangspunten zouden enkel camera’s en microcontrollers geïnstalleerd moeten worden, wat met de huidige netwerkinfrastructuur geen probleem moet zijn. Het implementeren van andere technieken zoals tickets zou ook een verbetering zijn, maar is nadeliger voor het milieu en brengt meer personeelswerk met zich mee zoals het legen van de slikkers en het aanvullen van de tickets.
+Uit de studie naar privacy en GDPR wordt verwacht dat afbeeldingen opslaan van de nummerplaatdetectie niet toegestaan zal zijn zonder expliciete toestemming van de bezoekers. Aangezien afbeelding geen must is, zal nummerplaatdetectie een haalbare technologie zijn.
+Voor het onderzoek naar nummerplaatdetectie wordt verwacht dat 5.6\% van de inlezingen foutief zijn. Deze marge wordt genomen uit het onderzoek van \textcite{figuerola2016automated} waar men in optimale omstandigheden 94.4\% nauwkeurigheid gehaald heeft met gelijkaardige technologieen.
+Ook zal blijken dat instellingen van de Pi-Cam cruciaal zijn om een degelijk resultaat te kunnen behalen \autocite{gurney2013effect}.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
 
-Indien de testresultaten van de nummerplaatdetectie hoog genoeg zijn en deze duidelijke voordelen heeft tegenover andere technieken, mogen we concluderen dat dit een haalbare toegangstechniek is voor de parking bij de UGent.
+Indien de testresultaten van de nummerplaatdetectie hoog genoeg zijn en deze duidelijke voordelen heeft tegenover andere technieken, mogen we concluderen dat dit een haalbare toegangstechniek is voor de parking bij de UGent. Aangezien een detectie van 100\% vermoedelijk niet gehaald zal worden, zal worden aanbevolen om het huidige systeem met tokens te behouden in als backup.
