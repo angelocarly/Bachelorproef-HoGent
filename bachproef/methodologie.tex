@@ -11,5 +11,17 @@
 %% mogelijke manier toegepast hebt om een antwoord te vinden op de
 %% onderzoeksvraag.
 
-\lipsum[21-25]
+In dit onderzoek wensen we inzicht te krijgen of een ANPR-systeem succesvol geimplementeerd kan worden aan de parking van UGent op de campussen Sterre en Coupure. Ook wordt er gewenst te beschrijven welke maatregelingen er getroffen moeten worden om zo'n systeem aan de maatregelingen van de GDPR te laten voldoen. Deze doelen werden opgeplits in 2 fasen en worden beschreven in de volgende hoofdstukken.
 
+\section{Richtlijnen omtrent GDPR bij nummerplaatdetectie}
+Sinds de GDPR ingevoerd is vorig jaar, moeten bedrijven veel meer rekening houden met hoe ze data verwerken. Deze richtlijnen zijn allemaal te vinden in de wettekst van de GDPR zelf, maar om deze te verduidelijken worden deze opgesomt.
+
+Op basis van de richtlijnen die in dit hoofdstuk omschreven worden kan een ontwikkelaar inzicht krijgen in hoe een nummerplaatdetectiesysteem ingevoerd kan worden. Indien zo'n systeem deze richtlijnen niet volgt zal deze ook niet voldoen aan de GDPR. 
+
+\section{Maatregelingen voor nummerplaatdetectie met Raspberry PI}
+Een ANPR-systeem opzetten op een Raspberry PI is niet vanzelfsprekend aangezien ANPR-systemen normaal met dure hardware wordt geinstalleerd. Om toch nauwkeurige resultaten te kunnen boeken, zal er in dit hoofdstuk beschreven worden wat de optimale waarden zijn in kwestie van camera-instellingen, plaatsing van de camera, netwerk en onderhoud.
+
+A.d.h.v. deze maatregelingen kan een ontwikkelaar een ANPR-systeem configureren met een zo hoog mogelijke nauwkeurigheid. 
+
+\section{Praktische uitvoering van nummerplaatdetectie op UGent}
+Vervolgens kan er a.d.h.v. de vooropgestelde maatregelingen getest worden of ANPR met een Raspberry PI haalbaar is op UGent. Hiervoor zal er op de campussen van de UGent foto's genomen worden met de PI-Cam van voertuigen die de parkings willen verlaten. Achteraf wordt er per foto gecontroleert of de gefotografeerde nummerplaat wel degelijk juist is gedetecteert. Indien deze nauwkeurigheid hoog genoeg is, kan er besloten worden dat ANPR met een Raspberry PI een haalbare techniek is op UGent.
