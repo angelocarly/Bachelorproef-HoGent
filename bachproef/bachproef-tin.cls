@@ -42,6 +42,7 @@
 \RequirePackage{graphicx}   % Invoegen van afbeeldingen
 \graphicspath{{img/}}       % Map met in te voegen afbeeldingen
 \RequirePackage{tikz}       % Grafische taal voor maken van afbeeldingen
+\RequirePackage{subcaption}
 
 %-------------------------------------------------------------------------------
 % Lettertypes, bestandscodering

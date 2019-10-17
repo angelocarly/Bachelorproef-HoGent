@@ -1,5 +1,14 @@
 
 \chapter{\IfLanguageName{dutch}{Praktische uitvoering van nummerplaatdetectie op UGent}{Implementation of ANPR at UGent}}
 \label{ch:praktischeUitvoering}
+In dit hoofdstuk zal er onderzocht worden of nummerplaatdetectie degelijke resultaten kan leveren op de Campus Sterre en Campus Coupure van UGent. Hiervoor zullen handmatig foto's genomen worden van wagens die de parking willen verlaten met de Pi-NoIR cam. Hierna wordt er gecontroleerd of OpenANPR wel degelijk correcte resultaten levert op de genomen foto's.
 
 \section{Dataset collectie}
+Om een correcte dataset te bekomen zal er op de parking van UGent zelf data verzameld worden aan de corresponderende ingangen. Er zijn geen cijfers beschikbaar over welke uitgangen meer gebruikt worden, daarom zullen de cijfers aan iedere ingang apart verwerkt worden.
+
+Voor iedere uitgang (4) zullen een honderd foto's genomen worden van voertuigen die de parking verlaten in verscheidene omstandigheden zoals licht/donker/regen en zal bij iedere foto genoteerd worden welke nummerplaat correct is
+
+\section{Verwerking van gegevens}
+
+Opslitsen data voor dag, nacht, regen en verschillende ingangen/uitgangen.
+alpr uitvoeren op alle afbeeldingen en checken of ze correct zijn. Rekening houden met orientatie zodat de publieke weg niet in beeld is.

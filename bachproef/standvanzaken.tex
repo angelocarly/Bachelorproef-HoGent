@@ -14,8 +14,8 @@
 
 %\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
 
-In dit hoofdstuk zal uitgelegd worden wat de huidige stand van zaken is van toegangssystemen bij de parking van UGent, welke andere technologieen hedendaags gebruikt worden en de maatregelingen die genomen moeten worden omtrent privacy en GDPR.
-% TODO Hoe zijn deze bekomen?
+In dit hoofdstuk zal uitgelegd worden wat de huidige stand van zaken is van toegangssystemen bij de parking van UGent en welke andere technologieën hiervoor hedendaags gebruikt worden.
+Verder wordt er besproken wat de GDPR inhoudt en waar deze op slaat. Ten laatste wordt er bekeken wat de voorgestelde hardware betreft voor dit onderzoek.
 
 \section{Huidige situatie UGent}
 % Huidige situatie UGent
@@ -23,20 +23,26 @@ In dit hoofdstuk zal uitgelegd worden wat de huidige stand van zaken is van toeg
 Het huidige toegangssysteem aan UGent is een systeem op basis van tokens. Een bezoeker rijdt de parking op zonder enige checks. Vervolgens bezoekt hij de campus en vraagt een token om de campus te verlaten. Ten laatste rijdt hij zijn wagen naar de slagboom en geeft zijn token in de gepaste tokenslikker.
 Op de campus Sterre zijn er 3 ingangen en 2 uitgangen, op de campus Coupure is dit gelijkaardig met 3 ingangen en 2 uitgangen.
 
-\subsection{Technologieen in gebruik}
-Enkele systemen zijn vandaag al in gebruik aan de campussen Coupure en Sterre. Voor de toegang van personeel, studenten en bezoekers.
+\subsection{Technologieën in gebruik}
+Meerdere toegangssystemen zijn vandaag de dag al in gebruik aan de campussen Coupure en Sterre. Voor de toegang van personeel, studenten en bezoekers.
 
 \subsubsection{Tokens}
 
+%Hoe werken de tokens
 Tokens worden aan alle uitgangen van de campussen gebruikt om de parking te verlaten.
 Tokens worden hoofdzakelijk gebruikt om de parking te verlaten, alle uitgangen beschikken over een tokenslikker. Op deze manier kunnen studenten of bezoekers de campus verlaten nadat zij een token gaan afhalen op het onthaal.
+
+%Nadelen van tokens
+De tokens zelf vallen momenteel niet in goede aard omdat deze enkele nadelen met zich meebrengen:
 \begin{itemize}
-	\item verouderd simpelweg, moet buiten (?)
-	\item duur
-	\item Personeelskosten: legen van tokenslikkers, tokens uitdelen
+	\item Tokens zijn verouderd en worden hedendaags bijna nergens meer gebruikt als toegangssysteem.
+	\item De tokens zelf kunnen makkelijk verloren geraken, wat niet milieubewust is.
+	\item De tokens zelf zijn redelijk duur aan een kost van 1 euro.
+	\item Bij ieder bezoek moet er achter een token gegaan worden, wat een personeelskost met zich meebrengt om deze voor alle bezoekers te bedelen. Verder moeten ook de tokenslikkers ook regelmatig geleegd worden.
 \end{itemize}
-%TODO voordelen
-%TODO nadelen
+
+Deze punten geven aan dat tokens niet de gewenste oplossing zijn voor de campussen van UGent. Dit is te merken aan de hoofduitgang van de Campus Sterre waar de uitgang vrij is om door te laten omdat de slikkers te veel werk met zich meebrengen.
+
 
 \subsubsection{RFID}
 
@@ -44,41 +50,52 @@ Tokens worden hoofdzakelijk gebruikt om de parking te verlaten, alle uitgangen b
 Radio frequency Identication (RFID) is een technologie die aan de hand van elektromagnetische golven objecten kan identificeren. Dit met het voordeel dat er geen direct contact of zicht moet zijn tussen de scanner en het object. RFID gebeurt a.d.h.v een RFID reader en een RFID tag. De reader zendt een elektromagnetisch signaal uit. De tag ontvangt deze golven en kan op zijn beurt de opgevraagde informatie verzenden. \autocite{li2009design}
 
 %RFID op UGent
-Aan iedere uitgang op UGent zijn RFID-kaartlezers te vinden. Deze zijn voorzien om een vlotte toegang te verlenen aan werknemers en worden via een centraal systeem beheerd. Studenten en bezoekers hebben geen toegang tot dit systeem omdat (?)
+Aan iedere uitgang op UGent zijn RFID-kaartlezers te vinden. Deze zijn voorzien om een vlotte toegang te verlenen aan werknemers en worden via een centraal systeem beheerd. Studenten en bezoekers hebben geen toegang tot dit systeem.
 %TODO Gino vragen over exacte werking van de RFID op ugent
 
 %TODO voordelen
 Heel draagbaar, geen slikkers nodig.
 %TODO nadelen
-\textcite{aalsalem2015automated} beschrijft wat onveilig is aan rfid. (kopieren van kaarten)
+% \textcite{aalsalem2015automated} beschrijft wat onveilig is aan rfid. (kopieren van kaarten)
+Het is geen optie om rfid voor alle bezoekers te gebruiken aangezien er vaak bezoekers binnentreden die maar 1 dag op de campus zijn. Aangezien er anders voor iedere dagbezoeker een RFID-kaart moet gemaakt worden is dit geen gewenste oplossing.
 
 \subsubsection{Barcodes}
-Aan een enkele uitgang op de Campus Coupure.
-Papier.
+In een poging tot de tokens te vervangen heeft UGent één uitgang aan de campus Coupure waar barcodes worden gebruikt. Deze worden eerst geprint op de campus zelf, waarna de gebruiker de barcode in een slikker kan invoeren en toegang krijgen om de parking te verlaten.
+%TODO gino vragen daar exacte werking barcode.
 
-In een poging tot de tokens te vervangen heeft UGent één uitgang waar barcodes worden gebruikt. Deze worden eerst geprint op de campus zelf, waarna de gebruiker de barcode in een slikker kan invoeren en toegang krijgen om de parking te verlaten.
-
-
-%TODO voordelen
-%TODO nadelen
-Milieubewust
+Deze barcodes hebben het voordeel dat ze goedkoper zijn om te maken per persoon. Voor de rest hebben ze nog steeds het probleem dat iedere gebruiker telkens aan het onthaal een nieuw ticket moeten opvragen en dat de slikkers geleegd moeten worden.
 
 \subsection{Andere potentiele toegangstechnologieen}
 De technologieen in gebruik op UGent zijn weliswaar niet de enigste toegangsstechnieken die bestaan.
 %TODO bron andere toegangstechnieken
 
 \subsubsection{ANPR}
-
-Automatic Number Plate Recognition (ANPR), ook wel ALPR genoemd, is de techniek om automatisch nummerplaten te herkennen. Deze techniek wordt al sinds 1976 gebruikt voor voor de detectie van gestolen wagens \autocite{uk2011anpr}. Intussen is ANPR al veel toegangkelijker en kan het op vele plaatsen teruggevonden worden zoals bij bv. trajectcontrole \autocite{de2014snelheidscamera}, parkeersystemen, etc.
+Automatic Number Plate Recognition (ANPR) is de techniek om automatisch nummerplaten te herkennen. Deze techniek wordt al sinds 1976 gebruikt voor voor de detectie van gestolen wagens \autocite{uk2011anpr}. Hedendaags is ANPR al veel toegankelijker en kan het op vele plaatsen teruggevonden worden zoals bij bv. trajectcontrole \autocite{de2014snelheidscamera}, parkeersystemen, etc.
 \par
-heel modulair. mensen kunnen een dagpas krijgen, toegang kan simpel gerevoked worden. Weinig kosten. Nauwkeurigheid (?)
-Wat met snachts, regen, brommers, non-standaard nummerplaten. Is dit nog steeds de moeite dan?
-%TODO brommers geen regulatie parkeren.
-%TODO voordelen
-%TODO nadelen
+ANPR heeft nog vele andere acroniemen zoals Automatic License Plate Recognition (ALPR), Automatic Vehicle Identification (AVI), Vehicle Plate recognition (VLPR), Vehicle Recognition Identifier (VRI), Car plate Recognition (CPR) en Car Plate Reader (CPR) \autocite{axis2019license}. In dit onderzoek zal voor nummerplaatdetectie het acroniem ANPR gebruikt worden.
+\par
+%Voordelen
+Het gebruik van ANPR brengt enkele voordelen met zich mee:
+\begin{itemize}
+	\item Het is heel modulair; mensen kunnen een dagpas of toegang voor een volledig schooljaar krijgen.
+	\item Er moet slechts éénmalig aangemeld worden om toegang voor een langere periode te krijgen. Dit zou helemaal digitaal gedaan kunnen worden, wat personeelskosten bespaart.
+	\item Indien succesvol geïmplementeerd kan ANPR opstoppingen aan toegangspunten verminderen omdat er geen menselijke interactie met het systeem meer nodig is.
+\end{itemize}
+\par
+%Nadelen
+ANPR zelf komt ook met enkele nadelen.
+\begin{itemize}
+	\item Er is een centraal systeem nodig om de toegang van de nummerplaten te beheren.
+	\item Ieder toegangspunt moet een internetvoorziening hebben om met het centrale systeem te communiceren.
+	\item Iedere ANPR-camera moet correct ingesteld zijn om haalbare resultaten te behalen.
+	\item Weersomstandigheden bieden extra moeilijkheid voor de detectie van nummerplaten (dag, nacht)
+	\item Hedendaagse ANPR-camera's zijn een redelijke investering.
+\end{itemize}
 \par
 Voor de herkenning van nummerplaten zijn een aantal technologien beschikbaar. Deze werken adhv. Artificial Intelligence (AI) en zijn specifiek getraint op het detecteren en uitlezen van nummerplaten.
-De technologie die in dit onderwerp gebruikt zal worden is OpenALPR, een Open-Source library gemaakt voor nummerplaatdetectie. Hiervoor is gekozen omdat OpenALPR Open-Source is en bijgevolg heel goedkoop is \autocite{openalprgithub} .
+De technologie die in dit onderwerp gebruikt zal worden is OpenALPR, een Open-Source library gemaakt voor nummerplaatdetectie. Hiervoor is gekozen omdat OpenALPR een gratis Open-Source product is \autocite{openalprgithub}.
+%Nadelen
+
 
 \section{Privacy en GDPR}
 \label{sec:privacy-en-gdpr}
@@ -88,19 +105,12 @@ Deze wetgeving is gedreven op het concept dat privacy een mensenrecht is, en dat
 
 \subsection{Aanpassingen voor bedrijven}
 
-\subsection{ANPR camera systemen}
-\label{anpr-cameras}
-%TODO Hoe heeft gdpr invload op onze ANPR camera's
-%TODO ANPR verduidelijken in eerdere tekst.
-
-(?) Zolang er geen persoonlijke data bijgehouden is zijn we niet onderhevig aan van gdpr zoals toestemming van klant (?)
-Automatic Number Plate Recognition (ANPR)
-
-%TODO bestaande modellen
-\subsection{TODO}
-\textcite{sharma2017automated} beschrijft verschillende modellen voor parkeersystemen
+% \textcite{sharma2017automated} beschrijft verschillende modellen voor parkeersystemen
 
 \section{Hardware}
-Om deze nummerplaatdetectie uit te voeren zal gebruik gemaakt worden van een Raspberry PI Model B+. Deze hardware wordt vandaag de dag veel gebruikt bij IOT-applicaties door zijn lage kost en gemakkelijke bruikbaarheid.  
+Om deze nummerplaatdetectie uit te voeren is gekozen voor een Raspberry PI Model B+. Deze hardware wordt vandaag de dag veel gebruikt bij IOT-applicaties door zijn lage kost en gemakkelijke bruikbaarheid.  
 
 De Raspberry PI Model B+ beschikt over een 1.4GHz quad-core processor, 1GB LPDDR2 RAM, een on-board WiFi-kaart en de mogelijkheid om een Raspberry Pi Camera te verbinden \autocite{raspberrypisitemodelbplus} .
+
+\subsection{Camera}
+De camera die gebruikt wordt is een Pi-NoIr camera. Deze camera is ook geproduceerd door de Raspberry Pi Foundation en biedt afbeeldingen en video in een 8-MegaPixel formaat. In dit onderzoek is voor deze camera gekozen omdat deze makkelijk te verbinden is met de Raspberry Pi, relatief goedkoop is en geen IR-filter heeft. Dit maakt de camera direct ook interessant voor foto's te nemen in donkere omgevingen. \autocite{raspberrypisitemodelpinoir}
