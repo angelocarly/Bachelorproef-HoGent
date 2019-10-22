@@ -1,3 +1,3 @@
 a=$(pdftotext bachproef-tin.pdf - | wc -w)
-count=$((a - 2651))
+count=$((a - 3129))
 echo $count

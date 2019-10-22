@@ -1,29 +1,37 @@
 
 \chapter{\IfLanguageName{dutch}{Wetgeving omtrent nummerplaatdetectie}{Technical details about ANPR in the GDPR}}
-\label{ch:richtlijnengdpr}
+\label{ch:wetgeving-nummerplaatdetectie}
 
 Algemene Verordening Gegevensbescherming (AVG)
 
 gemaakt om gegevens omtrent natuurlijke personen te beschermen en is van toepassing 
 
 \section{Algemene verordening gegevensbescherming}
-\subsection{Persoonlijke data}
-Wat is persoonlijke data?
-alle informatie over een geidentificeerde of identificeerbare natuurlijke persoon.
-identificeerbaar is wanneer een persoon direct of indirect kan worden geidentificeerd aan de hand van een indicator zoals naam adres, geboortedatum.
+%Wanneer is gdpr van toepassing
+De General Data Protection Regulation (GDPR) of in het Nederlands: Algemene Verordening Gegevensbescherming (AVG), is een nieuwe wetgeving die op 25 mei 2018 ingevoerd is met als doel regels op te stellen om de grondrechten en de fundamentele vrijheden van natuurlijke personen te beschermen in de Europese Unie, dit met name op hun recht op bescherming van persoonsgegevens. \autocite{avg2018privacy}
 
-Dit houdt dus ook in nummerplaat, aangezien deze gelinkt is aan een persoon.
+Voor de verwerking van deze gegevens worden maatregelingen opgelegd over hoe deze op een correcte manier behandeld moeten worden en aan welke eisen een bedrijf moet voldoen indien deze hiermee handeld.
 
+In dit onderdeel zal niet de volledige AVG beschreven worden, maar enkel de onderdelen m.b.t. een parkeersysteem met nummerplaatdetectie.
 
-Wat willen we opslaan van persoonlijke data?
-Must: nummerplaat
-naam?
-gsm?
+\subsection{Persoonsgegevens}
+In artikel 4 van het AVG worden persoonsgegevens als volgt beschreven: 'alle informatie over een geïdentificeerde of identificeerbare natuurlijke persoon ("de betrokkene"); als identificeerbaar wordt beschouwd een natuurlijke persoon die direct of indirect kan worden geïdentificeerd, met name aan de hand van een identificator zoals een naam, een identificatienummer, locatiegegevens, een online identificator of van een of meer elementen die kenmerkend zijn voor de fysieke, fysiologische, genetische, psychische, economische, culturele of sociale identiteit van die natuurlijke persoon'
 
-Artikel 5 van GDPR, 'persoonsgegevens moeten worden verwerkt op een wijze die ten aanzien van de brotkkene rechtmatig, behoorlijk en transparant is ("rechtmatigheid, behoorlijkheid en transparantie").
+Hieruit blijkt dat nummerplaten onder de term persoonsgegevens vallen; Deze zijn geregistreerd aan een persoon en kunnen worden gebruikt om de persoon te identificeren. In een parkeersysteem met nummerplaatdetectie zal hier dus ook op gelet moeten worden. 
 
-\paragraph{Inzage van gebruiksgegevens}
-Iedereen bezit zijn eigen persoonlijke data en mag deze bijgevolg ook inkijken en corrigeren. Een bedrijf is verplicht de data van de desbetreffende gebruiker publiek te stellen. Ook kan een gebruiker op eender wanneer beslissen om al zijn data te laten verwijderen.
+Artikel 5 van GDPR, 'persoonsgegevens moeten worden verwerkt op een wijze die ten aanzien van de betrokkene rechtmatig, behoorlijk en transparant is ("rechtmatigheid, behoorlijkheid en transparantie").
+
+\paragraph{Het recht om geinformeerd te zijn}
+Indien een ANPR-systeem is opgesteld, dient er volgens artikel 13 van de GDPR, gesignaleerd te worden dat een dergelijk systeem aanwezig is, dit tesamen met contactinformatie indien men meer informatie wenst te verkrijgen.
+
+\paragraph{Recht op informatie en rectificatie van persoonsgegevens}
+Iedereen bezit zijn eigen persoonlijke data en mag deze bijgevolg ook inkijken en corrigeren. Indien een gebruiker vraagt om zijn persoonsgegevens in te kijken, moet het bedrijf in kwestie al de persoonsgegevens van de gebruiker binnen de maand kunnen opleveren. Ook kan een gebruiker op eender wanneer beslissen om al zijn data te laten verwijderen. \autocite{avg2018privacy}
+
+\subsection{Toestemming tot verwerken van informatie}
+Vooraleer men verwerkingen mag uitvoeren op de persoonsgegevens van een gebruiker, moet deze gebruiker hier expliciete toestemming voor gegeven hebben.
+
+\subsection{Data Protection Officer}
+Een Data Protection Officer (DPO) moet aangesteld worden
 
 \section{Belgische Camerawetgeving}
 Sinds 25 mei 2018 is de nieuwe camerawetgeving ingevoerd, dit is een herziening van de Camerawetgeving uit 2007 en viel niet toevallig samen met de dag dat de GDPR is ingevoerd. Deze wet slaat op bewakingscamera's en geldt enkel wanneer deze als doel hebben:
@@ -34,7 +42,6 @@ Sinds 25 mei 2018 is de nieuwe camerawetgeving ingevoerd, dit is een herziening 
 Aangezien nummerplaatdetectie als toegangssysteem geen van deze doelen bevat valt het niet onder de camerawetgeving voor bewakingscamera's. \autocite{staatsblad2007wet}
 
 Natuurlijk zal er wel nog rekening gehouden moeten worden met de AVG omdat er persoonsgegevens worden verwerkt door een bedrijf, vereniging of eenmanszaak. \autocite{gba2019videoparlofoon}
-
 
 %\subsection{Aangifte van camera's}
 %Iedere bewakingscamera moet via het E-loket op http://www.aangiftecamera.be aangegeven worden. \autocite{besafe2018bewakingscameras}

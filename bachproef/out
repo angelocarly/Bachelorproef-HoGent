@@ -1,3 +1,319 @@
+Faculteit Bedrijf en Organisatie
+
+Titel
+
+Angelo Carly
+
+Scriptie voorgedragen tot het bekomen van de graad van
+professionele bachelor in de toegepaste informatica
+
+Promotor:
+Jan Janssens
+Co-promotor:
+Wannes Van Dorpe
+
+Instelling: —
+Academiejaar: 2019-2020
+Tweede examenperiode
+
+Faculteit Bedrijf en Organisatie
+
+Titel
+
+Angelo Carly
+
+Scriptie voorgedragen tot het bekomen van de graad van
+professionele bachelor in de toegepaste informatica
+
+Promotor:
+Jan Janssens
+Co-promotor:
+Wannes Van Dorpe
+
+Instelling: —
+Academiejaar: 2019-2020
+Tweede examenperiode
+
+Woord vooraf
+
+Samenvatting
+
+teksts
+
+Inhoudsopgave
+
+1
+
+Inleiding . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+1.1
+
+Probleemstelling
+
+15
+
+1.2
+
+Onderzoeksvraag
+
+15
+
+1.3
+
+Onderzoeksdoelstelling
+
+16
+
+1.4
+
+Opzet van deze bachelorproef
+
+16
+
+2
+
+Stand van zaken . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+
+2.1
+
+Huidige situatie UGent
+
+2.1.1
+
+Technologieën in gebruik . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+
+2.1.2
+
+Andere potentiele toegangstechnologieen . . . . . . . . . . . . . . . . . . . . . . . 19
+
+2.2
+
+Privacy en GDPR
+
+2.2.1
+
+Aanpassingen voor bedrijven . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+
+17
+
+20
+
+2.3
+
+Hardware
+
+20
+
+2.3.1
+
+Camera . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+
+3
+
+Methodologie . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+3.1
+
+Richtlijnen omtrent GDPR bij nummerplaatdetectie
+
+21
+
+3.2
+
+Maatregelingen voor nummerplaatdetectie met Raspberry PI
+
+21
+
+3.3
+
+Praktische uitvoering van nummerplaatdetectie op UGent
+
+22
+
+4
+
+Wetgeving omtrent nummerplaatdetectie . . . . . . . . . . . . . 23
+
+4.1
+
+Algemene verordening gegevensbescherming
+
+4.1.1
+
+Persoonsgegevens . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+
+4.1.2
+
+Toestemming tot verwerken van informatie . . . . . . . . . . . . . . . . . . . . . . . . 24
+
+4.1.3
+
+Data Protection Officer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+
+4.2
+
+Belgische Camerawetgeving
+
+5
+
+Maatregelingen nummerplaatdetectie . . . . . . . . . . . . . . . . . 27
+
+5.1
+
+Camera Plaatsing
+
+5.1.1
+
+Locatie van de camera . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+
+5.1.2
+
+Camera orientatie . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+5.1.3
+
+Pixeldichtheid . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+5.2
+
+Camera instellingen
+
+5.2.1
+
+Shuttersnelheid . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+5.2.2
+
+Belichting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+5.2.3
+
+Depth of field . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+
+5.3
+
+Legale maatregelingen
+
+5.3.1
+
+Buitenlandse nummerplaten . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+
+23
+
+24
+
+27
+
+28
+
+30
+
+5.3.2
+
+Motoren . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+
+5.4
+
+OpenALPR
+
+5.4.1
+
+Configuratie . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+
+5.4.2
+
+Commerciele upgrades . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+
+6
+
+Praktische uitvoering van nummerplaatdetectie op UGent
+
+30
+
+33
+6.1
+
+Hardware en software
+
+33
+
+6.1.1
+
+Camera . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+
+6.2
+
+Dataset collectie
+
+34
+
+6.3
+
+Verwerking van gegevens
+
+34
+
+7
+
+Conclusie . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+
+A
+
+Onderzoeksvoorstel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+
+A.1
+
+Introductie
+
+39
+
+A.2
+
+State-of-the-art
+
+40
+
+A.2.1 Papieren tickets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+A.2.2 RFID . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+A.2.3 Nummerplaatdetectie . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+
+A.3
+
+Methodologie
+
+41
+
+A.4
+
+Verwachte resultaten
+
+41
+
+A.5
+
+Verwachte conclusies
+
+42
+
+Bibliografie . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+
+Lijst van figuren
+
+5.1 Vergelijking van verschillende shutterinstellingen. (easy-basic-photography,
+2019) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+5.2 Vergelijking tussen camerainstellingen in de nacht. (Axis-Communications,
+2019) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+5.3
+
+Verduidelijking van depth of field. (Axis-Communications, 2019) . . 30
+
+6.1
+
+Uitgang met tokens aan UGent campus Coupure . . . . . . . . . . . . . . . 34
+
+Lijst van tabellen
+
+1. Inleiding
 
 UGent heeft probleem met de doorgangen van hun parking. Het huidige systeem met
 tokens is een oude technologie en betere varianten zouden moeten bestaan.
@@ -5,31 +321,31 @@ tokens is een oude technologie en betere varianten zouden moeten bestaan.
 1.1
 
 Probleemstelling
-Wat is het probleem? Tokens zijn verouderd, andere oplossing zijn interessant. Voor wie
-is dit onderzoek meerwaarde? UGent en andere campussen, co-promotor. Waarom is
-dit onderzoek een meerwaarde? Co-promotor weet welke stappen hij moet nemen om
-een goede implementatie te maken. Campussen kunnen de voordelen vergelijken tussen
-bestaande systemen.
+Vandaag de dag kampt UGent met problemen omtrent hun toegangssysteem aan de campus
+Coupure en campus Sterre. Het huidige systeem dat gebruikt maakt van tokens is niet efficient en zorgt voor veel extra werk. Daarom zouden Vado Solutions en UGent overwegen
+om over te stappen naar een nieuw systeem dat gebruikt maakt van nummerplaatdetectie.
+Dit met een Raspberry PI omdat deze hardware goedkoop is.
+In dit onderzoek zal nagegaan worden of zulk systeem wel degelijk deftige resultaten kan
+bieden op deze sites, met een Raspberry PI.
 
 1.2
 
 Onderzoeksvraag
-Is nummerplaatdetectie de moeite?
-Wat met privacywetgeving zoals gdpr?
-Kan dit uitgevoerd worden op lichte hardware zoals raspberry pi?
-
-1.3
-
-Onderzoeksdoelstelling
-Wat is succes?
-Een passende technologie is gevonden voor de parkings.
+Bij dit onderzoek bekomen we drie onderzoeksvragen:
+• Is nummerplaatdetectie een haalbare techniek omtrent privacy en GDPR?
+• Welke maatregelingen moeten er genomen worden om succesvol nummerplaatdetectie te implementeren?
+• Kan men nummerplaatdetectie succesvol uitvoeren met een Raspberry PI op de
+campus Coupure en Sterre van UGent?
 
 16
 
+1.3
+
 Hoofdstuk 1. Inleiding
 
-Goede hardware is gevonden voor het uitvoeren van dit.
-Correcte manier van werk is gevonden om aan de privacywetgeving te voldoen.
+Onderzoeksdoelstelling
+Dit onderzoek wordt als succesvol beschouwd indien een correcte manier van werk is
+gevonden om aan de privacywetgevingen te voldoen, een duidelijk overzicht van maatregelingen voor ANPR is bekomen en wanneer een performantie is gevonden voor nummerplaatdetectie aan de campus Coupure en Sterre van UGent.
 
 1.4
 
@@ -37,14 +353,22 @@ Opzet van deze bachelorproef
 De rest van deze bachelorproef is als volgt opgebouwd:
 In Hoofdstuk 2 wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
 In Hoofdstuk 3 wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+In Hoofdstuk 4 wordt er nagegaan waarop er gelet moet worden bij het implementeren van
+nummerplaatdetectie als toegangssysteem op vlak van privacywetgevingen.
+In Hoofdstuk 5 wordt er nagegaan welke maatregelingen er genomen moeten worden om
+een zo performant mogelijke implementatie van nummerplaatdetectie te maken.
+In Hoofdstuk 6 wordt een onderzoek uitgevoerd aan de hand van de vooropgestelde
+maatregelingen aan de campus Sterre en Coupure van UGent. Hieruit zal blijken of
+nummerplaatdetectie met een Raspberry PI mogelijk is op deze locatie.
 In Hoofdstuk 7, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op
 de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek
 binnen dit domein.
 
 2. Stand van zaken
 
-In dit hoofdstuk zal uitgelegd worden wat de huidige stand van zaken is van toegangssystemen bij de parking van UGent, welke andere technologieen hedendaags gebruikt worden
-en de maatregelingen die genomen moeten worden omtrent privacy en GDPR.
+In dit hoofdstuk zal uitgelegd worden wat de huidige stand van zaken is van toegangssystemen bij de parking van UGent en welke andere technologieën hiervoor hedendaags
+gebruikt worden. Verder wordt er besproken wat de GDPR inhoudt en waar deze op slaat.
+Ten laatste wordt er bekeken wat de voorgestelde hardware betreft voor dit onderzoek.
 
 2.1
 
@@ -57,24 +381,33 @@ uitgangen, op de campus Coupure is dit gelijkaardig met 3 ingangen en 2 uitgange
 
 2.1.1
 
-Technologieen in gebruik
-Enkele systemen zijn vandaag al in gebruik aan de campussen Coupure en Sterre. Voor de
-toegang van personeel, studenten en bezoekers.
+Technologieën in gebruik
+Meerdere toegangssystemen zijn vandaag de dag al in gebruik aan de campussen Coupure
+en Sterre. Voor de toegang van personeel, studenten en bezoekers.
 Tokens
 
 Tokens worden aan alle uitgangen van de campussen gebruikt om de parking te verlaten.
 Tokens worden hoofdzakelijk gebruikt om de parking te verlaten, alle uitgangen beschikken
 over een tokenslikker. Op deze manier kunnen studenten of bezoekers de campus verlaten
-nadat zij een token gaan afhalen op het onthaal.
 
 Hoofdstuk 2. Stand van zaken
 
 18
+nadat zij een token gaan afhalen op het onthaal.
 
-• verouderd simpelweg, moet buiten (?)
-• duur
-• Personeelskosten: legen van tokenslikkers, tokens uitdelen
-RFID
+De tokens zelf vallen momenteel niet in goede aard omdat deze enkele nadelen met zich
+meebrengen:
+• Tokens zijn verouderd en worden hedendaags bijna nergens meer gebruikt als toegangssysteem.
+• De tokens zelf kunnen makkelijk verloren geraken, wat niet milieubewust is.
+• De tokens zelf zijn redelijk duur aan een kost van 1 euro.
+• Bij ieder bezoek moet er achter een token gegaan worden, wat een personeelskost
+met zich meebrengt om deze voor alle bezoekers te bedelen. Verder moeten ook de
+tokenslikkers ook regelmatig geleegd worden.
+Deze punten geven aan dat tokens niet de gewenste oplossing zijn voor de campussen van
+UGent. Dit is te merken aan de hoofduitgang van de Campus Sterre waar de uitgang vrij is
+om door te laten omdat de slikkers te veel werk met zich meebrengen.
+
+Radio frequency Identification
 
 Radio frequency Identication (RFID) is een technologie die aan de hand van elektromagnetische golven objecten kan identificeren. Dit met het voordeel dat er geen direct contact of
 zicht moet zijn tussen de scanner en het object. RFID gebeurt a.d.h.v een RFID reader en
@@ -82,44 +415,69 @@ een RFID tag. De reader zendt een elektromagnetisch signaal uit. De tag ontvangt
 golven en kan op zijn beurt de opgevraagde informatie verzenden. (Li & Ranga, 2009)
 Aan iedere uitgang op UGent zijn RFID-kaartlezers te vinden. Deze zijn voorzien om een
 vlotte toegang te verlenen aan werknemers en worden via een centraal systeem beheerd.
-Studenten en bezoekers hebben geen toegang tot dit systeem omdat (?)
-Heel draagbaar, geen slikkers nodig. Aalsalem, Khan en Dhabbah (2015) beschrijft wat
-onveilig is aan rfid. (kopieren van kaarten)
+Studenten en bezoekers hebben geen toegang tot dit systeem.
+Heel draagbaar, geen slikkers nodig. Het is geen optie om rfid voor alle bezoekers te
+gebruiken aangezien er vaak bezoekers binnentreden die maar 1 dag op de campus zijn.
+Aangezien er anders voor iedere dagbezoeker een RFID-kaart moet gemaakt worden is dit
+geen gewenste oplossing.
+
 Barcodes
 
-Aan een enkele uitgang op de Campus Coupure. Papier.
-In een poging tot de tokens te vervangen heeft UGent één uitgang waar barcodes worden
-gebruikt. Deze worden eerst geprint op de campus zelf, waarna de gebruiker de barcode in
-een slikker kan invoeren en toegang krijgen om de parking te verlaten.
-Milieubewust
+In een poging tot de tokens te vervangen heeft UGent één uitgang aan de campus Coupure
+waar barcodes worden gebruikt. Deze worden eerst geprint op de campus zelf, waarna
+de gebruiker de barcode in een slikker kan invoeren en toegang krijgen om de parking te
+verlaten.
+Deze barcodes hebben het voordeel dat ze goedkoper zijn om te maken per persoon. Voor
+de rest hebben ze nog steeds het probleem dat iedere gebruiker telkens aan het onthaal een
+nieuw ticket moeten opvragen en dat de slikkers geleegd moeten worden.
 
+2.1 Huidige situatie UGent
 2.1.2
-
-Andere potentiele toegangstechnologieen
-De technologieen in gebruik op UGent zijn weliswaar niet de enigste toegangsstechnieken
-die bestaan.
-ANPR
-
-Automatic Number Plate Recognition (ANPR), ook wel ALPR genoemd, is de techniek
-om automatisch nummerplaten te herkennen. Deze techniek wordt al sinds 1976 gebruikt
-voor voor de detectie van gestolen wagens (UK-Parliament, 2011). Intussen is ANPR al
-veel toegangkelijker en kan het op vele plaatsen teruggevonden worden zoals bij bv. trajectcontrole (DE PAUW, DANIELS, BRIJS, HERMANS & WETS, 2014), parkeersystemen,
-etc.
-heel modulair. mensen kunnen een dagpas krijgen, toegang kan simpel gerevoked worden.
-Weinig kosten. Nauwkeurigheid (?) Wat met snachts, regen, brommers, non-standaard
-
-2.2 Privacy en GDPR
 
 19
 
-nummerplaten. Is dit nog steeds de moeite dan?
+Andere potentiele toegangstechnologieen
+
+De technologieen in gebruik op UGent zijn weliswaar niet de enigste toegangsstechnieken
+die bestaan.
+
+ANPR
+
+Automatic Number Plate Recognition (ANPR) is de techniek om automatisch nummerplaten te herkennen. Deze techniek wordt al sinds 1976 gebruikt voor voor de detectie van
+gestolen wagens (UK-Parliament, 2011). Hedendaags is ANPR al veel toegankelijker en
+kan het op vele plaatsen teruggevonden worden zoals bij bv. trajectcontrole (DE PAUW,
+DANIELS, BRIJS, HERMANS & WETS, 2014), parkeersystemen, etc.
+ANPR heeft nog vele andere acroniemen zoals Automatic License Plate Recognition
+(ALPR), Automatic Vehicle Identification (AVI), Vehicle Plate recognition (VLPR), Vehicle Recognition Identifier (VRI), Car plate Recognition (CPR) en Car Plate Reader
+(CPR) (Axis-Communications, 2019). In dit onderzoek zal voor nummerplaatdetectie het
+acroniem ANPR gebruikt worden.
+Het gebruik van ANPR brengt enkele voordelen met zich mee:
+• Het is heel modulair; mensen kunnen een dagpas of toegang voor een volledig
+schooljaar krijgen.
+• Er moet slechts éénmalig aangemeld worden om toegang voor een langere periode
+te krijgen. Dit zou helemaal digitaal gedaan kunnen worden, wat personeelskosten
+bespaart.
+• Indien succesvol geïmplementeerd kan ANPR opstoppingen aan toegangspunten
+verminderen omdat er geen menselijke interactie met het systeem meer nodig is.
+ANPR zelf komt ook met enkele nadelen.
+• Er is een centraal systeem nodig om de toegang van de nummerplaten te beheren.
+• Ieder toegangspunt moet een internetvoorziening hebben om met het centrale systeem
+te communiceren.
+• Iedere ANPR-camera moet correct ingesteld zijn om haalbare resultaten te behalen.
+• Weersomstandigheden bieden extra moeilijkheid voor de detectie van nummerplaten
+(dag, nacht)
+• Hedendaagse ANPR-camera’s zijn een redelijke investering.
 Voor de herkenning van nummerplaten zijn een aantal technologien beschikbaar. Deze
 werken adhv. Artificial Intelligence (AI) en zijn specifiek getraint op het detecteren en
-uitlezen van nummerplaten. De technologie die in dit onderwerp gebruikt zal worden is
-OpenALPR, een Open-Source library gemaakt voor nummerplaatdetectie. Hiervoor is
-gekozen omdat OpenALPR Open-Source is en bijgevolg heel goedkoop is (OpenALPRSoftware-Solutions, 2019c) .
+uitlezen van nummerplaten. De technologie die in dit onderwerp gebruikt zal worden
+is OpenALPR, een Open-Source library gemaakt voor nummerplaatdetectie. Hiervoor
+is gekozen omdat OpenALPR een gratis Open-Source product is (OpenALPR-SoftwareSolutions, 2019c).
+
+20
 
 2.2
+
+Hoofdstuk 2. Stand van zaken
 
 Privacy en GDPR
 Sinds 25 Mei 2018 is de General Data Protection Regulation (GDPR) in gang gezet,
@@ -131,30 +489,28 @@ ip-adressen.(Goddard, 2017)
 
 2.2.1
 
-Aanpassingen voor bedrijven
-
-2.2.2
-
-ANPR camera systemen
-(?) Zolang er geen persoonlijke data bijgehouden is zijn we niet onderhevig aan van gdpr
-zoals toestemming van klant (?) Automatic Number Plate Recognition (ANPR)
-
-2.2.3
-
-TODO
-Sharma, Jasani, Jaiswal en Bais (2017) beschrijft verschillende modellen voor parkeersystemen
-
 2.3
 
+Aanpassingen voor bedrijven
+
 Hardware
-Om deze nummerplaatdetectie uit te voeren zal gebruik gemaakt worden van een Raspberry
-PI Model B+. Deze hardware wordt vandaag de dag veel gebruikt bij IOT-applicaties door
-zijn lage kost en gemakkelijke bruikbaarheid.
+Om deze nummerplaatdetectie uit te voeren is gekozen voor een Raspberry PI Model B+.
+Deze hardware wordt vandaag de dag veel gebruikt bij IOT-applicaties door zijn lage kost
+en gemakkelijke bruikbaarheid.
 De Raspberry PI Model B+ beschikt over een 1.4GHz quad-core processor, 1GB LPDDR2
 RAM, een on-board WiFi-kaart en de mogelijkheid om een Raspberry Pi Camera te
 verbinden (Raspberry-Pi-Foundation, 2019b) .
 
-3. Methodologie
+2.3.1
+
+Camera
+De camera die gebruikt wordt is een Pi-NoIr camera. Deze camera is ook geproduceerd
+door de Raspberry Pi Foundation en biedt afbeeldingen en video in een 8-MegaPixel formaat. In dit onderzoek is voor deze camera gekozen omdat deze makkelijk te verbinden is
+met de Raspberry Pi, relatief goedkoop is en geen IR-filter heeft. Dit maakt de camera direct
+ook interessant voor foto’s te nemen in donkere omgevingen. (Raspberry-Pi-Foundation,
+2019a)
+
+3. Methodologie
 
 In dit onderzoek wensen we inzicht te krijgen of een ANPR-systeem succesvol geimplementeerd kan worden aan de parking van UGent op de campussen Sterre en Coupure. Ook
 wordt er gewenst te beschrijven welke maatregelingen er getroffen moeten worden om
@@ -201,23 +557,87 @@ Voor de foto’s te nemen zal gebruik gemaakt worden van de PiNoir Camera, dit i
 camera voor de Raspberry Pi die geen filtering heeft op infrarood licht, wat het optimaal
 maakt voor gebruik in donkere situaties (Raspberry-Pi-Foundation, 2019a).
 
-4. Richtlijnen omtrent GDPR bij nummerplaatd
+4. Wetgeving omtrent nummerplaatdetectie
 
 Algemene Verordening Gegevensbescherming (AVG)
 gemaakt om gegevens omtrent natuurlijke personen te beschermen en is van toepassing
 
-4.0.1
+4.1
 
-Persoonlijke data
-Wat is persoonlijke data? alle informatie over een geidentificeerde of identificeerbare
-natuurlijke persoon. identificeerbaar is wanneer een persoon direct of indirect kan worden
-geidentificeerd aan de hand van een indicator zoals naam adres, geboortedatum.
-Dit houdt dus ook in nummerplaat, aangezien deze gelinkt is aan een persoon.
-Wat willen we opslaan van persoonlijke data? Must: nummerplaat naam? gsm?
+Algemene verordening gegevensbescherming
+De General Data Protection Regulation (GDPR) of in het Nederlands: Algemene Verordening Gegevensbescherming (AVG), is een nieuwe wetgeving die op 25 mei 2018 ingevoerd
+is met als doel regels op te stellen om de grondrechten en de fundamentele vrijheden van
+natuurlijke personen te beschermen in de Europese Unie, dit met name op hun recht op
+bescherming van persoonsgegevens. (SecureDataService, 2018)
+Voor de verwerking van deze gegevens worden maatregelingen opgelegd over hoe deze
+op een correcte manier behandeld moeten worden en aan welke eisen een bedrijf moet
+voldoen indien deze hiermee handeld.
+In dit onderdeel zal niet de volledige AVG beschreven worden, maar enkel de onderdelen
+m.b.t. een parkeersysteem met nummerplaatdetectie.
+
+4.1.1
+
+Persoonsgegevens
+In artikel 4 van het AVG worden persoonsgegevens als volgt beschreven: ’alle informatie
+over een geïdentificeerde of identificeerbare natuurlijke persoon ("de betrokkene"); als
+identificeerbaar wordt beschouwd een natuurlijke persoon die direct of indirect kan worden
+
+24
+
+Hoofdstuk 4. Wetgeving omtrent nummerplaatdetectie
+
+geïdentificeerd, met name aan de hand van een identificator zoals een naam, een identificatienummer, locatiegegevens, een online identificator of van een of meer elementen
+die kenmerkend zijn voor de fysieke, fysiologische, genetische, psychische, economische,
+culturele of sociale identiteit van die natuurlijke persoon’
+Hieruit blijkt dat nummerplaten onder de term persoonsgegevens vallen; Deze zijn geregistreerd aan een persoon en kunnen worden gebruikt om de persoon te identificeren. In een
+parkeersysteem met nummerplaatdetectie zal hier dus ook op gelet moeten worden.
 Artikel 5 van GDPR, ’persoonsgegevens moeten worden verwerkt op een wijze die ten
-aanzien van de brotkkene rechtmatig, behoorlijk en transparant is ("rechtmatigheid, behoorlijkheid en transparantie").
+aanzien van de betrokkene rechtmatig, behoorlijk en transparant is ("rechtmatigheid,
+behoorlijkheid en transparantie").
+Het recht om geinformeerd te zijn
 
-5. Maatregelingen voor nummerplaatdetectie
+Indien een ANPR-systeem is opgesteld, dient er volgens artikel 13 van de GDPR, gesignaleerd te worden dat een dergelijk systeem aanwezig is, dit tesamen met contactinformatie
+indien men meer informatie wenst te verkrijgen.
+Recht op informatie en rectificatie van persoonsgegevens
+
+Iedereen bezit zijn eigen persoonlijke data en mag deze bijgevolg ook inkijken en corrigeren. Indien een gebruiker vraagt om zijn persoonsgegevens in te kijken, moet het bedrijf
+in kwestie al de persoonsgegevens van de gebruiker binnen de maand kunnen opleveren.
+Ook kan een gebruiker op eender wanneer beslissen om al zijn data te laten verwijderen.
+(SecureDataService, 2018)
+
+4.1.2
+
+Toestemming tot verwerken van informatie
+Vooraleer men verwerkingen mag uitvoeren op de persoonsgegevens van een gebruiker,
+moet deze gebruiker hier expliciete toestemming voor gegeven hebben.
+
+4.1.3
+
+Data Protection Officer
+Een Data Protection Officer (DPO) moet aangesteld worden
+
+4.2
+
+Belgische Camerawetgeving
+Sinds 25 mei 2018 is de nieuwe camerawetgeving ingevoerd, dit is een herziening van
+de Camerawetgeving uit 2007 en viel niet toevallig samen met de dag dat de GDPR is
+ingevoerd. Deze wet slaat op bewakingscamera’s en geldt enkel wanneer deze als doel
+hebben:
+
+4.2 Belgische Camerawetgeving
+
+25
+
+• Misdrijven tegen personen of goederen te voorkomen, vast te stellen of op te sporen;
+• overlast in de zin van artikel 135 van de nieuwe gemeentewet, te voorkomen, vast te
+stellen of op te sporen, de naleving van gemeentelijke reglementen te controleren of
+de openbare orde te handhaven.
+Aangezien nummerplaatdetectie als toegangssysteem geen van deze doelen bevat valt het
+niet onder de camerawetgeving voor bewakingscamera’s. (STAATSBLAD, 2007)
+Natuurlijk zal er wel nog rekening gehouden moeten worden met de AVG omdat er
+persoonsgegevens worden verwerkt door een bedrijf, vereniging of eenmanszaak. (Gegevensbeschermingsautoriteit, 2019)
+
+5. Maatregelingen nummerplaatdetectie
 
 In deze sectie beoordelen we welke maatregelingen genomen moeten worden bij het
 implementeren van een ANPR systeem met oog op de parking aan de UGent.
@@ -231,49 +651,72 @@ nummerplaatdetectie installeren op een zo’n correct mogelijke manier.
 5.1
 5.1.1
 
-Maatregelingen
-Detectie
-Hoe weet men wanneer een nummerplaat te detecteren? Ultrasone sensors, autodetectors
-ondergronds
-
-5.1.2
-
-Camera
-infrarode camera nacht Detectie snachts (boonsin2017car) De belangrijkste factor op
-nauwkeurigheid van ALPR is plaatsing en kwaliteit van de camera (OpenALPR-SoftwareSolutions, 2019a).
-
-Hoofdstuk 5. Maatregelingen voor nummerplaatdetectie met Raspberry
-26
-PI
-Belichting
-
-Infrarooed
-
-Camerahoek
-
+Camera Plaatsing
+Locatie van de camera
 Uit een prototype van arrieta-Rodriguez, Murillo, Arnedo, Caicedo en Fuentes (2019)
-bleek dat nummerplaten niet correct geidentificeerd werden bij een inclinatiehoek vanaf 30
-graden. Het is dus eerder aanbevolen om een camera parallel te richten ipv. perpendiculair.
+bleek dat nummerplaten niet correct geidentificeerd werden bij een inclinatiehoek vanaf
+30 graden. Het is dus aanbevolen om de camerahoek te beperken tot een kleine hoek.
+Verder is het aangeraden om de camera hoger te plaatsen dan de koplampen van de auto,
+dit om te voorkomen dat de camera verblind wordt door het sterke licht.
 OpenALPR heeft opties om de hoek te calibreren (OpenALPR-Software-Solutions, 2019b)
 
-Shuttersnelheid
+28
+5.1.2
 
+Hoofdstuk 5. Maatregelingen nummerplaatdetectie
+
+Camera orientatie
+De camera hoort parallel met de randen van het scherm te staan. Dit omdat de algoritmes voor ANPR getraint zijn op detectie van horizontale nummerplaten, maar niet van
+gedraaide.
+
+5.1.3
+
+Pixeldichtheid
+Het aantal pixels van de foto waaruit een nummerplaat bestaat is van belang voor OpenALPR voor een duidelijke herkenning. Indien een foto van veraf is genomen zal deze laag
+zijn en van dichtbij zal deze dan weer hoog zijn. OpenALPR verwacht voor Europeaanse
+nummerplaten minstens een wijdte van 75 pixels en een grootte meer dan 250 pixels
+verhoogt niet opmerkelijk de accuraatheid. (OpenALPR-Software-Solutions, 2019a)
+
+5.2
+
+Camera instellingen
+De belangrijkste factor van een performant ANPR-systeem is een correct ingestelde camera.
+Het nemen van foto’s is de eerste stap in het proces en indien hierop nummerplaten niet
+duidelijk zijn kan OpenALPR onmogelijk iets detecteren. In dit onderdeel worden de
+belangrijkste instellingen verduidelijkt die bijdragen tot een correcte foto voor gebruik bij
+nummerplaatdetectie.
+
+5.2.1
+
+Shuttersnelheid
 GUO, LIANG en HU (2017) stelt een trainingsmodel voor dat rekening houdt met blur.
 camera shutterspeed is de snelheid dat een camera foto’s neemt. In een klaarlichte dag
 kan de shutterspeed zo’n 1/10000 seconden halen terwijl in het donker dit wel een volle
-seconde kan duren om genoeg licht te behalen.
+seconde kan duren om genoeg licht te behalen. (OpenALPR-Software-Solutions, 2019a)
 Bij een lange shutterspeed kan het dus zijn dat een voertuig een meter vooruit is gereden,
 terwijl bij een kleine shutterspeed dit bv. maar een centimeter is. Een korte shutterspeed is
 dus interessant voor het implementeren van nummerplaatdetectie aangezien de auto minder
 ver is gereden en dus minder motion blur op de foto staat.
 Het nadeel van een kleine shutterspeed te nemen is dat er veel minder licht aanwezig is
-op de foto’s, wat de detectie dan weer omlaag brengt. Dit kan geremedieerd worden door
-LEDs te plaatsen die de nummerplaten oplichten.
+op de foto’s, wat de detectie dan weer omlaag brengt. Zo krijg je ’s nachts bijna volledig
+zwarte foto’s. Dit kan geremedieerd worden door belichting bij te plaatsen.
+
+5.2.2
 
 Belichting
-
 ’S nachts is de belichting van de nummerplaten een stoorzender, de camera kan onmogelijk
 een kleine shutterspeed aanhouden en een genoeg belichte afbeelding krijgen. Hiervoor
+
+5.2 Camera instellingen
+
+(a) Shutter speed van 1/60
+
+29
+
+(b) Shutter speed van 1/250
+
+Figuur 5.1: Vergelijking van verschillende shutterinstellingen. (easy-basic-photography,
+2019)
 moet er dus een eigen belichting bijgezet worden.
 Zelfs al wordt er belichting bijgezet zal de nummerplaat spijtig genoeg niet leesbaar zijn,
 dit komt doordat de koplampen van een auto ervoor zorgen dat de camera niet eens een
@@ -281,27 +724,54 @@ nummerplaat meer ziet. Een algemene oplossing voor deze problemen is het gebruik
 een IR-camera. Een IR-camera detecteert enkel IR-licht en heeft dus geen invloed van de
 koplampen van wagens. Verder is het voordeel hiervan dat IR-licht niet zichtbaar is voor
 het menselijk oog, en dus ongestoort snachts en overdag gebruikt kan worden.
-**Foto**
 
-5.2 Maatregelingen inzake UGent
+(a) Slecht geconfigureerde camera.
 
-27
+(b) Correct geconfigureerde camera.
 
-Pixels on target
+Figuur 5.2: Vergelijking tussen camerainstellingen in de nacht. (Axis-Communications,
+2019)
+Infrarood, infraroodlamp, dag, nacht
+5.2.3
 
-5.1.3
+Depth of field
+Om scherpe afbeeldingen te verkrijgen moet de depth of field (DOF) van een camera
+correct ingesteld staan. Deze bepaald in welke range een afbeelding scherp is. Hoe groter
+de DOF, hoe verder de objecten in focus zijn. Bij afstanden onder de 10m is de DOF aan
+de kleine kant en moet deze heel nauwkeurig ingesteld worden. (Axis-Communications,
+2019)
+
+Hoofdstuk 5. Maatregelingen nummerplaatdetectie
+
+30
+
+Figuur 5.3: Verduidelijking van depth of field. (Axis-Communications, 2019)
+
+5.3
 
 Legale maatregelingen
+
+5.3.1
+
 Buitenlandse nummerplaten
+OpenALPR heeft verscheidene configuraties voor Europa, Amerika en andere continenten.
+Bij een keuze van de Europese databank wordt er geen tot weinig fouten verwacht indien
+een nummerplaat van een ander land komt.
 
-OpenALPR ondersteund herkenning van buitenlandse nummerplaten, maar kan
+5.3.2
+
 Motoren
+Motoren hebben standaard geen nummerplaat aan hun voorkant. Dit kan opgelost worden
+door nummerplaatdetectie langs achteren te doen. **Hebben motoren toestemming nodig
+om te parkeren?**
 
-5.1.4
+5.4
 
 OpenALPR
-Configuratie
 
+5.4.1
+
+Configuratie
 arrieta-Rodriguez e.a. (2019) en Buhus, Timis en Apatean (2016) concluderen beiden
 dat openalpr standaard goede resultaten biedt, maar nog hogere resulaten bereikt kunnen
 worden indien er verduidelijkt wordt welk type nummerplaten er verwacht wordt. Dit
@@ -309,20 +779,253 @@ houdt factoren in zoals de juiste dataset van het land gebruiken en de volgorde 
 kentekenkarakters aanduiden.
 Door pattern matching toe te passen kunnen resultaten nog nauwkeuriger zijn. Hierbij
 wordt een reguliere expressie op alle top N resultaten uitgevoerd en worden de nonmatching resultaten verworpen.
-Commerciele upgrades
 
+5.4.2
+
+Commerciele upgrades
 OpenALPR biedt commerciele versies van OpenALPR aan, deze zouden een hogere
 nauwkeurigheid bieden.
 
-5.2
+5.4 OpenALPR
+r
 
-Maatregelingen inzake UGent
-In dit deel gaan we na op welke wijze de maatregelingen toegepast kunnen worden op de
-campus van UGent. Motoren? camera’s aan ingangen? waar camera plaatsen?
+31
 
 6. Praktische uitvoering van nummerplaatdete
 
+In dit hoofdstuk zal er onderzocht worden of nummerplaatdetectie degelijke resultaten kan
+leveren op de Campus Sterre en Campus Coupure van UGent. Hiervoor zullen handmatig
+foto’s genomen worden van wagens die de parking willen verlaten met de Pi-NoIR cam.
+Hierna wordt er gecontroleerd of OpenANPR wel degelijk correcte resultaten levert op de
+genomen foto’s.
+
 6.1
 
-Dataset collectie
+Hardware en software
+In dit onderdeel worden de maatregelingen uit hoofdstuk 5 toegepast op de case van UGent.
 
+6.1.1
+
+Camera
+Als camera zal gebruik gemaakt worden van de PiNoIR-Cam. Deze camera is een standaard
+extensie voor de Raspberry-PI die geen infrarood filtering heeft staan. Standaard wordt
+infrarood uit afbeeldingen gefilterd omdat deze een ongewenst bijproduct zijn op foto’s.
+De PiNoIR camera filtert geen infrarood uit de afbeeldingen en maken het dus mogelijk
+om te gebruiken voor infrarood detectie.
+Cameraplaatsing
+
+Voor de plaatsing van de camera’s wordt er gewenst zo veel mogelijk kosten te besparen
+en wordt er liever niet geopteerd voor een aparte paal voor de ANPR-camera. Daarom zal
+als fotopunt de metalen constructie van de hefboom gekozen worden. De camera zal hier
+
+34 Hoofdstuk 6. Praktische uitvoering van nummerplaatdetectie op UGent
+zo hoog mogelijk aan worden gehangen zodat deze zo min mogelijk interferentie heeft van
+de koplampen van de auto’s.
+
+Figuur 6.1: Uitgang met tokens aan UGent campus Coupure
+Cameraconfiguratie
+
+De voorgaande camerainstellingen zullen zo correct mogelijk op de PiNoIR camera worden
+ingesteld. TODO: Beste raspistill commando instellingen vinden.
+
+6.2
+
+Dataset collectie
+Om een correcte dataset te bekomen zal er op de parking van UGent zelf data verzameld
+worden aan de corresponderende ingangen. Er zijn geen cijfers beschikbaar over welke
+uitgangen meer gebruikt worden, daarom zullen de cijfers aan iedere ingang apart verwerkt
+worden.
+Voor iedere uitgang (4) zullen een honderd foto’s genomen worden van voertuigen die de
+parking verlaten in verscheidene omstandigheden zoals licht/donker/regen en zal bij iedere
+foto genoteerd worden welke nummerplaat correct is
+
+6.3
+
+Verwerking van gegevens
+Opslitsen data voor dag, nacht, regen en verschillende ingangen/uitgangen. alpr uitvoeren
+op alle afbeeldingen en checken of ze correct zijn. Rekening houden met orientatie zodat
+
+6.3 Verwerking van gegevens
+de publieke weg niet in beeld is.
+
+35
+
+7. Conclusie
+
+A. Onderzoeksvoorstel
+
+Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf
+werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
+
+A.1
+
+Introductie
+Parkings zijn van groot belang in het dagelijks leven. Iedere dag rijden talloze wagens naar
+hun plaats om daar na een achttal uren weer opgepikt te worden. Ieder van deze wagens
+moet zich dan ook telkens identificeren om deze te betreden of te verlaten. Dit doen ze
+met behulp van tickets, badges of andere toegangssystemen. Ieder systeem heeft zijn eigen
+voor- en nadelen.
+Dit onderzoek wordt uitgevoerd met oog op de parking van UGent, waar men kampt met
+enkele problemen omtrent de toegang van de parking aan de Campus Sterre en Campus
+Coupure. Momenteel worden er op deze parkings tokens en badges gebruikt om de parking
+te verlaten, welke enkele negatieve punten met zich meebrengen. Zo worden de tokens
+snel kwijtgeraakt en zijn deze duur om bij te maken. Deze tokens zijn ook universeel en
+kunnen gebruikt worden bij andere diensten die soortgelijke tokens gebruiken. Verder
+moeten deze slikkers regelmatig geleegd worden, wat dan weer een personeelskost met
+zich meebrengt. Men heeft al enkele oplossingen bekeken om dit systeem te vervangen en
+een grote favoriet is het gebruik van nummerplaatdetectie waarbij met een centraal systeem
+specifieke wagens toegang kunnen krijgen.
+Vele manieren van toegangscontrole zijn allicht mogelijk en niets is perfect. In dit onderzoek zal er op de voorkeur van UGent dieper ingegaan worden op nummerplaatdetectie.
+Hierbij zal er gekeken worden hoe dit opgeleverd kan worden waarbij de General Data
+
+Appendix A. Onderzoeksvoorstel
+
+40
+
+Protection Regulation (GDPR) nageleefd wordt, welke maatregelingen genomen moeten
+worden om goede resultaten te behalen en of dit haalbaar is om uit te voeren op lichte
+hardware zoals een Raspberry PI.
+Zo bekomen we volgende onderzoeksvragen:
+• Is nummerplaatdetectie een haalbare techniek omtrent privacy en GDPR?
+• Welke maatregelingen moeten er genomen worden om succesvol nummerplaatdetectie te implementeren?
+• Kan men nummerplaatdetectie uitvoeren op een Raspberry PI?
+
+A.2
+
+State-of-the-art
+Vandaag de dag kampt UGent met verscheidene problemen met hun huidige toegangssysteem. Hierbij kunnen gebruikers de parking vrij binnenrijden, maar om deze te verlaten
+moeten ze een token verschaffen aan de campus zelf. Deze token moet vervolgens ingeworpen worden in de tokenslikker aan de uitgang, waarna de gebruiker de parking kan
+verlaten. Deze tokens hebben weliswaar enkele nadelen. Zo worden deze snel kwijtgeraakt
+en moeten deze bijgemaakt worden, wat een redelijke kost is en niet milieubewust is. Ook
+zijn deze tokens universeel en kunnen in eender welke tokenslikker ingevoerd worden.
+
+A.2.1
+
+Papieren tickets
+Door de problemen die bij het gebruik van tokens te kijk komen heeft men op Campus
+Sterre intussen één uitgang waar gebruikt gemaakt wordt van papieren tickets. Dit was
+bedoeld als alternatief voor de tokens, maar aangezien deze papieren tickets gelijkaardige
+problemen met zich meebrengen zou dit geen gewenste oplossing brengen.
+
+A.2.2
+
+RFID
+Verder heeft iedere uitgang ook een RFID-scanner die gebruikt wordt om toegang te verlenen aan personeel. RFID kan m.b.v. een centraal systeem personeelskosten verminderen
+(Pala & Inanc, 2007), maar op een campus waar men soms bezoekers voor maar één dag
+heeft is het niet wenselijk om hiervoor badges te bedelen.
+
+A.2.3
+
+Nummerplaatdetectie
+Een andere, nog niet geïmplementeerde techniek is nummerplaatdetectie. Deze techniek
+veroorzaakt geen directe milieubelasting aangezien er geen tickets of badges worden
+gebruikt, maar waar deze techniek wel onder lijdt is de zichtbaarheid van de nummerplaten
+in slechte weersomstandigheden (Azam & Islam, 2016). Hierbij moet dus onderzocht
+worden in welke mate dit haalbaar is in deze case.
+
+A.3 Methodologie
+
+41
+
+Dit onderzoek zal nagaan welke toegangstechnieken het voordeligst zijn en welke het beste
+is in de case van UGent. Dit gebeurt a.d.h.v. een literatuurstudie waarbij een overzicht
+van iedere techniek gegeven wordt op vlak van benodigde werkuren, milieubelastbaarheid,
+transparantie voor opvolging en toegangscontrole. Verder zal er uitgebreid gekeken
+worden hoe nummerplaatdetectie gebruikt kan worden zodat deze niet in strijd zijn met
+wetgevingen zoals de privacywetgeving en de GDPR. Ten slotte zal er gekeken worden of
+dit uitgevoerd kan worden op een kleine microcontroller zoals de Raspberry pi 3 B+ en of
+deze kwalitatieve resultaten biedt.
+
+A.3
+
+Methodologie
+Om de eerste onderzoeksvraag te kunnen beantwoorden zal een literatuurstudie uitgevoerd
+worden omtrent privacy en GDPR. Het doel hiervan is om richtlijnen te bekomen voor het
+gebruik van camera’s op een parking zonder enige wetgevingen te overtreden.
+Om de tweede onderzoeksvraag te beantwoorden is er nood aan nog een literatuurstudie
+waarbij maatregelingen worden samengesteld om op een optimale manier nummerplaten te
+kunnen herkennen. Door deze maatregelingen te volgen kan een ontwikkelaar gemakkelijk
+een functionele installatie ontwikkelen.
+Voor de laatste onderzoeksvraag zal onderzocht worden of nummerplaatdetectie een
+haalbare technologie is om te gebruiken op een Raspberry Pi 3B+ met Pi-Cam. Dit zal
+getest worden door foto’s te nemen van voertuigen aan de toegangspunten aan UGent,
+gebruik makende van de tweede onderzoeksvraag, waarna er gekeken wordt of deze
+nummerplaten detecteerbaar zijn met de Raspberry Pi, en dit een acceptabele foutratio
+oplevert.
+
+A.4
+
+Verwachte resultaten
+Uit de studie naar privacy en GDPR wordt verwacht dat afbeeldingen opslaan van de nummerplaatdetectie niet toegestaan zal zijn zonder expliciete toestemming van de bezoekers.
+Aangezien afbeeldingen opslaan geen must is, zal nummerplaatdetectie een haalbare technologie zijn. Uit het literatuuronderzoek naar maatregelingen omtrent nummerplaatdetectie
+wordt verwacht dat een groot aantal variabelen invloed hebben op nummerplaatdetectie,
+dit zijn cameraplaatsing, camerainstellingen, softwareinstellingen en meer. Voor het onderzoek naar nummerplaatdetectie wordt verwacht dat 5.6% van de inlezingen foutief zijn.
+Deze marge wordt genomen uit het onderzoek van Figuerola, Lanka, Shah en Tromanhauser (2016) waar men in optimale omstandigheden 94.4% nauwkeurigheid gehaald heeft
+met gelijkaardige technologieen. Ook zal blijken dat instellingen van de Pi-Cam cruciaal
+zijn om een degelijk resultaat te kunnen behalen (Gurney, Rhead, Lyons & Ramalingam,
+2013).
+
+42
+
+A.5
+
+Appendix A. Onderzoeksvoorstel
+
+Verwachte conclusies
+Indien de testresultaten van de nummerplaatdetectie hoog genoeg zijn en deze duidelijke
+voordelen heeft tegenover andere technieken, mogen we concluderen dat dit een haalbare
+toegangstechniek is voor de parking bij de UGent. Aangezien een detectie van 100%
+vermoedelijk niet gehaald zal worden, zal worden aanbevolen om het huidige systeem met
+tokens te behouden in als backup.
+
+Bibliografie
+
+arrieta-Rodriguez, E., Murillo, L., Arnedo, M., Caicedo, A. & Fuentes, M. (2019). Prototype for identification of vehicle plates and character recognition implemented
+in Raspberry pi. In IOP Conference Series: Materials Science and Engineering
+(Deel 519, 1, p. 012028). IOP Publishing.
+Axis-Communications. (2019). License plate capture: Key factors for successful license
+plate recognition. Verkregen 15 oktober 2019, van https://www.axis.com/files/
+whitepaper/wp_license_plate_capture_73350_en_1906_hi.pdf
+Azam, S. & Islam, M. M. (2016). Automatic license plate detection in hazardous condition.
+Journal of Visual Communication and Image Representation, 36, 172–186.
+Buhus, E. R., Timis, D. & Apatean, A. (2016). Automatic parking access using openalpr
+on raspberry pi3. Acta Technica Napocensis, 57(3), 10.
+DE PAUW, E., DANIELS, S., BRIJS, T., HERMANS, E. & WETS, G. (2014). Snelheidscamera’s en trajectcontrole op Vlaamse autosnelwegen. Evaluatie van het effect op
+snelheidsgedrag en verkeersveiligheid.
+easy-basic-photography. (2019). Camera exposure basics: shutter speeds, aperture, f stops
+and iso. Verkregen 17 oktober 2019, van http://www.easybasicphotography.com/
+camera-exposure-basics.html
+Figuerola, C., Lanka, S., Shah, U. & Tromanhauser, M. (2016). Automated Parking Garage
+Payment System.
+Gegevensbeschermingsautoriteit. (2019). Camera’s en privacy: Videoparlofoon. Verkregen
+17 oktober 2019, van https://www.gegevensbeschermingsautoriteit.be/node/17286
+Goddard, M. (2017). The EU General Data Protection Regulation (GDPR): European
+regulation that has a global impact. International Journal of Market Research, 59(6),
+703–705.
+
+44
+
+BIBLIOGRAFIE
+
+GUO, Q., LIANG, Z. & HU, J. (2017). Vehicle Classification with Convolutional Neural
+Network on Motion Blurred Images. DEStech Transactions on Computer Science
+and Engineering, (aiea).
+Gurney, R., Rhead, M., Lyons, V. & Ramalingam, S. (2013). The effect of ANPR camera
+settings on system performance.
+Li, X. & Ranga, U. K. (2009). Design and implementation of a digital parking lot management system. Technol. Interface J, 10.
+OpenALPR-Software-Solutions. (2019a). OpenALPR Documentation. Verkregen 8 oktober 2019, van http://doc.openalpr.com/camera_placement.html
+OpenALPR-Software-Solutions. (2019b). OpenALPR Documentation. Verkregen 5 oktober 2019, van http://doc.openalpr.com/opensource.html
+OpenALPR-Software-Solutions. (2019c). OpenALPR Github Page. Verkregen 1 oktober
+2019, van https://github.com/openalpr/openalpr
+Pala, Z. & Inanc, N. (2007). Smart parking applications using RFID technology. In 2007
+1st Annual RFID Eurasia (pp. 1–3). IEEE.
+UK-Parliament. (2011). The history of ANPR. Verkregen 27 september 2019, van https:
+//www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/
+Raspberry-Pi-Foundation. (2019a). Pi NoIR Camera V2. Verkregen 1 oktober 2019, van
+https://www.raspberrypi.org/products/pi-noir-camera-v2/
+Raspberry-Pi-Foundation. (2019b). Raspberry Pi 3 Model B+. Verkregen 1 oktober 2019,
+van https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/
+SecureDataService, N. V. (2018). EU algemene verordening gegevensbescherming. Verkregen 17 oktober 2019, van http://www.privacy-regulation.eu/nl/index.htm
+STAATSBLAD, B. (2007). Wet tot regeling van de plaatsing en het gebruik van bewakingscamera’s. Belgisch Staatsblad, 31.
+
+
