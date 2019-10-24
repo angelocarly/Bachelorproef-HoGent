@@ -5,14 +5,14 @@
 
 Parkings zijn van groot belang in het dagelijks leven. Iedere dag rijden talloze wagens naar hun plaats om daar na een achttal uren weer opgepikt te worden. Ieder van deze wagens moet zich dan ook telkens identificeren om deze te betreden of te verlaten. Dit doen ze met behulp van tickets, badges of andere toegangssystemen. Ieder systeem heeft zijn eigen voor- en nadelen.
 
-Dit onderzoek wordt uitgevoerd met oog op de parking van UGent, waar men kampt met enkele problemen met de toegang van de parking aan de Campus Sterre en Campus Coupure. Momenteel worden er op deze parkings tokens en badges gebruikt om de parking te verlaten, welke enkele negatieve punten met zich meebrengen. Zo worden de tokens snel kwijtgeraakt en zijn deze duur om bij te maken. Deze tokens zijn ook universeel en kunnen gebruikt worden bij andere diensten die soortgelijke tokens gebruiken. Verder moeten deze slikkers regelmatig geleegd worden, wat dan weer een personeelskost met zich meebrengt. Men heeft al enkele oplossingen bekeken om dit systeem te vervangen en een grote favoriet is het gebruik van nummerplaatdetectie waarbij met een centraal systeem specifieke wagens toegang kunnen krijgen.
+Dit onderzoek wordt uitgevoerd met oog op de parking van UGent, waar men kampt met enkele problemen omtrent de toegang van de parking aan de Campus Sterre en Campus Coupure. Momenteel worden er op deze parkings tokens en badges gebruikt om de parking te verlaten, welke enkele negatieve punten met zich meebrengen. Zo worden de tokens snel kwijtgeraakt en zijn deze duur om bij te maken. Deze tokens zijn ook universeel en kunnen gebruikt worden bij andere diensten die soortgelijke tokens gebruiken. Verder moeten deze slikkers regelmatig geleegd worden, wat dan weer een personeelskost met zich meebrengt. Men heeft al enkele oplossingen bekeken om dit systeem te vervangen en een grote favoriet is het gebruik van nummerplaatdetectie waarbij met een centraal systeem specifieke wagens toegang kunnen krijgen.
 \\
-Vele manieren van toegangscontrole zijn allicht mogelijk en niets is perfect. In dit onderzoek wordt gekeken naar welke toegangstechnieken haalbaar zijn en welke voordelen deze leveren. Ook zal met oog op de voorkeur van UGent dieper ingegaan worden op nummerplaatdetectie. Hierbij zal er gekeken worden hoe dit opgeleverd kan worden waarbij de General Data Protection Regulation (GDPR) nageleefd wordt en of dit haalbaar is om uit te voeren op lichte hardware zoals een Raspberry PI.
+Vele manieren van toegangscontrole zijn allicht mogelijk en niets is perfect. In dit onderzoek zal er op de voorkeur van UGent dieper ingegaan worden op nummerplaatdetectie. Hierbij zal er gekeken worden hoe dit opgeleverd kan worden waarbij de General Data Protection Regulation (GDPR) nageleefd wordt, welke maatregelingen genomen moeten worden om goede resultaten te behalen en of dit haalbaar is om uit te voeren op lichte hardware zoals een Raspberry PI.
 
 Zo bekomen we volgende onderzoeksvragen:
 \begin{itemize}
-	\item Wat zijn de overeenkomsten en verschillen tussen de bestaande toegangstechnieken?
 	\item Is nummerplaatdetectie een haalbare techniek omtrent privacy en GDPR?
+	\item Welke maatregelingen moeten er genomen worden om succesvol nummerplaatdetectie te implementeren?
 	\item Kan men nummerplaatdetectie uitvoeren op een Raspberry PI?
 \end{itemize}
 
@@ -46,18 +46,18 @@ Dit onderzoek zal nagaan welke toegangstechnieken het voordeligst zijn en welke 
 \section{Methodologie}
 \label{sec:methodologie}
 
-Vooraleer de onderzoeksvragen beantwoord worden is er nood aan inzicht in verschillende mogelijke toegangstechnieken voor parkings. Dit zal gedaan worden a.d.h.v. een literatuurstudie, waarbij dan ook de eerste onderzoeksvraag zal beantwoord worden. In deze literatuurstudie zullen de karakteristieken op vlak van milieuvriendelijkheid, gebruiksvriendelijkheid en kost vergeleken worden. Vervolgens zal hieruit de keuze gemaakt worden welke techniek het beste is in de case van UGent.
+Om de eerste onderzoeksvraag te kunnen beantwoorden zal een literatuurstudie uitgevoerd worden omtrent privacy en GDPR. Het doel hiervan is om richtlijnen te bekomen voor het gebruik van camera’s op een parking zonder enige wetgevingen te overtreden.
 
-Om de tweede onderzoeksvraag te kunnen beantwoorden zal nog een literatuurstudie uitgevoerd worden omtrent privacy en GDPR. Het doel hiervan is om richtlijnen te bekomen voor het gebruik van camera’s op een parking zonder wetgevingen te overtreden.
+Om de tweede onderzoeksvraag te beantwoorden is er nood aan nog een literatuurstudie waarbij maatregelingen worden samengesteld om op een optimale manier nummerplaten te kunnen herkennen. Door deze maatregelingen te volgen kan een ontwikkelaar gemakkelijk een functionele installatie ontwikkelen.
 
-Voor de laatste onderzoeksvraag zal onderzocht worden of nummerplaatdetectie een haalbare technologie is om te gebruiken op een Raspberry Pi 3B+ met Pi-Cam. Dit zal getest worden door foto’s te nemen van voertuigen aan de toegangspunten aan UGent, waarna er gekeken wordt of deze nummerplaten detecteerbaar zijn met de Raspberry Pi, maar ook of dit in een realistische tijd uitgevoerd kan worden met een acceptabele foutratio.
+Voor de laatste onderzoeksvraag zal onderzocht worden of nummerplaatdetectie een haalbare technologie is om te gebruiken op een Raspberry Pi 3B+ met Pi-Cam. Dit zal getest worden door foto’s te nemen van voertuigen aan de toegangspunten aan UGent, gebruik makende van de tweede onderzoeksvraag, waarna er gekeken wordt of deze nummerplaten detecteerbaar zijn met de Raspberry Pi, en dit een acceptabele foutratio oplevert.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
 
-Er wordt verwacht dat nummerplaatdetectie het meest profijtelijk zal zijn in het geval van de parking van de UGent. Aan de toegangspunten zouden enkel camera’s en microcontrollers geïnstalleerd moeten worden, wat met de huidige netwerkinfrastructuur geen probleem moet zijn. Het implementeren van andere technieken zoals tickets zou ook een verbetering zijn, maar is nadeliger voor het milieu en brengt meer personeelswerk met zich mee zoals het legen van de slikkers en het aanvullen van de tickets.
-Uit de studie naar privacy en GDPR wordt verwacht dat afbeeldingen opslaan van de nummerplaatdetectie niet toegestaan zal zijn zonder expliciete toestemming van de bezoekers. Aangezien afbeelding geen must is, zal nummerplaatdetectie een haalbare technologie zijn.
+Uit de studie naar privacy en GDPR wordt verwacht dat afbeeldingen opslaan van de nummerplaatdetectie niet toegestaan zal zijn zonder expliciete toestemming van de bezoekers. Aangezien afbeeldingen opslaan geen must is, zal nummerplaatdetectie een haalbare technologie zijn.
+Uit het literatuuronderzoek naar maatregelingen omtrent nummerplaatdetectie wordt verwacht dat een groot aantal variabelen invloed hebben op nummerplaatdetectie, dit zijn cameraplaatsing, camerainstellingen, softwareinstellingen en meer.
 Voor het onderzoek naar nummerplaatdetectie wordt verwacht dat 5.6\% van de inlezingen foutief zijn. Deze marge wordt genomen uit het onderzoek van \textcite{figuerola2016automated} waar men in optimale omstandigheden 94.4\% nauwkeurigheid gehaald heeft met gelijkaardige technologieen.
 Ook zal blijken dat instellingen van de Pi-Cam cruciaal zijn om een degelijk resultaat te kunnen behalen \autocite{gurney2013effect}.
 
