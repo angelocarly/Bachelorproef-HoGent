@@ -14,32 +14,74 @@ Voor de verwerking van deze gegevens worden maatregelen opgelegd over hoe deze o
 
 In dit onderdeel zal niet de volledige AVG beschreven worden, maar enkel de onderdelen m.b.t. een parkeersysteem met nummerplaatdetectie.
 
+\subsection{Definities}
+
 \paragraph{Persoonsgegevens}
 In artikel 4 van het AVG worden persoonsgegevens als volgt beschreven: 'alle informatie over een geïdentificeerde of identificeerbare natuurlijke persoon ("de betrokkene"); als identificeerbaar wordt beschouwd een natuurlijke persoon die direct of indirect kan worden geïdentificeerd, met name aan de hand van een identificator zoals een naam, een identificatienummer, locatiegegevens, een online identificator of van een of meer elementen die kenmerkend zijn voor de fysieke, fysiologische, genetische, psychische, economische, culturele of sociale identiteit van die natuurlijke persoon'
 
 Hieruit blijkt dat nummerplaten onder de term persoonsgegevens vallen; Deze zijn geregistreerd aan een persoon en kunnen worden gebruikt om de persoon te identificeren. In een parkeersysteem met nummerplaatdetectie zal hier dus ook op gelet moeten worden. 
 
-Artikel 5 van GDPR, 'persoonsgegevens moeten worden verwerkt op een wijze die ten aanzien van de betrokkene rechtmatig, behoorlijk en transparant is ("rechtmatigheid, behoorlijkheid en transparantie").
+Artikel 5 van GDPR, 'persoonsgegevens moeten worden verwerkt op een wijze die ten aanzien van de betrokkene rechtmatig, behoorlijk en transparant is ("rechtmatigheid, behoorlijkheid en transparantie")`.
 
-\subsection{Voorwaarden van verwerking}
-Vooraleer men verwerkingen mag uitvoeren op de persoonsgegevens van een gebruiker, moet deze gebruiker hier expliciete toestemming voor gegeven hebben.
+\paragraph{Verwerking van gegevens}
+Een verwerking is een veel vermelde term in het AVG, en omvat een duidelijke definitie. Deze omvat eender welke operatie die op persoonsgegevens wordt uitgevoerd. Waaronder het verzamelen, vastleggen, organiseren, raadplegen of vernietigen van deze gegevens onderdeel van is. Deze lijst is niet compleet en is te vinden in Artikel 4 punt 2 van de GDPR.
+
+Indien een ANPR-systeem foto's neemt van auto's dan voert deze enkele verwerkingen uit. Deze zijn het vastleggen, raadplegen en vernietigen van de gegevens. Ookal duurt dit proces maar enkele seconden is er wel degelijk sprake van verwerking.
+
+Verder indien er een databank bijgehouden wordt van nummerplaten behoren er tot dit proces opnieuw een aantal bewerkingen. Deze zijn opnieuw het vastleggen, raadplegen en vernietigen.
+
+\subsection{Rechtmatigheid van verwerking}
+De GDPR beschrijft in artikel 6 onder welke omstandigheden verwerking van persoonsgegevens rechtmatig is. Indien de verwerking niet rechtmatig is kunnen er sancties optreden.
+
+De GDPR beschrijft enkele voorwaarden waaraan minstens voldaan moeten worden. Zo kan de betrokkene toestemming gegeven hebben, is er een wettelijke plicht of zijn er gerechtvaardigde belangen voor de verwerking van de gegevens.
+
+In het geval van een ANPR-camera is het niet mogelijk om toestemming aan de betrokkene te vragen. Dit omdat toevallige voorbijgangers ook de camera kunnen triggeren welke vervolgens hun gegevens verwerkt, waarvoor deze geen toestemming hebben kunnen geven. Hiervoor is de enige echte optie het gerechtvaardigd belang.
+
+Het gerechtvaardigd belang berust erop dat de samenleving vindt dat het belang om de gegevens te verwerken zwaarwegend genoeg is dat ze de verwerking erkennen. En dat dit belang enkel kan behartigd worden door persoonsgegevens te verwerken \autocite{autoriteit2019gerechtvaardigd}.
 
 \subsection{Rechten van de betrokkene}
+\label{rechten-betrokkene}
 De GDPR stelt enkele rechten op die de betrokkene, de eigenaar van de persoonsgegevens heeft. Deze zijn terug te vinden in hoofdstuk III van de GDPR.
 
-\paragraph{Rechtmatigheid van verwerking}
-De GDPR beschrijft in artikel 6 onder welke omstandigheden verwerking van persoonsgegevens rechtmatig is. Er zijn enkele omstandigheden beschreven, maar in de context van een ANPR-systeem kan men enkel persoonsgegevens verwerken indien de betrokkene toestemming gegeven heeft hiervoor. De verwerkingsverantwoordelijke moet later kunnen aantonen dat de betrokkene toestemming gegeven heeft gegeven.
+\paragraph{Recht om geïnformeerd te zijn}
+Indien een ANPR-systeem is opgesteld, dient er volgens artikel 13 van de GDPR, gesignaleerd te worden dat een dergelijk systeem aanwezig is, dit tesamen met contactinformatie van de verwerkingsverantwoordelijke, de verwerkingsdoeleinden waarvoor de persoonsgegevens zijn bestemd en de rechtsgrond van de verwerking. Een voorbeeld van zo'n signalisatie is te zien in Figuur \ref{anpr-aanduiding}.
 
-\paragraph{Het recht om geïnformeerd te zijn}
-Indien een ANPR-systeem is opgesteld, dient er volgens artikel 13 van de GDPR, gesignaleerd te worden dat een dergelijk systeem aanwezig is, dit tesamen met contactinformatie indien men meer informatie wenst te verkrijgen.
+Deze signalisatie moet vanaf een duidelijke afstand zichtbaar zijn zodat de betrokkene deze kan lezen vooraleer hij de gemonitorde omgeving betreedt. Deze omgeving moet duidelijk zijn voor de betrokkene zodat hij deze kan mijden.
 
-\paragraph{Recht op informatie en rectificatie van persoonsgegevens}
-Iedereen bezit zijn eigen persoonlijke data en mag deze bijgevolg ook inkijken en corrigeren. Indien een gebruiker vraagt om zijn persoonsgegevens in te kijken, moet het bedrijf in kwestie al de persoonsgegevens van de gebruiker binnen de maand kunnen opleveren. Ook kan een gebruiker op eender wanneer beslissen om al zijn data te laten verwijderen. \autocite{avg2018privacy}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{img/anpr-aanduiding.png}
+	\caption{Voorbeeld van camerasignalisatie \autocite{edpb2019guidelines}}
+	\label{anpr-aanduiding}
+\end{figure}
+
+\paragraph{Recht op informatie en rectificatie van persoonsgegevens} 
+Iedereen bezit zijn eigen persoonlijke data en mag deze bijgevolg ook inkijken en corrigeren. Indien een gebruiker vraagt om zijn persoonsgegevens in te kijken, moet het bedrijf in kwestie al de persoonsgegevens van de gebruiker binnen de maand kunnen opleveren. Ook kan een gebruiker op eender wanneer beslissen om al zijn data te laten verwijderen \autocite{avg2018privacy}. Dit is terug te vinden in artikel 15 en 16 van de GDPR.
+
+\paragraph{Recht op vergetelheid}
+Een verwerkingsverantwoordelijke is verplicht persoonsgegevens zonder onredelijke vertraging te wissen indien deze niet meer nodig zijn voor de oorspronkelijke doeleinden, de gegevens onrechtmatig verwerkt zijn of de betrokkene zijn toestemming intrekt. Enkel indien één van de uitzonderingen in artikel 17 (3) van toepassing zijn kan dit langer duren. \autocite{edpb2019guidelines}
+
+\paragraph{Recht op beperking van verwerking}
+Bij camerasystemen die berusten op het gerechtvaardigd belang of openbaar belang om data te verwerken, heeft een betrokkene het recht om op eender welk moment hier bezwaar op te maken. Indien de verwerkingsverantwoordelijke geen legale gronden kan voorleggen die zwaarder doorwegen dan de rechten van de betrokkene, is hij verplicht aan de wensen van de betrokkene te voldoen. Dit is terug te vinden in artikel 18 van de GDPR.
+
+In een context van camerabewaking kan deze objectie gemaakt worden voor, tijdens, of na een betrokkene een bewaakte zone betreedt. Dit betekent dat indien de belangen van de verwerkingsverantwoordelijke niet doorwegen tot de rechten van de betrokkene, de camera direct moet kunnen stopgezet worden van de betrokkene zijn data te kunnen verwerken. Anderzijds is het ook mogelijk om de gemonitorde zone genoeg af te bakenen zodat de verwerkingsverantwoordelijke de toestemming kan verifieren alvorens de betrokkene deze betreedt. \autocite{edpb2019guidelines}
 
 %\subsection{Data Protection Officer}
 %Een Data Protection Officer (DPO) moet aangesteld worden, Nederlands: Functionaris voor gegevensbescherming. NIET NODIG VOOR KLEINE ORGANISATIE
-\subsection{Verantwoordelijkheden van de verwerker}
 
+\subsection{Verwerking waarvoor identificatie niet is vereist}
+Artikel 11 van de GDPR zegt dat indien de doeleinden niet vereisen dat de betrokkene geïdentificeerd is, dat de verwerker geen aanvullende gegevens hoeft bij te houden.
+\par
+Hieruit volgt dan ook dat indien de verwerker kan aantonen dat hij de betrokkene niet kan identificeren, artikelen 15 tot en met 20, beschreven in onderdeel \ref{rechten-betrokkene} niet meer van toepassing zijn.
+
+\section{Toegepast op een ANPR-systeem}
+Het ANPR-systeem dat Vado-Solutions voorstelt slaat geen persoonsdata op, de foto's die genomen worden om nummerplaten uit te lezen worden direct na de detectie verwijdert. Dit slaat niet af van het feit dat er verwerkingen op de foto's worden uitgevoerd en hier moet dus ook gepaste maatregelen op genomen worden.
+
+ANPR gaat over het verzamelen van nummerplaatinformatie
+
+enkel anpr gebruiken voor het juiste doel
+
+indien de afbeeldingen niet opgeslaan worden, moet er verder geen zorgen gemaakt worden over de termijn hoelang data mag bijgehouden worden.
 
 \section{Belgische Camerawetgeving}
 Sinds 25 mei 2018 is de nieuwe camerawetgeving ingevoerd, dit is een herziening van de Camerawetgeving uit 2007 en viel niet toevallig samen met de dag dat de GDPR is ingevoerd. Deze wet slaat op bewakingscamera's en geldt enkel wanneer deze als doel hebben:

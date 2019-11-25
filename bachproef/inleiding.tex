@@ -23,17 +23,27 @@
 \label{sec:probleemstelling}
 
 %Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's,'' systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
-Vandaag de dag kampt UGent met problemen omtrent hun toegangssysteem aan de campus Landbouw en campus Sterre. Het huidige systeem dat gebruikt maakt van tokens is niet efficiënt en zorgt voor veel extra werk. Daarom overweegt UGent om op deze locaties over te stappen naar een systeem dat milieubewust is, beperkt in kostprijs is, en een goed gebruiksgemak heeft. VaDo Solutions biedt hierop een innovatief systeem aan dat gebruikt maakt van nummerplaatdetectie.
 
-In dit onderzoek zal nagegaan worden of zulk systeem degelijke resultaten kan bieden op deze locaties.
+Vandaag de dag kampt UGent met problemen omtrent hun toegangssysteem aan de campus Landbouw en campus Sterre. Het huidige systeem dat gebruikt maakt van tokens is niet efficiënt en zorgt voor veel extra werk. Enkele voorbeelden zijn:
+\begin{itemize}
+	\item De tokens moeten telkens afgehaald worden aan het onthaal om de campussen te kunnen verlaten.
+	\item De tokenslikkers moeten regelmatig geleegd worden indien de tokenslikkers vol zijn.
+	\item De tokens zijn relatief duur om bij te maken.
+	\item De tokens worden snel kwijtgeraakt.
+\end{itemize}
+Door deze problemen overweegt UGent om op deze locaties over te stappen naar een beter systeem dat milieubewust is, beperkt in kostprijs is, en een goed gebruiksgemak heeft. 
+
+Hierop biedt VaDo Solutions een innovatief systeem aan dat gebruik maakt van nummerplaatdetectie. Deze zou gebruik maken van een Raspberry PI in combinatie met een open-source library genaamd OpenALPR. Welke al reeds bevestigd zijn dat ze goede resultaten kunnen opleveren \autocite{figuerola2016automated}. Maar of deze resultaten ook haalbaar zijn op UGent zal nagegaan worden in dit onderzoek.
+
+Verder heerst er enkele onduidelijkheid over hoe de GDPR inspeelt op een dergelijk systeem en welke maatregelingen er getroffen moeten worden.
 
 \section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}
 \label{sec:onderzoeksvraag}
 
 %Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
-TODO: Inleiding onderzoeksvragen
+Dit onderzoek zal nagaan in hoeverre het mogelijk is nummerplaatdetectie op te stellen op de Campus Landbouw en Campus Sterre van UGent. Hiervoor wordt er bekeken in welke mate de GDPR invloed heeft op nummerplaatdetectie. Daarnaast zullen er maatregelingen opgesteld worden om een nauwkeurige detectie te verkrijgen, waarop er vervolgens een testopstelling gemaakt wordt om na te gaan of een dit wel degelijk mogelijk is op UGent.
 
-Bij dit onderzoek bekomen we drie onderzoeksvragen:
+Zo bekomen we volgende drie onderzoeksvragen:
 \begin{itemize}
 	\item Is nummerplaatdetectie een haalbare techniek omtrent privacy en GDPR?
 	\item Welke maatregelingen moeten er genomen worden om succesvol nummerplaatdetectie te implementeren?
@@ -45,7 +55,11 @@ Bij dit onderzoek bekomen we drie onderzoeksvragen:
 
 %Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv. om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
 
-Dit onderzoek wordt als succesvol beschouwd indien een correcte manier van werk is gevonden om aan de privacywetgevingen te voldoen, een duidelijk overzicht van maatregelingen voor ANPR is bekomen en wanneer een performantie is gevonden voor nummerplaatdetectie aan de campus Landbouw en Sterre van UGent.
+Dit onderzoek heeft als doel een correcte voorstelling te geven hoe nauwkeurig nummerplaatdetectie met een Raspberry Pi en OpenALPR uitgevoerd kan worden op UGent door hiervan een prototype te maken. Aan de hand van deze resultaten kan VaDo-Solutions beslissen of dit wel of niet de gewenste technologie is die ze willen gebruiken.
+
+Vervolgens wordt er verwacht dat een duidelijk overzicht gegeven wordt van maatregelingen die getroffen kunnen worden om een dergelijk systeem te implementeren op vlak van hardware- en software-instellingen. Zo kan een installateur weten welke configuratie correcte resultaten kan leveren, zonder gebruik te moeten maken van trial-en-error.
+
+Ten laatste is het de bedoeling om een bondige uitleg te hebben op welke vlakken de GDPR invloed heeft op dit soort camerasysteem. Hiermee kan een ontwikkelaar weten aan welke voorwaarden zijn opstelling moet voldoen zodat hij geen risico loopt op het overtreden van wetgevingen.
 
 \section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}
 \label{sec:opzet-bachelorproef}
@@ -62,7 +76,7 @@ In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de
 
 In Hoofdstuk~\ref{ch:wetgeving-nummerplaatdetectie} wordt er nagegaan waarop er gelet moet worden bij het implementeren van nummerplaatdetectie als toegangssysteem op vlak van privacywetgevingen.
 
-In Hoofdstuk~\ref{ch:maatregelingenanpr} wordt er nagegaan welke maatregelingen er genomen moeten worden om een zo performant mogelijke implementatie van nummerplaatdetectie te maken.
+In Hoofdstuk~\ref{ch:maatregelenanpr} wordt er nagegaan welke maatregelingen er genomen moeten worden om een zo performant mogelijke implementatie van nummerplaatdetectie te maken.
 
 In Hoofdstuk~\ref{ch:praktischeUitvoering} wordt een onderzoek uitgevoerd aan de hand van de vooropgestelde maatregelingen aan de campus Sterre en Landbouw van UGent. Hieruit zal blijken of nummerplaatdetectie met een Raspberry PI mogelijk is op deze locatie.
 
