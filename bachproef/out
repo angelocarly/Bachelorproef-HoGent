@@ -1,23 +1,3 @@
-Probleemstelling
-
-Vandaag de dag kampt UGent met problemen omtrent hun toegangssysteem aan de campus
-Landbouw en campus Sterre. Het huidige systeem dat gebruikt maakt van tokens is niet
-efficiënt en zorgt voor veel extra werk. Enkele voorbeelden zijn:
-• De tokens moeten telkens afgehaald worden aan het onthaal om de campussen te
-kunnen verlaten.
-• De tokenslikkers moeten regelmatig geleegd worden indien de tokenslikkers vol
-zijn.
-• De tokens zijn relatief duur om bij te maken.
-• De tokens worden snel kwijtgeraakt.
-Door deze problemen overweegt UGent om op deze locaties over te stappen naar een beter
-systeem dat milieubewust is, beperkt in kostprijs is, en een goed gebruiksgemak heeft.
-Hierop biedt VaDo Solutions een innovatief systeem aan dat gebruik maakt van nummerplaatdetectie. Deze zou gebruik maken van een Raspberry PI in combinatie met een
-open-source library genaamd OpenALPR. Welke al reeds bevestigd zijn dat ze goede
-resultaten kunnen opleveren (Figuerola, Lanka, Shah & Tromanhauser, 2016). Maar of
-deze resultaten ook haalbaar zijn op UGent zal nagegaan worden in dit onderzoek.
-Verder heerst er enkele onduidelijkheid over hoe de GDPR inspeelt op een dergelijk
-systeem en welke maatregelingen er getroffen moeten worden.
-
 Hoofdstuk 1. Inleiding
 
 18
@@ -278,7 +258,11 @@ maakt voor gebruik in donkere situaties (Raspberry-Pi-Foundation, 2019a).
 
 4. Wetgeving omtrent nummerplaatdetectie
 
-Algemene Verordening Gegevensbescherming (AVG)
+Het is vanzelfsprekend dat er enkele wetgevingen zijn die slaan op nummerplaatdetectie,
+het nemen van foto’s als toegangssysteem is een grote stap op vlak van privacy in plaats
+van een token mee te geven. Zeker door nieuwe wet van de GDPR in 2018.
+In volgende onderdelen wordt beschreven wat deze wetten inhouden en hoe deze op een
+nummerplaatdetectie slaan.
 
 4.1
 
@@ -293,7 +277,10 @@ indien deze hiermee handeld.
 In dit onderdeel zal niet de volledige AVG beschreven worden, maar enkel de onderdelen
 m.b.t. een parkeersysteem met nummerplaatdetectie.
 
+30
 4.1.1
+
+Hoofdstuk 4. Wetgeving omtrent nummerplaatdetectie
 
 Definities
 Persoonsgegevens
@@ -301,36 +288,50 @@ Persoonsgegevens
 In artikel 4 van het AVG worden persoonsgegevens als volgt beschreven: ’alle informatie
 over een geïdentificeerde of identificeerbare natuurlijke persoon ("de betrokkene"); als
 identificeerbaar wordt beschouwd een natuurlijke persoon die direct of indirect kan worden
-
-30
-
-Hoofdstuk 4. Wetgeving omtrent nummerplaatdetectie
-
 geïdentificeerd, met name aan de hand van een identificator zoals een naam, een identificatienummer, locatiegegevens, een online identificator of van een of meer elementen
 die kenmerkend zijn voor de fysieke, fysiologische, genetische, psychische, economische,
-culturele of sociale identiteit van die natuurlijke persoon’
+culturele of sociale identiteit van die natuurlijke persoon’ (SecureDataService, 2018)
 Hieruit blijkt dat nummerplaten onder de term persoonsgegevens vallen; Deze zijn geregistreerd aan een persoon en kunnen worden gebruikt om de persoon te identificeren. In een
 parkeersysteem met nummerplaatdetectie zal hier dus ook op gelet moeten worden.
 Artikel 5 van GDPR, ’persoonsgegevens moeten worden verwerkt op een wijze die ten
 aanzien van de betrokkene rechtmatig, behoorlijk en transparant is ("rechtmatigheid,
-behoorlijkheid en transparantie")‘.
+behoorlijkheid en transparantie")‘ (SecureDataService, 2018).
 Verwerking van gegevens
 
 Een verwerking is een veel vermelde term in het AVG, en omvat een duidelijke definitie.
-Deze omvat eender welke operatie die op persoonsgegevens wordt uitgevoerd. Waaronder
-het verzamelen, vastleggen, organiseren, raadplegen of vernietigen van deze gegevens
-onderdeel van is. Deze lijst is niet compleet en is te vinden in Artikel 4 punt 2 van de
-GDPR.
+Het verwerken van gegevens omvat eender welke operatie die op persoonsgegevens wordt
+uitgevoerd. Waaronder het verzamelen, vastleggen, organiseren, raadplegen of vernietigen
+van deze gegevens onderdeel van is. Deze lijst wordt verder uitgebreid omschreven in
+Artikel 4 punt 2 van de GDPR.
 Indien een ANPR-systeem foto’s neemt van auto’s dan voert deze enkele verwerkingen
 uit. Deze zijn het vastleggen, raadplegen en vernietigen van de gegevens. Ookal duurt dit
 proces maar enkele seconden is er wel degelijk sprake van verwerking.
 Verder indien er een databank bijgehouden wordt van nummerplaten behoren er tot dit
 proces opnieuw een aantal bewerkingen. Deze zijn opnieuw het vastleggen, raadplegen en
 vernietigen.
+Verwerkingsverantwoordelijke
+
+De verwerkingsverantwoordelijke is een persoon die instaat voor het correct verwerken
+van gegevens. Hij bepaalt het doel en de middelen van de verwerking. In andere woorden
+moet hij kunnen aantonen waarom en hoe de verwerking wordt uitgevoerd.
+Verwerker
+
+Een verwerker is een persoon die persoonsgegevens verwerkt in opdracht van de verwerkingsverantwoordelijke. De verwerker bepaalt niet het hoe en waarom van de verwerking,
+
+4.1 Algemene verordening gegevensbescherming
+
+31
+
+maar is degene wie de verwerking uitvoert.
 
 4.1.2
 
+Beginselen inzake gegevensverwerking
+Het is niet mogelijk om zomaar welke gegevens te verwerken. De GDPR stelt enkele
+regels op die organisaties moeten naleven voor het verwerken van gegevens. De verwerkingsverantwoordelijke moet kunnen aantonen dat deze nageleefd worden. De beginselen
+inzake gegevensverwerking zijn te vinden in Artikel 5 van de GDPR.
 Rechtmatigheid van verwerking
+
 De GDPR beschrijft in artikel 6 onder welke omstandigheden verwerking van persoonsgegevens rechtmatig is. Indien de verwerking niet rechtmatig is kunnen er sancties optreden.
 De GDPR beschrijft enkele voorwaarden waaraan minstens voldaan moeten worden. Zo
 kan de betrokkene toestemming gegeven hebben, is er een wettelijke plicht of zijn er
@@ -341,19 +342,41 @@ vervolgens hun gegevens verwerkt, waarvoor deze geen toestemming hebben kunnen
 geven. Hiervoor is de enige echte optie het gerechtvaardigd belang.
 Het gerechtvaardigd belang berust erop dat de samenleving vindt dat het belang om de
 gegevens te verwerken zwaarwegend genoeg is dat ze de verwerking erkennen. En dat
-dit belang enkel kan behartigd worden door persoonsgegevens te verwerken (Autoriteit-
+dit belang enkel kan behartigd worden door persoonsgegevens te verwerken (AutoriteitPersoonsgegevens, 2019).
+Doelbinding
 
-4.1 Algemene verordening gegevensbescherming
+De doeleinden voor de gegevensverwerking dienen uitdrukkelijk omschreven en gerechtvaardigd te zijn. Geen verdere verwerking is toegestaan die niet aan deze doeleinden
+beantwoordt.
+Dataminimalisatie en juistheid
 
-31
+De opgeslagen data dienen beperkt te zijn tot wat nodig is om de beschreven doeleinden te
+voldoen. Het is de bedoeling om een strikt minimum van data bij te houden. Verder moet
+de data actueel gehouden worden en indien onjuist, verwijdert of gerectificeerd te worden.
+Opslagbeperking
 
-Persoonsgegevens, 2019).
+De data mag niet langer opgeslaan worden in een vorm waarbij de betrokkene identificeerbaar is dan noodzakelijk voor de verwezenlijking van de doeleinden.
+
+32
+
+Hoofdstuk 4. Wetgeving omtrent nummerplaatdetectie
+
+Integriteit en vertrouwelijkheid
+
+De verwerking dient genoeg beveiligd te zijn door gebruik te maken van passende, technische organisatorische maatregelen. Verder dient deze beschermt te zijn tegen iedere niet
+toegelate of onwettige verwerking, tegen verlies, vernietiging of kwaliteitsverlies van de
+gegevens.
+Verantwoordingsplicht
+
+De verantwoordelijke voor de verwerking/verwerker zijn verantwoordelijk voor de naleving
+van de beginselen van de verordening ongeacht het risiconiveau. Men moet kunnen
+aantonen dat de verwerking van de persoonsgegevens rechtvaardig verloopt.
 
 4.1.3
 
 Rechten van de betrokkene
-De GDPR stelt enkele rechten op die de betrokkene, de eigenaar van de persoonsgegevens
-heeft. Deze zijn terug te vinden in hoofdstuk III van de GDPR.
+Vervolgens stelt de GDPR enkele uitgebreide rechten op die de betrokkene, de eigenaar
+van de persoonsgegevens heeft. Deze zijn terug te vinden in hoofdstuk III van de GDPR
+en zijn omschreven in de volgende punten.
 Recht om geïnformeerd te zijn
 
 Indien een ANPR-systeem is opgesteld, dient er volgens artikel 13 van de GDPR, gesignaleerd te worden dat een dergelijk systeem aanwezig is, dit tesamen met contactinformatie
@@ -362,35 +385,31 @@ signalisatie is te zien in Figuur 4.1.
 Deze signalisatie moet vanaf een duidelijke afstand zichtbaar zijn zodat de betrokkene
 deze kan lezen vooraleer hij de gemonitorde omgeving betreedt. Deze omgeving moet
 duidelijk zijn voor de betrokkene zodat hij deze kan mijden.
-
-Figuur 4.1: Voorbeeld van camera signalisatie (European-Data-Protection-Board, 2019)
-
 Recht op informatie en rectificatie van persoonsgegevens
 
 Iedereen bezit zijn eigen persoonlijke data en mag deze bijgevolg ook inkijken en corrigeren. Indien een gebruiker vraagt om zijn persoonsgegevens in te kijken, moet het bedrijf
-
-32
-
-Hoofdstuk 4. Wetgeving omtrent nummerplaatdetectie
-
 in kwestie al de persoonsgegevens van de gebruiker binnen de maand kunnen opleveren.
 Ook kan een gebruiker op eender wanneer beslissen om al zijn data te laten verwijderen
 (SecureDataService, 2018). Dit is terug te vinden in artikel 15 en 16 van de GDPR.
-
 Recht op vergetelheid
 
 Een verwerkingsverantwoordelijke is verplicht persoonsgegevens zonder onredelijke vertraging te wissen indien deze niet meer nodig zijn voor de oorspronkelijke doeleinden, de
 gegevens onrechtmatig verwerkt zijn of de betrokkene zijn toestemming intrekt. Enkel
+
+4.1 Algemene verordening gegevensbescherming
+
+33
+
+Figuur 4.1: Voorbeeld van camerasignalisatie (European-Data-Protection-Board, 2019)
 indien één van de uitzonderingen in artikel 17 (3) van toepassing zijn kan dit langer duren.
 (European-Data-Protection-Board, 2019)
-
 Recht op beperking van verwerking
 
 Bij camerasystemen die berusten op het gerechtvaardigd belang of openbaar belang om
 data te verwerken, heeft een betrokkene het recht om op eender welk moment hier bezwaar
 op te maken. Indien de verwerkingsverantwoordelijke geen legale gronden kan voorleggen
 die zwaarder doorwegen dan de rechten van de betrokkene, is hij verplicht aan de wensen
-van de betrokkene te voldoen.
+van de betrokkene te voldoen. Dit is terug te vinden in artikel 18 van de GDPR.
 In een context van camerabewaking kan deze objectie gemaakt worden voor, tijdens, of na
 een betrokkene een bewaakte zone betreedt. Dit betekent dat indien de belangen van de
 verwerkingsverantwoordelijke niet doorwegen tot de rechten van de betrokkene, de camera
@@ -404,30 +423,54 @@ betreedt. (European-Data-Protection-Board, 2019)
 Verwerking waarvoor identificatie niet is vereist
 Artikel 11 van de GDPR zegt dat indien de doeleinden niet vereisen dat de betrokkene
 geïdentificeerd is, dat de verwerker geen aanvullende gegevens hoeft bij te houden.
+
+Hoofdstuk 4. Wetgeving omtrent nummerplaatdetectie
+
+34
+
 Hieruit volgt dan ook dat indien de verwerker kan aantonen dat hij de betrokkene niet
 kan identificeren, artikelen 15 tot en met 20, beschreven in onderdeel 4.1.3 niet meer van
 toepassing zijn.
 
+4.1.5
+
+Functionaris voor gegevensbescherming
+Een functionaris voor gegevens bescherming of data protection officer (DPO) is iemand
+met deskundingheid op het gebied van gegevensbescherming. Een DPO wordt aangewezen
+om de verwerkingsverantwoordelijke of de verwerker te informeren en adviseren over hun
+verplichtingen over de GDPR en andere wetten over gegevensbescherming.
+Voorwaarden voor het aanstellen
+
+Een DPO dient aangesteld te worden in volgende gevallen:
+• De verwerking wordt verricht door een overheidsinstantie of overheidsorgaan.
+• De verwerker is hoofdzakelijk belast met verwerkingen die observatie op grote
+schaal van betrokkenen eisen.
+• De verwerker is hoofdzakelijk belast met het verwerken van uitzonderlijke persoonsgegevens.
+Taken
+
+De DPO dient de verwerkingsverantwoordelijke of de verwerker te informeren en adviseren
+over hun rechten en verplichtingen, het toezien op het naleven van de GDPR, samenwerken
+met de toezichthoudende autoriteit en optreden als contactpunt voor de toezichthoudende
+autoriteit.
+
 4.2
 
-Verwerkingsverantwoordelijke en verwerker
-Foto’s zijn bijzondere persoonsgegevens (biometrische info).
-
-4.3 Toegepast op een ANPR-systeem
-
-4.3
-
-33
-
 Toegepast op een ANPR-systeem
-Het ANPR-systeem dat Vado-Solutions voorstelt slaat geen persoonsdata zoals namen,
-adres op. Het zou puur op nummerplaten werken.
-ANPR gaat over het verzamelen van nummerplaatinformatie
+Het ANPR-systeem dat Vado-Solutions voorstelt slaat geen persoonsdata op, de foto’s die
+genomen worden om nummerplaten uit te lezen worden direct na de detectie verwijdert.
+Dit slaat niet af van het feit dat er verwerkingen op de foto’s worden uitgevoerd en hier
+moet dus ook gepaste maatregelen op genomen worden.
+Om deze foto’s rechtmatig te kunnen verwerken is de enige echte optie ANPR gaat over
+het verzamelen van nummerplaatinformatie
 enkel anpr gebruiken voor het juiste doel
 indien de afbeeldingen niet opgeslaan worden, moet er verder geen zorgen gemaakt worden
 over de termijn hoelang data mag bijgehouden worden.
 
-4.4
+4.3 Belgische Camerawetgeving
+
+4.3
+
+35
 
 Belgische Camerawetgeving
 Sinds 25 mei 2018 is de nieuwe camerawetgeving ingevoerd, dit is een herziening van
@@ -448,14 +491,14 @@ persoonsgegevens worden verwerkt door een bedrijf, vereniging of eenmanszaak. (G
 In deze sectie beoordelen we welke maatregelen genomen moeten worden bij het implementeren van een ANPR systeem met oog op de parking aan de UGent.
 Nummerplaatdetectie is al sterk geevolueerd sinds vroeger, maar heeft nog steeds enkele
 drawbacks. Zo spelen factoren zoals weer, belichting en plaatsing van de camera’s een
-invloed op de nauwkeurigheid van de uitlezingen.
-zoals camerahoek, resolutie, weerstomstandigheden, belichting, afbeeldingcompressie, tijd
-voor een uitlezen. Door het volgen van deze maatregelen kan een werknemer nummerplaatdetectie installeren op een zo’n correct mogelijke manier.
+invloed op de nauwkeurigheid van de uitlezingen. Indien we met beperkte hardware
+werken kunnen deze omstandigheden niet altijd gemakkelijk direct verholpen worden,
+maar is het de bedoeling dat toch een optimale instelling behaald wordt.
 
 5.1
 5.1.1
 
-Camera Plaatsing
+Cameraplaatsing
 Locatie van de camera
 Uit een prototype van arrieta-Rodriguez, Murillo, Arnedo, Caicedo en Fuentes (2019)
 bleek dat nummerplaten niet correct geïdentificeerd werden bij een inclinatiehoek vanaf
@@ -463,14 +506,17 @@ bleek dat nummerplaten niet correct geïdentificeerd werden bij een inclinatieho
 Verder is het aangeraden om de camera hoger te plaatsen dan de koplampen van de auto,
 dit om te voorkomen dat de camera verblind wordt door het sterke licht.
 
-36
 5.1.2
-
-Hoofdstuk 5. Maatregelen voor ANPR
 
 Camera oriëntatie
 De gedetecteerde nummerplaten horen parallel te staan met de randen van de afbeelding.
-Dit omdat de datasets voor OpenANPR getraint zijn met afbeeldingen van horizontale nummerplaten, maar niet van gedraaide. Indien het niet mogelijk is om een rechte afbeelding
+Dit omdat de datasets voor OpenANPR getraint zijn met afbeeldingen van horizontale num-
+
+Hoofdstuk 5. Maatregelen voor ANPR
+
+38
+
+merplaten, maar niet van gedraaide. Indien het niet mogelijk is om een rechte afbeelding
 te nemen kan de afbeelding ook later gedraaid worden.
 
 5.1.3
@@ -500,6 +546,18 @@ Bij een lange shutterspeed kan het dus zijn dat een voertuig een meter vooruit i
 terwijl bij een kleine shutterspeed dit bv. maar een centimeter is. Een korte shutterspeed is
 dus interessant voor het implementeren van nummerplaatdetectie aangezien de auto minder
 ver is gereden en dus minder motion blur op de foto staat.
+
+(a) Shutter speed van 1/60
+
+(b) Shutter speed van 1/250
+
+Figuur 5.1: Vergelijking van verschillende shutterinstellingen. (easy-basic-photography,
+2019)
+
+5.2 Camera instellingen
+
+39
+
 Het nadeel van een kleine shutterspeed te nemen is dat er veel minder licht aanwezig is
 op de foto’s, wat de detectie dan weer omlaag brengt. Zo krijg je ’s nachts bijna volledig
 zwarte foto’s. Dit kan geremedieerd worden door belichting bij te plaatsen.
@@ -507,34 +565,24 @@ zwarte foto’s. Dit kan geremedieerd worden door belichting bij te plaatsen.
 5.2.2
 
 Belichting
-’s Nachts is de belichting van de nummerplaten een stoorzender, de camera kan onmogelijk
-een kleine shutterspeed aanhouden en een genoeg belichte afbeelding krijgen. Hiervoor
-moet er dus een eigen belichting bijgezet worden.
-
-5.2 Camera instellingen
-
-(a) Shutter speed van 1/60
-
-37
-
-(b) Shutter speed van 1/250
-
-Figuur 5.1: Vergelijking van verschillende shutterinstellingen. (easy-basic-photography,
-2019)
-Zelfs al wordt er belichting bijgezet zal de nummerplaat spijtig genoeg niet leesbaar zijn,
-dit komt doordat de koplampen van een auto ervoor zorgen dat de camera niet eens een
-nummerplaat meer ziet. Een algemene oplossing voor deze problemen is het gebruik van
-een IR-camera. Een IR-camera detecteerd enkel IR-licht en heeft dus geen invloed van de
-koplampen van wagens. Verder is het voordeel hiervan dat IR-licht niet zichtbaar is voor
-het menselijk oog, en dus ongestoort snachts en overdag gebruikt kan worden.
+’s Nachts is het moeilijk een degelijke foto van nummerplaten te verkrijgen. Door het
+weinige licht moet de camera zeer lang zijn shutter openhouden, wat resulteert in een
+wazige foto.
+Men kan de nummerplaat zichtbaar maken door het bijzetten van belichting, maar zelfs dan
+zal de nummerplaat vaak weinig tot niet zichtbaar zijn. Dit komt doordat de koplampen
+van een auto zeer fel oplichten in de camera en hierdoor de afbeelding overbelichten.
+Een algemene oplossing voor deze problemen is het gebruik van een IR-camera. Een
+IR-camera detecteerd enkel IR-licht en heeft dus geen invloed van de koplampen van
+wagens. Verder is het voordeel hiervan dat IR-licht niet zichtbaar is voor het menselijk
+oog, en dus ongestoort snachts en overdag gebruikt kan worden. Een voorbeeld hiervan is
+te zien in figuur 5.2, waarbij eerst geen IR-filter wordt gebruikt en daarna wel.
 
 (a) Slecht geconfigureerde camera.
 
 (b) Correct geconfigureerde camera.
 
-Figuur 5.2: Vergelijking tussen camerainstellingen in de nacht. (Axis-Communications,
+Figuur 5.2: Vergelijking tussen IR-camerainstellingen in de nacht. (Axis-Communications,
 2019)
-Infrarood, infraroodlamp, dag, nacht
 
 5.2.3
 
@@ -542,19 +590,28 @@ Depth of field
 Om scherpe afbeeldingen te verkrijgen moet de depth of field (DOF) van een camera
 correct ingesteld staan. Deze bepaald in welke range een afbeelding scherp is. Hoe groter
 de DOF, hoe verder de objecten in focus zijn. Bij afstanden onder de 10m is de DOF aan
-de kleine kant en moet deze heel nauwkeurig ingesteld worden. (Axis-Communications,
-2019)
+de kleine kant en moet deze heel nauwkeurig ingesteld worden (Axis-Communications,
+2019). In vele camera’s gebeurt het instellen van de DOF automatisch en moet hier niet
+echt naar gekeken worden. Een verduidelijking van DOF is te zien in figuur 5.3.
 
 Hoofdstuk 5. Maatregelen voor ANPR
 
-38
+40
 
 Figuur 5.3: Verduidelijking van depth of field. (Axis-Communications, 2019)
 
 5.3
+
+Configuratie van OpenALPR
+OpenALPR, de open-source software voor het detecteren van nummerplaten, biedt zelf ook
+verscheidene instellingen die de accuraatheid van de detectie kan verbeteren. Aangezien
+de software gebruikt kan worden over heel de wereld zijn en deze nummerplaten heel
+wat verschillen zijn er meerdere configuraties beschikbaar die specifieker op de regio
+getraind zijn, maar ook calibratie van de genomen afbeeldingen en patroonmatching zijn
+beschikbaar.
+
 5.3.1
 
-Configuratie
 Pattern matching
 arrieta-Rodriguez e.a. (2019) en Buhus, Timis en Apatean (2016) concluderen beiden
 dat openalpr standaard goede resultaten biedt, maar nog hogere resulaten bereikt kunnen
@@ -582,59 +639,107 @@ pattern_match : 0
 − 4S5O23S
 confidence : 84.5445
 pattern_match : 0
+
+5.3 Configuratie van OpenALPR
 − 4S5O23B
 confidence : 83.7395
-pattern_match : 0
 − 4S5O2S3
 confidence : 83.3698
-pattern_match : 0
 − 4S5O23G
 confidence : 83.1375
-pattern_match : 0
 − 4 S50233
 confidence : 83.0457
-pattern_match : 1
 − 4S5O2B3
 confidence : 82.5635
-pattern_match : 0
 − 4S5O2
 confidence : 82.0857
-pattern_match : 0
 − 4S5O2G3
 confidence : 81.5684
-pattern_match : 0
 − 4 S5O2J3
 confidence : 81.0409
-pattern_match : 0
-
-5.3 Configuratie
-
-39
-
 − 4S5O2S
 confidence : 80.2911
-pattern_match : 0
 . . . more r e s u l t s t h a t do n o t match . . .
 
+41
+pattern_match
+pattern_match
+pattern_match
+pattern_match
+pattern_match
+pattern_match
+pattern_match
+pattern_match
+pattern_match
+
+:
+:
+:
+:
+:
+:
+:
+:
+:
+
+0
+0
+0
+1
+0
+0
+0
+0
+0
+
 Figuur 5.4: Pattern matching van OpenALPR (OpenALPR-Software-Solutions, 2015)
-Hieruit is te zien dat bij de top 7 resultaten het middelste karakter als een O zien i.p.v. een
-0. Door te kijken of de pattern matching succesvol was, zien we dat het achtste resultaat
-correct is.
+Hieruit is te zien dat bij de top 7 resultaten het middelste karakter als de letter O zien i.p.v.
+het cijfer 0. Door te kijken of de pattern matching succesvol was, zien we dat het achtste
+resultaat correct is.
 
 5.3.2
+
+Calibratie van afbeeldingen
+In vele situaties is het niet mogelijk om de camera frontaal te richten op een nummerplaat.
+Indien de camera te diagonaal gericht is, zoals in afbeelding 5.5, is het zeer waarschijnlijk
+dat de accuraatheid van OpenALPR zal zakken. Dit komt omdat OpenALPR getraind is op
+afbeeldingen die horizontaal gealigneerd zijn met een maximale hoek van 30◦ . Gelukkig
+biedt OpenALPR een eigen tool aan om foto’s te kalibreren. Deze is te zien in afbeelding
+5.6, waar de x- en y-as rotatie en schaal aangepast worden om de afbeelding toch recht te
+
+42
+
+Hoofdstuk 5. Maatregelen voor ANPR
+
+trekken.
+
+Figuur 5.5: Nummerplaat met een grote invalshoek (OpenALPR-Software-Solutions,
+2015)
+
+Figuur 5.6: Gekalibreerde afbeeld adhv. OpenALPR’s calibratie tool. (OpenALPRSoftware-Solutions, 2015)
+
+5.3 Configuratie van OpenALPR
+5.3.3
+
+43
 
 Buitenlandse nummerplaten
 OpenALPR heeft verscheidene configuraties voor Europa, Amerika en andere continenten.
 Door één van deze te selecteren wordt een ander model gekozen dat specifiek voor deze
-regio getraint is. Bij een keuze van de Europese databank worden er dan ook geen tot
-weinig fouten verwacht indien een buitenlandse nummerplaat gedetecteerd is.
+regio is getraind. Bij een keuze van de Europese databank worden er dan ook geen tot
+weinig fouten verwacht aangezien het model met nummerplaten over heel Europa getraind
+is.
 
-5.3.3
+5.3.4
 
 Commerciële upgrades
-OpenALPR wilt ook wel winst maken en biedt dan ook een commerciële versie van
-OpenALPR aan, deze zou een hogere nauwkeurigheid bieden in enkele cases waar de
-Open Source versie slechte presteert. (OpenALPR-Software-Solutions, 2019a)
+OpenALPR biedt ook een commerciële versie aan. Deze zou naar eigen zeggen een hogere
+nauwkeurigheid bieden in cases waar de Open Source versie slecht presteert (OpenALPRSoftware-Solutions, 2019a). Er wordt verondersteld dat deze verbeteringen direct zouden
+vertalen naar het onderzoek zelf en een hogere performantie zal leveren.
+De commerciële versie van OpenALPR kost op het moment dat dit onderzoek gepubliceerd
+is 49 dollar per maand, wat omgerekend 44,1 euro is. Dit onderzoek focust zich op
+een goedkope implementatie van ANPR, hierdoor wordt de commerciële versie niet
+overwogen.
 
 6. Praktische uitvoering van ANPR
 
@@ -665,7 +770,7 @@ en wordt er liever niet geopteerd voor een aparte paal voor de ANPR-camera. Daar
 
 Hoofdstuk 6. Praktische uitvoering van ANPR
 
-42
+46
 
 zal als fotopunt de metalen constructie van de hefboom gekozen worden. De camera zal
 hier op de top worden aangehangen zodat deze zo min mogelijk interferentie heeft van de
@@ -695,7 +800,7 @@ worden aan de uitgangen. Deze uitgangen zijn:
 
 6.2 Verzamelen van de gegevens
 
-43
+47
 
 Figuur 6.2: Opstelling Raspberry Pi met PiCam.
 •
@@ -708,9 +813,36 @@ Campus Coupure - Uitgang Kruisboogstraat
 Campus Landbouw - Uitgang De Pintelaan
 Campus Landbouw - Uitgang Galglaan
 
-Hierbij worden er 2 tot 3 foto’s genomen per auto. Aan al deze uitgangen zijn er in totaal
-252 foto’s genomen op volgende momenten:
-Motion detection:
+Per auto die de parking wilt verlaten worden er 6 foto’s gemaakt in een periode van 3
+seconden. Deze worden niet automatisch getriggerd, maar handmatig aan de hand van
+een SSH verbinding. Foto’s die te laat of te vroeg werden genomen worden weggelaten.
+Enkele voorbeelden hiervan zijn te zien in Figuur 6.3. Vervolgens wordt er per auto maar
+1 foto bijgehouden per afstand. Indien er maar 1 afstand aanwezig is op de foto’s, wordt
+deze reeks niet gezien als representatief en zullen de auto’s niet verwerkt worden.
+
+(a) Auto op een onredelijk dichte afstand.
+
+(b) Auto op een onredelijk verre afstand.
+
+(c) Auto die de parking niet verlaat.
+
+Figuur 6.3: Foto’s van auto’s die niet representatief zijn.
+In sommige gevallen zijn de foto’s allemaal van een veel te verre afstand genomen, dit is
+niet representatief aangezien een motion detection systeem foto’s over een korte afstand
+kan nemen. In het geval van Figuur 6.4 zijn alle afbeeldingen op een verre afstand genomen.
+
+Hoofdstuk 6. Praktische uitvoering van ANPR
+
+48
+
+Een motion detection systeem zou in dit geval ook foto’s genomen kunnen hebben op een
+dichtere afstand, hierdoor is deze reeks foto’s niet representatief en zal ook helemaal niet
+opgenomen worden in het onderzoek.
+
+Figuur 6.4: Foto’s die allemaal op een verre afstand genomen zijn en hierdoor dus niet
+representatief zijn.
+
+Op volgende momenten en locaties zijn de foto’s verzameld:
 Datum
 06/11/2019
 08/11/2019
@@ -721,6 +853,7 @@ Datum
 14/11/2019
 21/11/2019
 21/11/2019
+27/11/2019
 
 Begin
 11u45
@@ -732,6 +865,7 @@ Begin
 18u05
 14u08
 15u58
+13u42
 
 Eind
 12u46
@@ -743,6 +877,7 @@ Eind
 18u55
 15u11
 16u22
+15u03
 
 Locatie
 Campus Coupure - Uitgang Kruisboogstraat
@@ -754,6 +889,7 @@ Campus Coupure - Uitgang Coupure Links
 Campus Coupure - Uitgang Coupure Links
 Campus Sterre - Uitgang De Pintelaan
 Campus Sterre - Uitgang Galglaan
+Campus Sterre - Uitgang De Pintelaan
 
 Aantal foto’s
 53
@@ -765,8 +901,26 @@ Aantal foto’s
 3
 35
 36
+76
 
 Zo bekomen we volgende aantallen van foto’s per uitgang:
+Per nummerplaat wordt volgende data genoteerd:
+•
+•
+•
+•
+
+file: De bestandsnaam van de foto.
+license_plate: De ’correcte’ nummerplaat, handmatig uit de foto gehaald.
+result: De nummerplaat gedetecteerd door OpenALPR.
+distance: De afstand van de camera, bestaat uit 3 velden, "close", "medium" en
+"far". Close betekent een afstand onder de 3 meter, medium tussen 3 en 5 meter en
+far betekent verder dan 5 meter.
+
+6.3 Verwerking van gegevens
+
+49
+
 Uitgang
 Campus Coupure - Uitgang Kruisboogstraat
 Campus Coupure - Uigang Coupure Links
@@ -781,18 +935,6 @@ Aantal foto’s
 38
 50
 
-Per nummerplaat wordt volgende data genoteerd:
-• file: De bestandsnaam van de foto.
-• license_plate: De ’correcte’ nummerplaat, handmatig uit de foto gehaald.
-• result: De nummerplaat gedetecteerd door OpenALPR.
-
-44
-
-Hoofdstuk 6. Praktische uitvoering van ANPR
-• correct: Een booleaanse waarde of de nummerplaat overeenkomt.
-• distance: De afstand van de camera, bestaat uit 3 velden, "close", "medium" en
-"far". Close betekent een afstand onder de 3 meter, medium tussen 3 en 5 meter en
-far betekent verder dan 5 meter.
 • lighting: De belichting van de nummerplaten, bestaat uit 2 velden, "bright" en
 "very_bright". Bright betekent dat de nummerplaat duidelijk leesbaar is voor mensen
 onder normaal daglicht. very_bright betekent dat deze niet onmiddelijk leesbaar is.
@@ -816,138 +958,347 @@ twee afstanden per auto.
 6.3.1
 
 Calibratie van de afbeeldingen
-Origineel waren de resultaten van de nummerplaatdetectie aan de zeer lage kant, aangezien
-de afbeeldingen nog niet gekalibreerd waren. OpenALPR een horizontale nummerplaat in
-de afbeeldingen, wat niet mogelijk te bereiken is puur met de Pi-Cam.
+Origineel waren alle resultaten van de nummerplaatdetectie aan de zeer lage kant, aangezien
+de afbeeldingen nog niet gecalibreerd waren. Dit is beschreven in
 
 (a) Niet-gekalibreerde afbeelding
 
 (b) Gekalibreerde afbeelding
 
-Figuur 6.3: Calibratie van afbeeldingen met behulp van openalpr-utils-calibrate.
+Figuur 6.5: Calibratie van afbeeldingen met behulp van openalpr-utils-calibrate.
+
+Hoofdstuk 6. Praktische uitvoering van ANPR
+
+50
 
 Een verduidelijking van het het verschil van de resultaten aan de uitgang van Campus
-
-6.4 Resultaten
-
-45
-
 Sterre - Galglaan:
 Incorrect Correct Ratio
 Niet-gekalibreerd 25
 2
 7.4%
-Gekalibreerd
 9
 18
 66.7%
+Gekalibreerd
+
+6.3.2
+
+Patroon matching van nummerplaten
+Nummerplaten kunnen soms foutief gedetecteerd worden door letters en nummers die op
+elkaar lijken. Zo is er maar een klein verschil tussen de O, 0 en Q. Hierdoor kan het zijn
+dat een nummerplaat zoals 1-NOP-123 gelezen wordt als 1-N0P-123. In de gevallen dat
+deze de structuur van de reeksen tekens in de nummerplaten verhinderen, kunnen deze
+gemakkelijk opgelost worden door gebruik van OpenALPR’s patroon matching.
+Wat patroon matching doet is zoals de naam zegt; het controleren of een bekomen nummerplaat voldoet aan een bepaald patroon. In Belgie en nederland zijn deze sinds 2010 een
+1 met 3 letters en 3 cijfers.
 
 6.4
 6.4.1
 
 Resultaten
 Campus Sterre - Uitgang Galglaan
-Campus Sterre uitgang galglaan Totaal Incorrect Correct Ratio
+De resultaten voor de uitgang van de Galglaan zijn zeer goed in vergelijking van de andere
+uitgangen, 22 van de 23 auto’s die gepasseerd zijn, zijn correct geidentificeerd. Dit is een
+ratio van 95.7%, wat een verwachte waarde is voor ANPR.
+ANPR nauwkeurigheid: Galglaan Totaal Incorrect Correct Ratio
 Per individuele foto
 62
-21
-41
-66.13%
-24
-3
-21
-87.5%
+13
+49
+79.0%
 Per auto
-Eind subsectie galglaan
-De eerste resultaten aan de uitgang van (coupure1) waren niet veelbelovend, dit kwam
-doordat in de gekozen orientatie er ’s ochtends interferentie was van het zonlicht, de
-gekozen locatie van de camera is dus geen correcte keuze. Dit is te zien op Afbeelding
-6.5. Deze afbeelding is niet bewerkt, de nummerplaat is helemaal niet zichtbaar door de
-reflectie van het zonlicht.
+23
+1
+22
+95.7%
+Fouten
 
-Figuur 6.4: Interferentie van zonlicht op de parking van Campus Sterre.
+De foutieve wagen, getoond in figuur 6.6, heeft geen opvallende geschillen dan de andere
+wel-gedetecteerde wagens. Qua positie, kwaliteit, focus is hij identiek. We kunnen hierdoor
+veronderstellen dat deze fout komt door de accuraatheid van OpenALPR zelf. Verbetering
+aan de uitgang lijkt niet direct nodig.
 
-In het donker is de interferentie van de koplampen niet te groot, maar de algemene donkerheid van de omgeving zorgt ervoor dat de raspberry pi zijn shutter te lang openhoudt en
-dat de afbeeldingen enorm donker blijken. Het is dus vereist om extra infraroodbelichting
-bij te plaatsen.
-Resultaten overdag, per afbeelding
-Resultaten overdag, per auto
+6.4.2
+
+Campus Sterre - Uitgang De Pintelaan
+De uitgang op de Campus Sterre aan de De Pintelaan is de hoofduitgang van UGent en
+was het moeilijkste te configureren van alle uitgangen. Deze is verbonden met drie straten
+
+6.4 Resultaten
+
+51
+
+Figuur 6.6: Niet-gedetecteerde nummerplaat aan Campus Sterre - Galglaan.
+die enkele grote parkings verbinden, bijgevolg wordt deze het meest gebruikt van alle
+uitgangen. Het is dan ook belangrijk dat hier een goede detectie is.
+Door de vele verbindingen is het mogelijk om de parking op allerlei manieren te bereiken,
+deze zijn te zien op figuur 6.7. Dit is op zich geen probleem, maar hierdoor moet de
+nummerplaatdetectie wel in een groot aantal orientaties werken.
+
+Figuur 6.7: Satellietafbeelding van de Campus Sterre - Uitgang De Pintelaan met aangeduide routes en cameralocaties. (Google-Earth, 2019)
+
+Positie rechts van de hefboom
+
+In een eerste poging tot detectie werd de camera op de metalen constructie van de hefboom
+geplaatst, wat aan andere uitgangen al goede resultaten leverde. Spijtig genoeg was deze
+locatie duidelijk niet geschikt, de zon speelde een grote invloed op de afbeeldingen. Deze
+plaatsing is aangeduid op Afbeelding 6.7 als punt 1.
+De eerste resultaten aan deze uitgang waren dus niet veelbelovend, dit kwam grotendeels
+
+52
+
+Hoofdstuk 6. Praktische uitvoering van ANPR
+
+ANPR nauwkeurigheid: De Pintelaan, rechts Totaal Incorrect Correct
+Per individuele foto
+73
+43
+30
+Per auto
+25
+8
+17
+
+Ratio
+41.1%
+68.0%
+
+omdat in de gekozen orientatie er ’s middags interferentie is van het zonlicht. Wanneer
+de zon hoog staat reflecteert het zonlicht via de nummerplaat recht in de camera, wat
+het contrast van de nummerplaat enorm vermindert. Hieruit kunnen we afleiden dat deze
+cameraplaatsing niet geschikt is voor de uitgang. Een voorbeeld van deze interferentie is
+te zien op Figuur 6.8. Deze afbeelding is niet bewerkt, de nummerplaat is gewoonweg
+helemaal niet zichtbaar door de reflectie van het zonlicht.
+
+Figuur 6.8: Interferentie van zonlicht op de parking van Campus Sterre - De Pintelaan.
+
+Positie links van de hefboom
+
+In een poging om de invloed van de zon tegen te gaan is geprobeerd om de camera aan de
+linkerkant van de slagboom te zetten. Ook op deze positie maakte de zon de nummerplaten
+in vele gevallen minder leesbaar, maar bijkomend was het ook duidelijk dat een andere
+factor de nauwkeurigheid zwaar beïnvloedde.
+Deze andere factor is de kijkhoek van de camera zelf. Door de vele inrijrichtingen van
+de auto, aangeduid op figuur 6.7, waren groot deel van de nummerplaten helemaal niet
+zichtbaar. Enkele voorbeelden hiervan zijn te zien in figuur ??, Auto’s die van links komen
+hun nummerplaten staan te schuin om soms zelfs duidelijk met het oog te kunnen lezen.
+In de volgende table staan de bekomen resultaten beschreven van deze positie.
+
+6.4 Resultaten
+
+53
+
+Figuur 6.9: Cameraplaatsing aan de rechterkant van de hefboom op Campus Sterre - De
+Pintelaan. De locatie van de camera is aangeduidt met een rode cirkel.
+
+Figuur 6.10: Moeilijk te detecteren nummerplaten door scherpe camerahoek.
+ANPR nauwkeurigheid: De Pintelaan, links Totaal Incorrect Correct Ratio
+Per individuele foto
+50
+31
+19
+38.0%
+Per auto
+17
+8
+9
+52.9%
+Met net meer dan de helft van de auto’s correct te kunnen detecteren kunnen we besluiten
+dat deze positie geen oplossing is.
+Positie achteraan de uitgang
+
+Als derde optie is er getest op de mogelijkheid om van een verdere locatie foto’s te nemen.
+hiervoor is een statief gebruikt om de camera op een geschikte hoogte te houden, zoals
+aangetoond op figuur 6.11. Deze positie is een drie meter naar achteren van de linkerkant
+van de hefboom, dit zodat da invalshoek van de camera zo klein mogelijk blijft. De hoogte
+
+54
+
+Hoofdstuk 6. Praktische uitvoering van ANPR
+
+van de camera is 1,5 meter hoog, dit is hoog genoeg om de invloed van het zonlicht weg te
+werken.
+
+Figuur 6.11: Cameraplaatsing met statief op Campus Sterre - De Pintelaan.
+
+Volgende resultaten zijn bekomen op deze locatie:
+ANPR nauwkeurigheid: De Pintelaan, achteraan Totaal Incorrect Correct Ratio
+Per individuele foto
+75
+35
+40
+53.3%
+24
+6
+18
+75.0%
+Per auto
+
+Deze locatie is een verbetering tov. de vorige posities. Allereerst staan alle auto’s op
+dezelfde locatie ongeacht van inrijrichting. Dit maakt de configuratie van OpenALPR een
+pak aangenamer en correcter. Verder heeft de hogere plaatsing van de camera het voordeel
+dat de invloed van de zon minimaal is.
+Ondanks deze voordelen zijn er toch 6 auto’s die niet gedetecteerd zijn. Na deze na te
+gaan is het duidelijk dat dit komt door de grote afstand en bijgevolg lagere resolutie van de
+nummerplaten. Een voorbeeld hiervan is te zien op figuur 6.12.
+Eén voertuig is niet gedetecteerd niet door de lage resolutie maar door de hoogte van de
+slagboom, deze vrachtagen zijn nummerplaat staat op een te hoge plaats waardoor de
+slagboom ervoor staat op de foto. Dit is te zien in figuur 6.13. Deze situatie is wellicht
+uitzonderlijk. Alle andere auto’s hun nummerplaat zit ruim onder de slagboom.
+
+6.4 Resultaten
+
+55
+
+Figuur 6.12: Moeilijk te detecteren nummerplaten door een lage resolutie. Enkele karakters
+zijn onduidelijk gemaakt uit privacy van de bestuurder.
+
+Figuur 6.13: Niet te detecteren nummerplaat omwille van slagboom die het zicht verhindert.
+
+Verbeteringen
+
+De camera is niet direct te hoog geplaatst, dit was uit voorzorg dat de hefboom van de
+toegang het beeld van de nummerplaten overlapt. Na de foto’s te analyzeren bleek het
+toch dat er nog ruim veel plaats was om de camera hoger te zetten. Dit is een vereiste om
+mogelijkse voorbijgangers te beletten van vandalisme.
+Er werd reeds aangehaald dat de resolutie van de afbeeldingen een grote stoorzender waren
+op de nauwkeurigheid van OpenALPR. De foto’s zijn gemaakt op een resolutie van 1280 x
+720 pixels. Deze resolutie was voldoende voor alle vorige uitgangen, maar niet op deze.
+Gelukkig biedt de gebruikte camera, de PiNoIR V2 cam een resolutie aan van 8MP, dit
+zijn 3266 x 2450. Tesamen met parameters om softwarematig in te zoomen op een foto.
+Vermoedelijk zou dit de accuraatheid van deze uitgang omhoog kunnen brengen van 75%
+naar 90%. Dit was helaas niet mogelijk in dit onderzoek omwille van tijdsgebrek.
 
 Hoofdstuk 6. Praktische uitvoering van ANPR
 
-46
+56
+6.4.3
 
-Figuur 6.5: Interferentie van zonlicht op de parking van Campus Sterre.
-Uitgang
+Campus Coupure - Uitgang Kruisboogstraat
+Volgende resultaten zijn bekomen voor de uitgang van de Kruisboogstraat:
+ANPR nauwkeurigheid: Kruisboogstraat Incorrect Correct Totaal Ratio
+Per individuele foto
+68
+16
+52
+76.5%
+Per auto
+25
+1
+26
+96.15%
+
+Fouten
+
+Op 1 auto na zijn alle auto’s correct geïdentificeerd. De incorrecte afbeeldingen biedt heeft
+geen merkwaardige verschillen van de andere afbeeldingen waardoor de juistheid lager zou
+liggen. We kunnen hieruit dus veronderstellen dat deze fout komt door de nauwkeurigheid
+van OpenALPR zelf.
+
+6.4.4
+
+Campus Coupure - Uitgang Coupure Links
+Aan de uitgang van aan de Coupure Links zijn er niet genoeg foto’s genomen kunnen
+worden om een correcte steekproef uit te voeren.
+
+6.4.5
+
+Algemene resultaten
+In het donker is de interferentie van de koplampen niet te groot, maar de algemene donkerheid van de omgeving zorgt ervoor dat de raspberry pi zijn shutter te lang openhoudt en
+dat de afbeeldingen enorm donker blijken. Het is dus vereist om extra infraroodbelichting
+bij te plaatsen.
+
+Figuur 6.14: Onnauwkerige foto’s door een tekort aan licht.
+
+Resultaten overdag, per afbeelding
+Resultaten overdag, per auto
+
+6.5 Conclusie
+
+57
+
+Resultaten per individuele foto
 Campus Coupure - Uitgang Kruisboogstraat
 Campus Coupure - Uitgang Coupure Links
 Campus Sterre - Uitgang Galglaan
 Campus Sterre - Uitgang De Pintelaan
 Totaal
+
+Incorrect
+16
+/
+13
+35
+64
+
+Correct Aantal foto’s Ratio
+52
+68
+76.5%
+
+Resultaten per auto
+Campus Coupure - Uitgang Kruisboogstraat
+Campus Coupure - Uitgang Coupure Links
+Campus Sterre - Uitgang Galglaan
+Campus Sterre - Uitgang De Pintelaan
+Totaal
+
+Incorrect
+1
+/
+1
+6
+8
+
+Correct Aantal auto’s Ratio
+25
+26
+96.15%
+
+49
+40
+141
+
+22
+18
+65
+
+62
+75
+205
+
+79.0%
+53.3%
+68.8%
+
+23
+24
+73
+
+95.7%
+75.0%
+89.0%
+
+Verbeteringen
+
+96.15% is op zich een geslaagde waarde voor nummerplaatdetectie. Indien men toch de
+accuraatheid wilt verbeteren is de beste optie in de investering van de betalende versie van
+OpenALPR.
 
 6.5
 
 Conclusie
+In geen van de gevallen in een performantie van 95% bereikt. Gemiddeld is deze zelfs 85%,
+wat zou betekenen dat ongeveer 1 op 6 gebruikers terug zou moeten keren om toch een
+token te bemachtigen. We leiden hierop uit dat nummerplaatdetectie met deze technologie
+toch niet performantie in nacht of regen.
+Op vlak van wetgeving en GDPR is nummerplaatdetectie dan wel weer zeker mogelijk.
 
 6.6
 
 Uitbreidingen
-
-Aantal foto’s
-52
-/
-62
-73
-188
-
-Incorrect Correct Ratio
-15
-37
-71.2%
-21
-47
-83
-
 Locatie van de sensor kan mss in het midden van balk (Buhus e.a., 2016).
 
-41
-26
-105
+7. Conclusie
 
-66.13%
-35.6%
-44.1%
-
-6.6 Uitbreidingen
-
-Uitgang
-Campus Coupure - Uitgang Kruisboogstraat
-Campus Coupure - Uitgang Coupure Links
-Campus Sterre - Uitgang Galglaan
-Campus Sterre - Uitgang De Pintelaan
-Totaal
-
-47
-
-Aantal auto’s
-23
-/
-24
-25
-72
-
-Incorrect Correct Ratio
-2
-21
-91.3%
-3
-10
-15
-
-21
-15
-57
-
-87.5%
-60.0%
-79.2%
