@@ -63,7 +63,7 @@ Per auto die de parking wilt verlaten worden er 6 foto's gemaakt in een periode 
 	\includegraphics[width=\linewidth]{img/slecht/anderekant.jpg}
 	\caption{Auto die de parking niet verlaat.}
 	\end{subfigure}
-	\caption{Foto's van auto's die niet representatief zijn.}
+	\caption{Types van foto's die niet opgenomen worden in het onderzoek.}
 	\label{fig:badpics}
 \end{figure}
 
@@ -84,7 +84,7 @@ In sommige gevallen zijn de foto's allemaal van een veel te verre afstand genome
 \end{figure}
 
 Op volgende momenten en locaties zijn de foto's verzameld:
-
+%TODO fix aantallen
 \begin{table}[h]
 \centering
 \begin{tabular}{l|l|l|l|l}
@@ -192,10 +192,11 @@ De foutieve wagen, getoond in figuur \ref{foutiefgalglaan}, heeft geen opvallend
 \end{figure}
 
 \subsection{Campus Sterre - Uitgang De Pintelaan}
-
 De uitgang op de Campus Sterre aan de De Pintelaan is de hoofduitgang van UGent en was het moeilijkste te configureren van alle uitgangen. Deze is verbonden met drie straten die enkele grote parkings verbinden, bijgevolg wordt deze het meest gebruikt van alle uitgangen. Het is dan ook belangrijk dat hier een goede detectie is.
 
 Door de vele verbindingen is het mogelijk om de parking op allerlei manieren te bereiken, deze zijn te zien op figuur \ref{fig:satellietdepintelaan}. Dit is op zich geen probleem, maar hierdoor moet de nummerplaatdetectie wel in een groot aantal orientaties werken.
+
+Aangezien aan deze uitgang niet direct een optimale camerahoek gevonden was, worden in de volgende onderdelen de geteste camerahoeken beschreven tesamen met hun resultaten.
 
 \begin{figure}[h!]
 	\centering
@@ -205,9 +206,16 @@ Door de vele verbindingen is het mogelijk om de parking op allerlei manieren te 
 \end{figure}
 
 \subsubsection{Positie rechts van de hefboom}
+In een eerste poging tot detectie werd de camera op de metalen constructie van de hefboom geplaatst, wat aan andere uitgangen al degelijke resultaten leverde. Spijtig genoeg was deze locatie duidelijk niet geschikt, de zon speelde een grote invloed op de afbeeldingen en ook de vele inrijrichtingen maakten dit moeilijk. Deze plaatsing is aangeduid op Afbeelding \ref{fig:satellietdepintelaan} als punt 1. Figuur \ref{fig:plaatsingdepintelaanorigineel} verduidelijkt de specifieke plaatsing van de camera zelf.
 
-In een eerste poging tot detectie werd de camera op de metalen constructie van de hefboom geplaatst, wat aan andere uitgangen al goede resultaten leverde. Spijtig genoeg was deze locatie duidelijk niet geschikt, de zon speelde een grote invloed op de afbeeldingen. Deze plaatsing is aangeduid op Afbeelding \ref{fig:satellietdepintelaan} als punt 1.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{img/depintelaanorigineel.jpg}
+	\caption{Cameraplaatsing aan de rechterkant van de hefboom op Campus Sterre - De Pintelaan. De locatie van de camera is aangeduid met een rode cirkel.}
+	\label{fig:plaatsingdepintelaanorigineel}
+\end{figure}
 
+Dit zijn de bekomen resultaten na het kalibreren van de camera:
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{l|l|l|l|l}
@@ -217,7 +225,9 @@ In een eerste poging tot detectie werd de camera op de metalen constructie van d
 	\end{tabular}
 \end{table}
 
-De eerste resultaten aan deze uitgang waren dus niet veelbelovend, dit kwam grotendeels omdat in de gekozen orientatie er 's middags interferentie is van het zonlicht. Wanneer de zon hoog staat reflecteert het zonlicht via de nummerplaat recht in de camera, wat het contrast van de nummerplaat enorm vermindert. Hieruit kunnen we afleiden dat deze cameraplaatsing niet geschikt is voor de uitgang. Een voorbeeld van deze interferentie is te zien op Figuur \ref{SterreZonlicht}. Deze afbeelding is niet bewerkt, de nummerplaat is gewoonweg helemaal niet zichtbaar door de reflectie van het zonlicht.
+De eerste resultaten aan deze uitgang waren niet denderend, indien 30\% van de bezoekers terug moeten keren om toch een token te halen doet nummerplaatdetectie meer kwaad dan goed. Na het inspecteren van de foutieve afbeelding werd duidelijk dat bij vele voertuigen 's middags een grote interferentie van het zonlicht hadden. Wanneer de zon hoog staat reflecteerde het zonlicht via de nummerplaat recht in de camera, wat het contrast van de tekst op de nummerplaat in grote mate verminderde en de detectie onmogelijk maakte. Hieruit kunnen we afleiden dat deze specifieke cameraplaatsing niet geschikt is voor de uitgang en een andere camerahoek gezocht moest worden. 
+
+Een voorbeeld van deze interferentie is te zien op Figuur \ref{SterreZonlicht}. Deze afbeelding is niet bewerkt, de nummerplaat is gewoonweg helemaal niet zichtbaar door de reflectie van het zonlicht.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\linewidth]{img/sterre2zon.jpg}
@@ -225,18 +235,8 @@ De eerste resultaten aan deze uitgang waren dus niet veelbelovend, dit kwam grot
 	\label{SterreZonlicht}
 \end{figure}
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.8\linewidth]{img/depintelaanorigineel.jpg}
-	\caption{Cameraplaatsing aan de rechterkant van de hefboom op Campus Sterre - De Pintelaan. De locatie van de camera is aangeduidt met een rode cirkel.}
-	\label{plaatsingdepintelaanorigineel}
-\end{figure}
-
 \subsubsection{Positie links van de hefboom}
-
-In een poging om de invloed van de zon tegen te gaan is geprobeerd om de camera aan de linkerkant van de slagboom te zetten. Ook op deze positie maakte de zon de nummerplaten in vele gevallen minder leesbaar, maar bijkomend was het ook duidelijk dat een andere factor de nauwkeurigheid zwaar beïnvloedde.
-
-Deze andere factor is de kijkhoek van de camera zelf. Door de vele inrijrichtingen van de auto, aangeduid op figuur \ref{fig:satellietdepintelaan}, waren groot deel van de nummerplaten helemaal niet zichtbaar. Enkele voorbeelden hiervan zijn te zien in figuur \ref{fig:sterre-links}, Auto's die van links komen hun nummerplaten staan te schuin om soms zelfs duidelijk met het oog te kunnen lezen.
+In een poging om de invloed van de zon tegen te gaan is geprobeerd om de camera aan de linkerkant van de slagboom te zetten, maar ook op deze positie maakte de zon de nummerplaten in vele gevallen minder leesbaar, bijkomend gaf de camerahoek zelf enkele nadelen. Door de vele inrijrichtingen van de auto, aangeduid op figuur \ref{fig:satellietdepintelaan}, waren een groot deel van de nummerplaten helemaal niet zichtbaar. Enkele voorbeelden hiervan zijn te zien in figuur \ref{fig:sterre-links}, Auto's die van links komen hun nummerplaten staan te schuin om soms zelfs duidelijk met het oog te kunnen lezen.
 
 \begin{figure}[h!]
 	\centering
@@ -246,11 +246,11 @@ Deze andere factor is de kijkhoek van de camera zelf. Door de vele inrijrichting
 	\begin{subfigure}[b]{0.4\linewidth}
 		\includegraphics[width=\linewidth]{img/sterlinks/sterlinks2.jpg}
 	\end{subfigure}
-	\label{fig:sterre-links}
 	\caption{Moeilijk te detecteren nummerplaten door scherpe camerahoek.}
+	\label{fig:sterre-links}
 \end{figure}
 
-In de volgende table staan de bekomen resultaten beschreven van deze positie.
+Hierdoor verkrijgen we volgende resultaten:
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{l|l|l|l|l}
@@ -260,10 +260,12 @@ In de volgende table staan de bekomen resultaten beschreven van deze positie.
 	\end{tabular}
 \end{table}
 
-Met net meer dan de helft van de auto's correct te kunnen detecteren kunnen we besluiten dat deze positie geen oplossing is.
+Met een slechter resultaat dan de vorige positie en net meer dan de helft van de auto's correct te kunnen detecteren, kunnen we besluiten dat deze positie geen oplossing is.
 
 \subsubsection{Positie achteraan de uitgang}
-Als derde optie is er getest op de mogelijkheid om van een verdere locatie foto's te nemen. hiervoor is een statief gebruikt om de camera op een geschikte hoogte te houden, zoals aangetoond op figuur \ref{plaatsingdepintelaan}. Deze positie is een drie meter naar achteren van de linkerkant van de hefboom, dit zodat da invalshoek van de camera zo klein mogelijk blijft. De hoogte van de camera is 1,5 meter hoog, wat hoog genoeg was om de invloed van het zonlicht weg te werken.
+Als derde optie is er getest op de mogelijkheid om van een verdere locatie foto's te nemen aan de hand van een statief om de camera op een geschikte hoogte te houden. Dit is aangetoond op figuur \ref{plaatsingdepintelaan}. Door de camera naar achteren te zetten zorgen de inrijrichtingen tot geen problemen meer aangezien de wagens allemaal op dezelfde plaats kunnen gefotografeerd worden. Verder is er geen storing meer van het zonlicht omdat de camera naar omlaag is gericht.
+
+Deze positie is een drie meter naar achteren van de linkerkant van de hefboom, dit zodat da invalshoek van de camera zo klein mogelijk blijft. De hoogte van de camera is 1,5 meter hoog, wat hoog genoeg was om de invloed van het zonlicht weg te werken.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\linewidth]{img/depintelaanstatief.jpg}
@@ -271,7 +273,7 @@ Als derde optie is er getest op de mogelijkheid om van een verdere locatie foto'
 	\label{plaatsingdepintelaan}
 \end{figure}
 
-Op de locatie zijn 24 auto's doorgereden, dit zijn de resultaten:
+Volgende resultaten zijn bekomen aan de uitgang:
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{l|l|l|l|l}
@@ -281,9 +283,9 @@ Op de locatie zijn 24 auto's doorgereden, dit zijn de resultaten:
 	\end{tabular}
 \end{table}
 
-Deze locatie is een verbetering tov. de vorige posities. Allereerst staan alle auto's op dezelfde locatie ongeacht van inrijrichting. Dit maakt de configuratie van OpenALPR een pak aangenamer en betrouwbaarder. Verder heeft de hogere plaatsing van de camera het voordeel dat de invloed van de zon minimaal is.
+Deze locatie is een verbetering tov. de vorige posities. Allereerst staan alle auto's op dezelfde locatie ongeacht van inrijrichting. Dit maakt de configuratie van OpenALPR een pak aangenamer en betrouwbaarder.
 
-Ondanks deze voordelen zijn er toch 6 auto's die niet gedetecteerd zijn. Na deze na te gaan is het duidelijk dat dit komt door de grote afstand en bijgevolg lagere resolutie van de nummerplaten. Een voorbeeld hiervan is te zien op figuur \ref{fig:lowressterre}.
+Ondanks deze voordelen is de nauwkeurigheid niet hoog genoeg en zijn er toch 6 auto's die niet gedetecteerd zijn. Na deze na foto's te gaan is het duidelijk dat dit komt door de grote afstand en bijgevolg lagere resolutie van de nummerplaten. Een voorbeeld hiervan is te zien op figuur \ref{fig:lowressterre}.
 
 \begin{figure}[h!]
 	\centering
@@ -293,11 +295,11 @@ Ondanks deze voordelen zijn er toch 6 auto's die niet gedetecteerd zijn. Na deze
 	\begin{subfigure}[b]{0.49\linewidth}
 		\includegraphics[width=\linewidth]{img/sterachter/sterachter2.png}
 	\end{subfigure}
-	\caption{Moeilijk te detecteren nummerplaten door een lage resolutie. Enkele karakters zijn onduidelijk gemaakt uit privacy van de bestuurder.}
+	\caption{Moeilijk te detecteren nummerplaten door een te lage resolutie. Enkele karakters zijn onduidelijk gemaakt uit privacy van de bestuurder.}
 	\label{fig:lowressterre}
 \end{figure}
 
-Eén voertuig is niet gedetecteerd niet door de lage resolutie maar door de hoogte van de slagboom, deze vrachtagen zijn nummerplaat staat op een te hoge plaats waardoor de slagboom ervoor staat op de foto. Dit is te zien in figuur \ref{fig:slagboomster}. Deze situatie is wellicht uitzonderlijk. Alle andere auto's hun nummerplaat zit ruim onder de slagboom.
+Verder is één voertuig niet gedetecteerd niet door de lage resolutie maar door de hoogte van de slagboom, deze vrachtagen zijn nummerplaat is te hoog aan het voertuig gemonteerd waardoor de slagboom ervoor staat op de foto. Dit is te zien in figuur \ref{fig:slagboomster}. Deze situatie is wellicht uitzonderlijk. Alle andere auto's hun nummerplaat zit ruim onder de slagboom.
 
 \begin{figure}[h!]
 	\centering
@@ -308,14 +310,40 @@ Eén voertuig is niet gedetecteerd niet door de lage resolutie maar door de hoog
 	\label{fig:slagboomster}
 \end{figure}
 
-\paragraph{Verbeteringen}
-De camera is niet direct te hoog geplaatst, dit was uit voorzorg dat de hefboom van de toegang het beeld van de nummerplaten overlapt. Na de foto's te analyzeren bleek het toch dat er nog ruim veel plaats was om de camera hoger te zetten. Dit is een vereiste om mogelijkse voorbijgangers te beletten van vandalisme.
+\subsubsection{Positie achteraan de uitgang - hoge resolutie}
+Ten laatste is het onderzoek op de vorige locatie opnieuw uitgevoerd. De nauwkeurigheid van de PiNoIR camera biedt echter een veel hogere resolutie aan. Dit maakte het mogelijk om softwarematig in te zoomen op de foto's met een betere kwaliteit. In afbeelding \ref{fig:ressterrecomparison} is dit verschil van de foto's duidelijk te zien.
 
-Er werd reeds aangehaald dat de resolutie van de afbeeldingen een grote stoorzender waren op de nauwkeurigheid van OpenALPR. De foto's zijn gemaakt op een resolutie van 1280 x 720 pixels. Deze resolutie was voldoende voor alle vorige uitgangen, maar niet op deze.
-Gelukkig biedt de gebruikte camera, de PiNoIR V2 cam een resolutie aan van 8MP, dit zijn 3266 x 2450. Tesamen met parameters om softwarematig in te zoomen op een foto. Vermoedelijk zou dit de accuraatheid van deze uitgang omhoog kunnen brengen van 75\% naar 90\%. Dit was helaas niet mogelijk in dit onderzoek omwille van tijdsgebrek.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.49\linewidth}
+		\includegraphics[width=\linewidth]{img/sterachter/sterachter2.png}
+		\caption{Originele kwaliteit}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\linewidth}
+		\includegraphics[width=\linewidth]{img/sterachter/hressmall2.png}
+		\caption{Verhoogde kwaliteit}
+	\end{subfigure}
+	\caption{Verhoogde nauwkeurigheid door het inzoomen van de camera.}
+	\label{fig:ressterrecomparison}
+\end{figure}
+
+Na de camera vervolgens opnieuw te kalibreren zijn volgende resultaten bekomen:
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|l|l|l|l}
+		\textbf{ANPR nauwkeurigheid: De Pintelaan, achteraan} & Totaal & Incorrect & Correct & Ratio	\\ \hline
+		Per individuele foto 	& 19 & 45	& 64	& 70.3\%\\
+		Per auto				& 2 & 24	& 26 	& 92.0\%\\
+	\end{tabular}
+\end{table}
+
+Deze zijn een enorm verschil met het vorig resultaat van 75\% van de vorige foto's en bieden een haalbare oplossing voor de uitgang van de De Pintelaan.
 
 \paragraph{Nadelen}
 Indien een camera op deze locatie moet gezet worden zullen er enkele maatregelingen nodig zijn om de camera te plaatsen en van stroom te voorzien. Een paal zou in de straat moeten vastgezet worden en een reeks kabels voor stroom en data moeten naar de metalen constructie van de hefboom lopen. Dit vraagt een redelijke hoeveelheid meer werk en kosten dan een systeem dat op de behuizing zelf staat.
+
+\paragraph{Verbeteringen}
+De camera is niet direct te hoog geplaatst, dit was uit voorzorg dat de hefboom van de toegang het beeld van de nummerplaten overlapt. Na de foto's te analyseren bleek het toch dat er nog ruim veel plaats was om de camera hoger te zetten. Dit is een vereiste om mogelijkse voorbijgangers te beletten van vandalisme. Er wordt verondersteld dat het verhogen van de camera geen direct negatieve invloed op de resultaten zal hebben, dit zolang de kalibratie opnieuw wordt uitgevoerd.
 
 \subsection{Campus Coupure - Uitgang Kruisboogstraat}
 
@@ -331,18 +359,18 @@ Volgende resultaten zijn bekomen voor de uitgang van de Kruisboogstraat:
 	\label{ResultatenKruisboog}
 \end{table}
 
-\paragraph{Fouten}
-Op 1 auto na zijn alle auto's correct geïdentificeerd. De incorrecte afbeeldingen heeft geen merkwaardige verschillen van de andere afbeeldingen waardoor de juistheid lager zou liggen. We kunnen hieruit dus veronderstellen dat deze fout komt door de nauwkeurigheid van OpenALPR zelf.
+\subsubsection{Fouten}
+Op 1 auto na zijn alle auto's correct geïdentificeerd. De incorrecte afbeeldingen hebben geen merkwaardige verschillen van de andere afbeeldingen waardoor de juistheid lager zou liggen. We kunnen hieruit dus veronderstellen dat deze fout komt door de nauwkeurigheid van OpenALPR zelf.
 
 \subsection{Campus Coupure - Uitgang Coupure Links}
-De uitgang aan de Coupure Links had niet genoeg doorrijdende auto's om een degelijke steekproef te nemen of een correcte cameraconfiguratie te vinden. Hierdoor zal deze uitgang niet verder verwerkt worden in het onderzoek.
+De uitgang aan de Coupure Links had niet genoeg doorrijdende auto's om een degelijke steekproef te nemen of een correcte cameraconfiguratie te vinden. Hierdoor zal deze uitgang niet verder verwerkt worden in dit onderzoek.
 
 \subsection{Algemene resultaten}
 In het donker is de interferentie van de koplampen niet te groot, maar de algemene donkerheid van de omgeving zorgt ervoor dat de raspberry pi zijn shutter te lang openhoudt en dat de afbeeldingen enorm donker blijken. Het is dus vereist om extra infraroodbelichting bij te plaatsen.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{img/nacht-coupure.jpg}
-	\caption{Onnauwkerige foto's door een tekort aan licht.}
+	\caption{Onnauwkeurige foto's door een tekort aan licht.}
 	\label{SterreDonker}
 \end{figure}
 
@@ -352,8 +380,8 @@ In het donker is de interferentie van de koplampen niet te groot, maar de algeme
 		\textbf{Resultaten per individuele foto}	& \textbf{Incorrect}	& \textbf{Correct} & \textbf{Aantal foto's} & \textbf{Ratio} \\ \hline
 		Campus Coupure - Uitgang Kruisboogstraat & 16 & 52 & 68 & 76.5\% \\
 		Campus Sterre - Uitgang Galglaan 		 & 13 & 49 & 62 & 79.0\%\\
-		Campus Sterre - Uitgang De Pintelaan	 & 35 & 40 & 75 & 53.3\%\\ \hline
-		Totaal 									 & 64 & 141 & 205 & 68.8\%
+		Campus Sterre - Uitgang De Pintelaan	 & 19 & 45 & 64 & 70.3\%\\ \hline
+		Totaal 									 & 48 & 146 & 194 & 75.3\%
 	\end{tabular}
 \end{table}
 
@@ -363,18 +391,19 @@ In het donker is de interferentie van de koplampen niet te groot, maar de algeme
 		\textbf{Resultaten per auto} & \textbf{Incorrect}	& \textbf{Correct} & \textbf{Aantal auto's} & \textbf{Ratio} \\ \hline
 		Campus Coupure - Uitgang Kruisboogstraat& 1 & 25  & 26 & 96.15\% \\
 		Campus Sterre - Uitgang Galglaan		& 1 & 22  & 23 & 95.7\%\\
-		Campus Sterre - Uitgang De Pintelaan	& 6 & 18  & 24 & 75.0\%\\ \hline
-		Totaal 									& 8 & 65 & 73 & 89.0\%
+		Campus Sterre - Uitgang De Pintelaan	& 2 & 24  & 26 & 92.0\%\\ \hline
+		Totaal 									& 4 & 71 & 75 & 94.7\%
 	\end{tabular}
 \end{table}
 
 
-\paragraph{Verbeteringen}
+\paragraph{Verbeteringen}\
 96.15\% is op zich een geslaagde waarde voor nummerplaatdetectie. Indien men toch de accuraatheid wilt verbeteren is de beste optie in de investering van de betalende versie van OpenALPR.
 
 \section{Conclusie}
-In geen van de gevallen in een performantie van 95\% bereikt. Gemiddeld is deze zelfs 85\%, wat zou betekenen dat ongeveer 1 op 6 gebruikers terug zou moeten keren om toch een token te bemachtigen. We leiden hierop uit dat nummerplaatdetectie met deze technologie toch niet 
-performantie in nacht of regen.
+Op 2 van de 3 uitgangen zijn een nauwkeurigheid boven 95\% bereikt. Op deze uitgangen kunnen we aannemen dat nummerplaatdetectie op zich al mogelijk is. De derde uitgang aan de sterre heeft een te lage nauwkeurigheid van 75\%. Indien 1 op 4 auto's terug naar de parking moeten rijden om toch een token te behalen doet nummerplaatdetectie meer kwaad dan goed. Rekeninghoudend met de gemiddelde nauwkeurigheid van 89\% is dit een haalbare technologie.
+
+In dit onderzoek is niet aangegaan hoe goed deze technologie presteert in moeilijke condities zoals in de regen of 's nachts. Op basis van bestaande onderzoeken (?) wordt hier verwacht dat de resultaten lager zullen zijn dan overdag. Aangezien de resultaten overdag maar net haalbaar is zal deze 's nachts helemaal niet haalbaar zijn.
 
 Op vlak van wetgeving en GDPR is nummerplaatdetectie dan wel weer zeker mogelijk.
 
