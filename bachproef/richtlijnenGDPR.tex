@@ -4,7 +4,7 @@
 
 Het is vanzelfsprekend dat er enkele wetgevingen zijn die slaan op nummerplaatdetectie, het nemen van foto's als toegangssysteem is een grote stap op vlak van privacy in plaats van een token mee te geven. Zeker door nieuwe wet van de GDPR in 2018.
 
-In volgende onderdelen wordt beschreven wat deze wetten inhouden en hoe deze op een nummerplaatdetectie slaan.
+In volgende onderdelen wordt beschreven wat deze wetten inhouden en hoe deze op een nummerplaatdetectiesysteem slaan.
 
 \section{Algemene verordening gegevensbescherming}
 %Wanneer is gdpr van toepassing
@@ -22,6 +22,9 @@ In artikel 4 van het AVG worden persoonsgegevens als volgt beschreven: 'alle inf
 Hieruit blijkt dat nummerplaten onder de term persoonsgegevens vallen; Deze zijn geregistreerd aan een persoon en kunnen worden gebruikt om de persoon te identificeren. In een parkeersysteem met nummerplaatdetectie zal hier dus ook op gelet moeten worden. 
 
 Artikel 5 van GDPR, 'persoonsgegevens moeten worden verwerkt op een wijze die ten aanzien van de betrokkene rechtmatig, behoorlijk en transparant is ("rechtmatigheid, behoorlijkheid en transparantie")` \autocite{avg2018privacy}.
+
+\paragraph{Betrokkene}
+De betrokkene is de natuurlijke persoon die de beschreven persoonsgegevens bezit.
 
 \paragraph{Verwerking van gegevens}
 Een verwerking is een veel vermelde term in het AVG, en omvat een duidelijke definitie. Het verwerken van gegevens omvat eender welke operatie die op persoonsgegevens wordt uitgevoerd. Waaronder het verzamelen, vastleggen, organiseren, raadplegen of vernietigen van deze gegevens onderdeel van is. Deze lijst wordt verder uitgebreid omschreven in Artikel 4 punt 2 van de GDPR.
@@ -99,7 +102,10 @@ Artikel 11 van de GDPR zegt dat indien de doeleinden niet vereisen dat de betrok
 Hieruit volgt dan ook dat indien de verwerker kan aantonen dat hij de betrokkene niet kan identificeren, artikelen 15 tot en met 20, beschreven in onderdeel \ref{rechten-betrokkene} niet meer van toepassing zijn.
 
 \subsection{Functionaris voor gegevensbescherming}
-Een functionaris voor gegevens bescherming of data protection officer (DPO) is iemand met deskundingheid op het gebied van gegevensbescherming. Een DPO wordt aangewezen om de verwerkingsverantwoordelijke of de verwerker te informeren en adviseren over hun verplichtingen over de GDPR en andere wetten over gegevensbescherming.
+Een functionaris voor gegevensbescherming of data protection officer (DPO) is iemand met deskundingheid op het gebied van gegevensbescherming. Een DPO wordt aangewezen om de verwerkingsverantwoordelijke of de verwerker te informeren en adviseren over hun verplichtingen van de GDPR en andere wetten over gegevensbescherming.
+
+\paragraph{Taken}
+De DPO dient de verwerkingsverantwoordelijke of de verwerker te informeren en adviseren over hun rechten en verplichtingen, het toezien op het naleven van de GDPR, samenwerken met de toezichthoudende autoriteit en optreden als contactpunt voor de toezichthoudende autoriteit.
 
 \paragraph{Voorwaarden voor het aanstellen}
 Een DPO dient aangesteld te worden in volgende gevallen:
@@ -109,18 +115,7 @@ Een DPO dient aangesteld te worden in volgende gevallen:
 	\item De verwerker is hoofdzakelijk belast met het verwerken van uitzonderlijke persoonsgegevens.
 \end{itemize}
 
-\paragraph{Taken}
-De DPO dient de verwerkingsverantwoordelijke of de verwerker te informeren en adviseren over hun rechten en verplichtingen, het toezien op het naleven van de GDPR, samenwerken met de toezichthoudende autoriteit en optreden als contactpunt voor de toezichthoudende autoriteit.
-
-\section{Toegepast op een ANPR-systeem}
-Het ANPR-systeem dat Vado-Solutions voorstelt slaat geen persoonsdata op, de foto's die genomen worden om nummerplaten uit te lezen worden direct na de detectie verwijdert. Dit slaat niet af van het feit dat er verwerkingen op de foto's worden uitgevoerd en hier moet dus ook gepaste maatregelen op genomen worden.
-
-Om deze foto's rechtmatig te kunnen verwerken is de enige echte optie 
-ANPR gaat over het verzamelen van nummerplaatinformatie
-
-enkel anpr gebruiken voor het juiste doel
-
-indien de afbeeldingen niet opgeslaan worden, moet er verder geen zorgen gemaakt worden over de termijn hoelang data mag bijgehouden worden.
+Er kan verondersteld worden dat het verwerken van persoonsgegevens over twee campussen niet groot genoeg is om een DPO aan te stellen.
 
 \section{Belgische Camerawetgeving}
 Sinds 25 mei 2018 is de nieuwe camerawetgeving ingevoerd, dit is een herziening van de Camerawetgeving uit 2007 en viel niet toevallig samen met de dag dat de GDPR is ingevoerd. Deze wet slaat op bewakingscamera's en geldt enkel wanneer deze als doel hebben:
@@ -131,6 +126,39 @@ Sinds 25 mei 2018 is de nieuwe camerawetgeving ingevoerd, dit is een herziening 
 Aangezien nummerplaatdetectie als toegangssysteem geen van deze doelen bevat valt het niet onder de camerawetgeving voor bewakingscamera's. \autocite{staatsblad2007wet}
 
 Natuurlijk zal er wel nog rekening gehouden moeten worden met de AVG omdat er persoonsgegevens worden verwerkt door een bedrijf, vereniging of eenmanszaak. \autocite{gba2019videoparlofoon}
+
+\section{Toegepast op een ANPR-systeem}
+De GDPR is een uitgebreide wetgeving die vele voorwaarden opstelt voor het verwerken van persoonsgegevens. Het is niet mogelijk om een volledige checklist te geven, maar enkele basisrichtlijnen geven een goed beeld van de mogelijkheid om dit te implementeren. Een ANPR-systeem brengt een pak meer persoonsgegevens met zich mee dan een simpel tokensysteem of RFID-systeem.
+
+Indien men een ANPR-systeem wilt implementeren, zullen alle reguleringen rond de verwerkte gegevens moeten voldaan worden. Zo zal men moeten:
+
+\subsection{Een verwerking dient gerechtigd te zijn.}
+Ieder contact met gegevens, of het nu lezen, verwijderen of verplaatsen is, is een verwerking. Indien men geen gewettigde reden heeft om de data te verwerken, riskeert u om hierop beboet te worden. Ga dus na op welke basis u data wilt verwerken en zorg dat u deze rechtmatigheid kan bevestigen.
+
+\subsection{Verwerk enkel de data die benodigd is voor uw doeleinden.}
+Dataminimalisatie berust erop dat u geen data verwerkt dat u niet nodig hebt om uw doelen te bereiken. Indien u een ANPR-systeem opstelt als toegangssysteem, dient u geen foto's van toevallige voorbijgangers bij te houden.
+
+\subsection{Informeer dat persoonsgegevens verwerkt worden.}
+Het bekende artikel 13 berust erop dat een betrokkene kennis heeft dat zijn gegevens verwerkt worden. Informeer dus duidelijk dat cameradetectie aanwezig is en vermeld een contactpersoon voor vragen.
+
+\subsection{Wees bereid om gegevens op te vragen en aan te passen op vraag van derden.}
+Niet enkel de betrokkene, maar ook de overheid heeft het recht om eender wanneer zijn toebestemde persoonsgegevens op te vragen of aan te passen. Deze moeten binnen een tijdspanne van een maand volbracht worden om boetes te vermijden.
+
+Indien mogelijk kunnen de bekomen gegevens geanomiseerd worden zodat geen betrokkenen kunnen worden geïdentificeerd. Indien de betrokkenen niet kunnen geïdentificeerd worden, kan u deze data ook niet opleveren op aanvraag.
+
+\subsection{Stel een contactpersoon aan.}
+Iemand binnen de organisatie moet aangesteld zijn om na te gaan of persoonsgegevens op een correcte manier verwerkt worden. Deze is verantwoordelijk indien de GDPR of andere privacy reguleringen niet nageleefd worden.
+
+Indien mogelijk kan een Data-Protection Officer aangesteld worden. Deze is een vereiste bij grootschalige projecten waarbij zijn taak hoofdzakelijk het valideren is dat de GDPR nageleefd wordt. Deze dient gemakkelijk te contacteren te zijn vanuit eender welke vestiging.
+
+\subsection{Is het mogelijk om aan deze eisen te voldoen?}
+De co-promotor van dit onderzoek, Vado-Solutions, heeft reeds een idee van een implementatie. Hun systeem zou toegang verlenen voor een nummerplaat voor een bepaalde duur, bv. een bezoeker die een maand lang toegang tot de campus zou moeten hebben. Door enkel de nummerplaat en de periode op te slaan wordt er een groot deel van het extra papierwerk rond de GDPR omzeild.
+
+Verder zouden de genomen foto's niet worden opgeslaan in het systeem. De analyse van de foto's gebeurt onmiddelijk, waarna ze verwijderd worden. Dit geeft het voordeel dat hier geen databank van moet worden bijgehouden en dat er geen extra werk in kruipt op vlak van GDPR. Indien een betrokkene zijn foto's zou willen laten verwijderen is het onmogelijk, er worden namelijk geen foto's opgeslagen.
+
+Enkel op vlak van het nemen van foto's zou er nog moeten beschreven worden hoe dit exact valt onder het gerechtvaardigd belang. Dit is namelijk de enigste grond waarop een dergelijk ANPR-systeem onder gerecht zou kunnen zijn.
+
+Als besluit zou deze zeer minieme oplossing zeker mogelijk zijn om te implementeren op de campussen. De kleine voetafdruk van persoonlijke gegevens verminderen de lasten van de GDPR en zolang de schaal over enkele campussen blijft zou er geen DPO moeten worden aangesteld worden, wat kosten bespaart. Indien men een checklist wenst uit te voeren biedt gdpr.eu een degelijke checklist aan op https://gdpr.eu/checklist/.
 
 %\subsection{Aangifte van camera's}
 %Iedere bewakingscamera moet via het E-loket op http://www.aangiftecamera.be aangegeven worden. \autocite{besafe2018bewakingscameras}
