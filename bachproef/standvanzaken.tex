@@ -54,22 +54,16 @@ Deze punten geven aan dat tokens niet de gewenste oplossing zijn voor de campuss
 Radio frequency Identication (RFID) is een technologie die aan de hand van elektromagnetische golven objecten kan identificeren. Dit met het voordeel dat er geen direct contact of zicht moet zijn tussen de scanner en het object. RFID gebeurt a.d.h.v een RFID reader en een RFID tag. De reader zendt een elektromagnetisch signaal uit. De tag ontvangt deze golven en kan op zijn beurt de opgevraagde informatie verzenden. \autocite{li2009design}
 
 %RFID op UGent
-Aan iedere uitgang op UGent zijn RFID-kaartlezers te vinden. Deze zijn voorzien om een vlotte toegang te verlenen aan werknemers en worden via een centraal systeem beheerd. Studenten en bezoekers hebben geen toegang tot dit systeem.
-%TODO Gino vragen over exacte werking van de RFID op ugent
+Aan iedere uitgang op UGent zijn RFID-kaartlezers te vinden. Deze zijn voorzien om een vlotte toegang te verlenen aan werknemers en worden via een centraal beheerd systeem.
 
-%TODO voordelen
-Heel draagbaar, geen slikkers nodig.
-%TODO nadelen
-% \textcite{aalsalem2015automated} beschrijft wat onveilig is aan rfid. (kopieren van kaarten)
-Het is geen optie om rfid voor alle bezoekers te gebruiken aangezien er vaak bezoekers binnentreden die maar 1 dag op de campus zijn. Aangezien er anders voor iedere dagbezoeker een RFID-kaart moet gemaakt worden is dit geen gewenste oplossing. Verder is de prijs van een RFID-kaart over de 10 euro, wat een te dure oplossing is.
+Het is geen optie om rfid voor alle bezoekers te gebruiken aangezien er vaak bezoekers binnentreden die maar 1 dag op de campus zijn. In dat geval zou er voor iedere dagbezoeker een RFID-kaart moet gemaakt worden. Aangezien de prijs van een RFID-kaart over de 10 euro is, is het zeker geen optie om dit als oplossing te gebruiken.
 
 \subsubsection{Barcodes}
 In een poging tot de tokens te vervangen heeft UGent één uitgang op de parking UFO en het rectoraat waar barcodes worden gebruikt. Deze worden eerst geprint op de campus zelf, waarna de gebruiker de barcode in een slikker kan invoeren en toegang krijgen om de parking te verlaten.
-%TODO gino vragen daar exacte werking barcode.
 
-Deze barcodes hebben het voordeel dat ze goedkoper zijn om te maken per persoon. Voor de rest hebben ze nog steeds het probleem dat iedere gebruiker telkens aan het onthaal een nieuw ticket moeten opvragen en dat de slikkers geleegd moeten worden.
+Deze barcodes hebben het grote voordeel dat ze goedkoper zijn in het gebruik. Maar hebben ze nog steeds het probleem dat iedere gebruiker telkens aan het onthaal een nieuw ticket moeten opvragen, en dat er slikkers slikkers aanwezig moeten zijn die tijdelijk geleegd worden.
 
-Nadelen:
+Volgende lijst dient als een verduidelijking van de nadelen:
 \begin{itemize}
 	\item Milieubelasting, verspilling van papier
 	\item ofwel moet een papierslikker geledigd worden ofwel zal er vervuiling zijn van achtergelaten papier aan de uitgang.
@@ -77,11 +71,9 @@ Nadelen:
 \end{itemize}
 
 
-\subsection{Andere potentiele toegangstechnologieen}
-De technologieen in gebruik op UGent zijn weliswaar niet de enigste toegangsstechnieken die bestaan.
-%TODO bron andere toegangstechnieken
+\subsection{Mogelijkheid van ANPR}
+De vorige technologieën zijn weliswaar niet de enige mogelijke oplossing tot dit probleem.
 
-\subsubsection{ANPR}
 Automatic Number Plate Recognition (ANPR) is de techniek om automatisch nummerplaten te herkennen. Deze techniek wordt al sinds 1976 gebruikt voor voor de detectie van gestolen wagens \autocite{uk2011anpr}. Hedendaags is ANPR al veel toegankelijker en kan het op vele plaatsen teruggevonden worden zoals bij bv. trajectcontrole \autocite{de2014snelheidscamera}, parkeersystemen, etc.
 \par
 ANPR heeft nog vele andere acroniemen zoals Automatic License Plate Recognition (ALPR), Automatic Vehicle Identification (AVI), Vehicle Plate recognition (VLPR), Vehicle Recognition Identifier (VRI), Car plate Recognition (CPR) en Car Plate Reader (CPR) \autocite{axis2019license}. In dit onderzoek zal voor nummerplaatdetectie het acroniem ANPR gebruikt worden.
@@ -104,14 +96,13 @@ ANPR zelf komt ook met enkele nadelen.
 	\item Hedendaagse ANPR-camera's zijn een redelijke investering.
 \end{itemize}
 \par
-Voor de herkenning van nummerplaten zijn een aantal technologien beschikbaar. Deze werken adhv. Artificial Intelligence (AI) en zijn specifiek getraint op het detecteren en uitlezen van nummerplaten.
+Voor de herkenning van nummerplaten zijn een aantal technologieën beschikbaar. Deze werken adhv. Artificial Intelligence (AI) en zijn specifiek getraind op het detecteren en uitlezen van nummerplaten.
 De technologie die in dit onderwerp gebruikt zal worden is OpenALPR, een Open-Source library gemaakt voor nummerplaatdetectie. Hiervoor is gekozen omdat OpenALPR een gratis Open-Source product is \autocite{openalprgithub}.
 %Nadelen
 
 
 \section{Privacy en GDPR}
 \label{sec:privacy-en-gdpr}
-%TODO Privacy en gdpr onderdeel uitbreiden
 
 Sinds 25 Mei 2018 is de General Data Protection Regulation (GDPR) in gang gezet, een regulatie die ingevoerd is om het huidige  en toekomstige digitale tijdperk veiliger te maken voor alle EU inwoners.
 Deze wetgeving is gedreven op het concept dat privacy een mensenrecht is, en dat online-data ook zo behandeld moet worden. Dit is data die direct of indirect gelinkt kan worden aan een individu zoals locatie-data, cookies en ip-adressen \autocite{goddard2017eu}.
@@ -124,4 +115,7 @@ Om deze nummerplaatdetectie uit te voeren is gekozen voor een Raspberry PI Model
 De Raspberry PI Model B+ beschikt over een 1.4GHz quad-core processor, 1GB LPDDR2 RAM, een on-board WiFi-kaart en de mogelijkheid om een Raspberry Pi Camera te verbinden \autocite{raspberrypisitemodelbplus} .
 
 \subsection{Camera}
-De camera die gebruikt wordt is een Pi-NoIr camera. Deze camera is ook geproduceerd door de Raspberry Pi Foundation en biedt afbeeldingen en video in een 8-MegaPixel formaat. In dit onderzoek is voor deze camera gekozen omdat deze makkelijk te verbinden is met de Raspberry Pi, relatief goedkoop is en geen IR-filter heeft. Dit maakt de camera direct ook interessant voor foto's te nemen in donkere omgevingen. \autocite{raspberrypisitemodelpinoir}
+De camera die gebruikt wordt is een Pi-NoIR camera. Deze camera is ook geproduceerd door de Raspberry Pi Foundation en biedt afbeeldingen en video in een 8-MegaPixel formaat. In dit onderzoek is voor deze camera gekozen omdat deze makkelijk te verbinden is met de Raspberry Pi, relatief goedkoop is en geen IR-filter heeft. Dit maakt de camera direct ook interessant voor foto's te nemen in donkere omgevingen. \autocite{raspberrypisitemodelpinoir}
+
+\section{Software}
+De software die gebruikt wordt in dit onderzoek is het open-source framework OpenALPR. Deze software is geschreven om nummerplaatdetectie uit te voeren en kan video's en foto's verwerken in een groot aanbod van programmeertalen \autocite{openalprgithub}. De keuze voor deze software is gemaakt door Vado-Solutions omdat OpenALPR open-source is, wat kosten dekt. Verder kan deze software ook gebruikt worden op Linux, wat noodzakelijk is om dit onderzoek uit te voeren met een Raspberry Pi.

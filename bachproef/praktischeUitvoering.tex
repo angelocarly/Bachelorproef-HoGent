@@ -57,8 +57,9 @@ raspistill -t 3000 -bm -tl 500 --width 1280 --height 720 --nopreview
 \end{verbatim}
 
 \subsubsection{Triggering van de camera}
-Deze worden niet automatisch getriggerd, maar handmatig aan de hand van een SSH verbinding.
-%TODO uitbreiden
+De camera zelf werd in dit onderzoek handmatig getriggerd aangezien een implementatie opstellen voor automatische triggering een te grote tijdsnood zou hebben op het maken van dit onderzoek.
+
+In een werkelijke implementatie zou deze triggering mogelijk zijn adhv. software dat de beelden van de Raspberry Pi bekijkt en hierop bewegingsdetectie uitvoert. Een voorbeeld hiervan is de 'motion' package die hiervoor een open-source implementatie geeft.
 
 \subsection{Tijdstippen van de genomen foto's}
 In tabel \ref{tab:fototijdstippen} zijn alle momenten genoteerd dat er fysiek foto's verzameld werden. Deze zijn verworven in de vroege namiddag aangezien het op deze momenten nog steeds daglicht is en mensen beginnen te vertrekken van de Campussen. Enkel op de Coupure Links is er later geprobeerd data te verzamelen omdat er overdag bijna geen auto's vertrokken.
@@ -194,7 +195,6 @@ Hierdoor kan het zijn dat een nummerplaat zoals 1-NOP-123 gelezen wordt als 1-N0
 Wat patroon matching doet is zoals de naam zegt; het controleren of een bekomen nummerplaat voldoet aan een bepaald patroon. In Belgie en nederland zijn deze sinds 2010 een 1 met 3 letters en 3 cijfers.
 
 \section{Resultaten}
-In dit onderdeel worden de bekomen resultaten besproken aan de verscheidene uitgangen.
 
 \subsection{Campus Sterre - Uitgang Galglaan}
 
@@ -468,14 +468,14 @@ De uitgang aan de Coupure Links, afgebeeld in figuur \ref{fig:coupure-links}, ha
 	\label{fig:coupure-links}
 \end{figure}
 
-\subsection{Algemene resultaten}
-In het donker is de interferentie van de koplampen niet te groot, maar de algemene donkerheid van de omgeving zorgt ervoor dat de raspberry pi zijn shutter te lang openhoudt en dat de afbeeldingen enorm donker blijken. Het is dus vereist om extra infraroodbelichting bij te plaatsen.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\linewidth]{img/nacht-coupure.jpg}
-	\caption{Onnauwkeurige foto's door een tekort aan licht.}
-	\label{SterreDonker}
-\end{figure}
+\section{Algemene resultaten}
+%In het donker is de interferentie van de koplampen niet te groot, maar de algemene donkerheid van de omgeving zorgt ervoor dat de raspberry pi zijn shutter te lang openhoudt en dat de afbeeldingen enorm donker blijken. Het is dus vereist om extra infraroodbelichting bij te plaatsen.
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[width=0.5\linewidth]{img/nacht-coupure.jpg}
+%	\caption{Onnauwkeurige foto's door een tekort aan licht.}
+%	\label{SterreDonker}
+%\end{figure}
 
 \begin{table}[h!]
 	\centering
@@ -489,7 +489,6 @@ In het donker is de interferentie van de koplampen niet te groot, maar de algeme
 	\caption{Resultaten van nummerplaatdetectie per foto.}
 	\label{tab:perpic}
 \end{table}
-%TODO gemiddeld
 
 \begin{table}[h!]
 	\centering
@@ -503,14 +502,12 @@ In het donker is de interferentie van de koplampen niet te groot, maar de algeme
 	\caption{Resultaten van nummerplaatdetectie per auto.}
 	\label{tab:percar}
 \end{table}
-%TODO gemiddeld
 
-Vervolgens zijn deze resultaten uit tabel \ref{tab:percar} geanaliseerd met de taal R. Hierbij werd nagegaan of de resultaten met zekerheid een nauwkeurigheid van minstens 95\% met een significantieniveau van 5\%. Deze kon bij geen enkele uitgang bevestigd worden.
+Er werd in dit onderzoek vertrokken met de hypothese dat in een steekproef met nummerplaatdetectie een nauwkeurigheid boven de 95\% behaald kon worden. Dit resultaat was dan ook bevestigd bij twee van de drie beschreven uitgangen in tabel \ref{tab:percar}.
 
-\section{Conclusie}
-Er werd in dit onderzoek vertrokken met de hypothese dat er met nummerplaatdetectie een nauwkeurigheid boven de 95\% behaald kon worden. Maar alhoewel de resultaten van de steekproef veelbelovend waren, kon de hypothese niet bevestigd worden.
+Een goedkope implementatie voor nummerplaatdetectie is dan ook in zekere mate mogelijk. Op twee van de drie uitgangen is het mogelijk om de camera's op de metalen constructie naast de hefbomen te plaatsen. Enkel op de uitgang aan de De Pintelaan is er noodzaak aan een uitgebreidere implementatie om de camera te kunnen monteren.
 
-In dit onderzoek is niet aangegaan hoe goed deze technologie presteert in moeilijke condities zoals in de regen of 's nachts. Op basis van bestaande onderzoeken (?) wordt hier verwacht dat de resultaten lager zullen zijn dan overdag. Aangezien de resultaten overdag maar net haalbaar is zal deze 's nachts helemaal niet haalbaar zijn.
+Het is niet mogelijk om aan te nemen dat deze resultaten toepasselijk zijn op de volledige populatie, maar de resultaten stellen zeker de weg open naar breder onderzoek.
 
-\section{Uitbreidingen}
-Locatie van de sensor kan mss in het midden van balk \autocite{buhus2016automatic}.
+%\section{Uitbreidingen}
+%Locatie van de sensor kan mss in het midden van balk \autocite{buhus2016automatic}.
