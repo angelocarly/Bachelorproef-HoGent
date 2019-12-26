@@ -121,6 +121,7 @@ plate0: 40 results
 Hieruit is te zien dat bij de top 7 resultaten het middelste karakter als de letter O zien i.p.v. het cijfer 0. Door te kijken of de pattern matching succesvol was, zien we dat het achtste resultaat correct is.
 
 \subsection{Calibratie van afbeeldingen}
+\label{alprcalib}
 In vele situaties is het niet mogelijk om de camera frontaal te richten op een nummerplaat. Indien de camera te diagonaal gericht is, zoals in afbeelding \ref{calibration-openalpr}, is het zeer waarschijnlijk dat de accuraatheid van OpenALPR zal zakken. Dit komt omdat OpenALPR getraind is op afbeeldingen die horizontaal gealigneerd zijn met een maximale hoek van 30$^{\circ}$. Gelukkig biedt OpenALPR een eigen tool aan om foto's te kalibreren. Deze is te zien in afbeelding \ref{calibration-openalpr-after}, waar de x- en y-as rotatie en schaal aangepast worden om de afbeelding toch recht te trekken.
 
 \begin{figure}[h!]

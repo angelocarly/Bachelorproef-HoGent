@@ -163,7 +163,7 @@ Vervolgens werd de deze genoteerd in een CSV-bestand, tesamen de volgende data a
 \end{itemize}
 
 \subsection{Calibratie van de afbeeldingen}
-Origineel waren alle resultaten van de nummerplaatdetectie aan de zeer lage kant, aangezien de afbeeldingen nog niet gecalibreerd waren. Dit is beschreven in 
+Origineel waren alle resultaten van de nummerplaatdetectie aan de zeer lage kant, aangezien de afbeeldingen nog niet gekalibreerd waren. Maar met de tools beschreven in onderdeel \ref{alprcalib}, was het mogelijk om een algemene transformatie op de afbeeldingen uit te voeren.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.4\linewidth}
@@ -178,14 +178,16 @@ Origineel waren alle resultaten van de nummerplaatdetectie aan de zeer lage kant
 	\caption{Calibratie van afbeeldingen met behulp van openalpr-utils-calibrate.}
 \end{figure}
 
-Een verduidelijking van het het verschil van de resultaten aan de uitgang van Campus Sterre - Galglaan:
+Het verschil in de bekomen resultaten is duidelijk merkbaar. In tabel \ref{tab:kalibratiealpr} worden de resultaten per foto vergeleken waarbij wel gekalibreerd en niet-gekalibreerd is. De resultaten stijgen van een 41.9\% naar een 79.0\%. Kalibratie is dus wellicht een noodzakelijk onderdeel van een geslaagde implementatie.
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{l|l|l|l}
-		 		& Incorrect & Correct & Ratio	\\ \hline
-		Niet-gekalibreerd	& 25 & 2 & 7.4\%	\\
-		Gekalibreerd	& 9 & 18 & 66.7\%\\
+	\begin{tabular}{l|l|l|l|l}
+		 		& Incorrect & Correct & Totaal & Ratio	\\ \hline
+		Niet-gekalibreerd	& 36 & 26 & 62 & 41.9\%	\\
+		Gekalibreerd	& 13 & 49 & 62 & 79.0\%\\
 	\end{tabular}
+\caption{Verschil in nauwkeurigheid per foto door de kalibratie van OpenALPR.}
+\label{tab:kalibratiealpr}
 \end{table}
 
 \subsection{Patroon matching van nummerplaten}
