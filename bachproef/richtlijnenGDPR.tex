@@ -2,9 +2,9 @@
 \chapter{\IfLanguageName{dutch}{Wetgeving omtrent nummerplaatdetectie}{Technical details about ANPR in the GDPR}}
 \label{ch:wetgeving-nummerplaatdetectie}
 
-Het is vanzelfsprekend dat er enkele wetgevingen zijn die slaan op nummerplaatdetectie, het nemen van foto's als toegangssysteem is een grote stap op vlak van privacy in plaats van een token mee te geven. Zeker door nieuwe wet van de GDPR in 2018.
+Het is vanzelfsprekend dat er enkele wetgevingen zijn die slaan op nummerplaatdetectie, het nemen van foto's als toegangssysteem is een pak meer privacyingrijpend dan een token in te werpen. Sinds de nieuwe wet van de GDPR in 2018 moet hier dan ook veel voorzichtiger met worden omgegaan.
 
-In volgende onderdelen wordt beschreven wat deze wetten inhouden en hoe deze op een nummerplaatdetectiesysteem slaan.
+In de volgende onderdelen wordt er beschreven wat deze wet inhoudt en op welke manier nummerplaatdetectie hieronder valt.
 
 \section{Algemene verordening gegevensbescherming}
 %Wanneer is gdpr van toepassing
@@ -24,32 +24,31 @@ Hieruit blijkt dat nummerplaten onder de term persoonsgegevens vallen; Deze zijn
 Artikel 5 van GDPR, 'persoonsgegevens moeten worden verwerkt op een wijze die ten aanzien van de betrokkene rechtmatig, behoorlijk en transparant is ("rechtmatigheid, behoorlijkheid en transparantie")` \autocite{avg2018privacy}.
 
 \paragraph{Betrokkene}
-De betrokkene is de natuurlijke persoon die de beschreven persoonsgegevens bezit.
+De betrokkene is een geïdentificeerde of identificeerbare natuurlijke persoon wie de vermelde persoonsgegevens bezit.
 
 \paragraph{Verwerking van gegevens}
-Een verwerking is een veel vermelde term in het AVG, en omvat een duidelijke definitie. Het verwerken van gegevens omvat eender welke operatie die op persoonsgegevens wordt uitgevoerd. Waaronder het verzamelen, vastleggen, organiseren, raadplegen of vernietigen van deze gegevens onderdeel van is. Deze lijst wordt verder uitgebreid omschreven in Artikel 4 punt 2 van de GDPR.
+Een verwerking is een veel vermelde term in het AVG en omvat een duidelijke definitie. Het verwerken van gegevens omvat eender welke operaties die op persoonsgegevens worden uitgevoerd. Waaronder het verzamelen, vastleggen, organiseren, raadplegen of vernietigen van deze gegevens onderdeel van is. Deze lijst wordt verder uitgebreid omschreven in Artikel 4 punt 2 van de GDPR.
 
-Indien een ANPR-systeem foto's neemt van auto's dan voert deze enkele verwerkingen uit. Deze zijn het vastleggen, raadplegen en vernietigen van de gegevens. Ookal duurt dit proces maar enkele seconden is er wel degelijk sprake van verwerking.
-
-Verder indien er een databank bijgehouden wordt van nummerplaten behoren er tot dit proces opnieuw een aantal bewerkingen. Deze zijn opnieuw het vastleggen, raadplegen en vernietigen.
+Indien een ANPR-systeem foto's neemt van auto's dan voert deze enkele verwerkingen uit. Deze zijn het vastleggen, raadplegen en mogelijks vernietigen van de gegevens. Ookal duurt dit proces maar enkele seconden en wordt er niets opgeslaan is er wel degelijk sprake van een verwerking.
 
 \paragraph{Verwerkingsverantwoordelijke}
-De verwerkingsverantwoordelijke is een persoon die instaat voor het correct verwerken van gegevens. Hij bepaalt het doel en de middelen van de verwerking. In andere woorden moet hij kunnen aantonen waarom en hoe de verwerking wordt uitgevoerd.
+De verwerkingsverantwoordelijke is een persoon die instaat voor het correct verwerken van gegevens. Hij bepaalt het doel en de middelen van de verwerking. Op vraag van overheidsinstanties moet hij kunnen aantonen waarom en hoe de verwerking wordt uitgevoerd.
 
 \paragraph{Verwerker}
-Een verwerker is een persoon die persoonsgegevens verwerkt in opdracht van de verwerkingsverantwoordelijke. De verwerker bepaalt niet het hoe en waarom van de verwerking, maar is degene wie de verwerking uitvoert.
+Een verwerker is een persoon die persoonsgegevens verwerkt in opdracht van de verwerkingsverantwoordelijke.
 
 \subsection{Beginselen inzake gegevensverwerking}
-Het is niet mogelijk om zomaar welke gegevens te verwerken. De GDPR stelt enkele regels op die organisaties moeten naleven voor het verwerken van gegevens. De verwerkingsverantwoordelijke moet kunnen aantonen dat deze nageleefd worden. De beginselen inzake gegevensverwerking zijn te vinden in Artikel 5 van de GDPR.
+Het is niet mogelijk om zomaar welke persoonsgegevens te verwerken. De GDPR stelt enkele regels op die organisaties moeten naleven voor het verwerken van gegevens. De verwerkingsverantwoordelijke moet kunnen aantonen dat deze nageleefd worden. De beginselen inzake gegevensverwerking zijn te vinden in Artikel 5 van de GDPR.
 
 \paragraph{Rechtmatigheid van verwerking}
-De GDPR beschrijft in artikel 6 onder welke omstandigheden verwerking van persoonsgegevens rechtmatig is. Indien de verwerking niet rechtmatig is kunnen er sancties optreden.
+\label{rechtmatigheid-van-verwerking}
+Een verwerking van persoonsgegevens dient ten alle tijden rechtmatig te zijn, indien dit niet het geval is kunnen er sancties optreden.
 
-De GDPR beschrijft enkele voorwaarden waaraan minstens voldaan moeten worden. Zo kan de betrokkene toestemming gegeven hebben, is er een wettelijke plicht of zijn er gerechtvaardigde belangen voor de verwerking van de gegevens.
+In artikel 6 beschrijft de GDPR enkele voorwaarden waar minstens aan voldaan moet worden. Zo kan de betrokkene toestemming gegeven hebben, is er een wettelijke plicht of zijn er gerechtvaardigde belangen voor de verwerking van de gegevens.
 
 In het geval van een ANPR-camera is het niet mogelijk om toestemming aan de betrokkene te vragen. Dit omdat toevallige voorbijgangers ook de camera kunnen triggeren welke vervolgens hun gegevens verwerkt, waarvoor deze geen toestemming hebben kunnen geven. Hiervoor is de enige echte optie het gerechtvaardigd belang.
 
-Het gerechtvaardigd belang berust erop dat de samenleving vindt dat het belang om de gegevens te verwerken zwaarwegend genoeg is dat ze de verwerking erkennen. En dat dit belang enkel kan behartigd worden door persoonsgegevens te verwerken \autocite{autoriteit2019gerechtvaardigd}.
+Het gerechtvaardigd belang berust erop dat de belangen van de verwerking meer doorwegen dan de belangen van de betrokkene. En dat dit belang enkel kan behartigd worden door persoonsgegevens te verwerken \autocite{autoriteit2019gerechtvaardigd}.
 
 \paragraph{Doelbinding}
 De doeleinden voor de gegevensverwerking dienen uitdrukkelijk omschreven en gerechtvaardigd te zijn. Geen verdere verwerking is toegestaan die niet aan deze doeleinden beantwoordt.
@@ -58,17 +57,18 @@ De doeleinden voor de gegevensverwerking dienen uitdrukkelijk omschreven en gere
 De opgeslagen data dienen beperkt te zijn tot wat nodig is om de beschreven doeleinden te voldoen. Het is de bedoeling om een strikt minimum van data bij te houden. Verder moet de data actueel gehouden worden en indien onjuist, verwijdert of gerectificeerd te worden.
 
 \paragraph{Opslagbeperking}
-De data mag niet langer opgeslaan worden in een vorm waarbij de betrokkene identificeerbaar is dan noodzakelijk voor de verwezenlijking van de doeleinden.
+Indien de betrokkene identificeerbaar is, mag de data niet langer opgeslaan worden dan dat deze nodig is voor het verwezenlijken van de doeleinden.
 
 \paragraph{Integriteit en vertrouwelijkheid}
-De verwerking dient genoeg beveiligd te zijn door gebruik te maken van passende, technische organisatorische maatregelen. Verder dient deze beschermt te zijn tegen iedere niet toegelate of onwettige verwerking, tegen verlies, vernietiging of kwaliteitsverlies van de gegevens.
+De verwerking dient genoeg beveiligd te zijn door gebruik te maken van passende, technische organisatorische maatregelen. Verder dient deze beschermd te zijn tegen iedere niet toegelate of onwettige verwerking, tegen verlies, vernietiging of kwaliteitsverlies van de gegevens.
 
 \paragraph{Verantwoordingsplicht}
-De verantwoordelijke voor de verwerking/verwerker zijn verantwoordelijk voor de naleving van de beginselen van de verordening ongeacht het risiconiveau. Men moet kunnen aantonen dat de verwerking van de persoonsgegevens rechtvaardig verloopt.
+De verwerkingsverantwoordelijke is verantwoordelijk voor de naleving van deze beginselen van de verordening. Hij moet kunnen dan ook ten alle tijde kunnen aantonen dat aan deze beginselen voldaan zijn.
+
 
 \subsection{Rechten van de betrokkene}
 \label{rechten-betrokkene}
-Vervolgens stelt de GDPR enkele uitgebreide rechten op die de betrokkene, de eigenaar van de persoonsgegevens heeft. Deze zijn terug te vinden in hoofdstuk III van de GDPR en zijn omschreven in de volgende punten.
+Vervolgens stelt de GDPR enkele uitgebreide rechten op die de betrokkene, de eigenaar van de persoonsgegevens, heeft. Deze zijn terug te vinden in hoofdstuk III van de GDPR en zijn omschreven in de volgende punten.
 
 \paragraph{Recht om geïnformeerd te zijn}
 Indien een ANPR-systeem is opgesteld, dient er volgens artikel 13 van de GDPR, gesignaleerd te worden dat een dergelijk systeem aanwezig is, dit tesamen met contactinformatie van de verwerkingsverantwoordelijke, de verwerkingsdoeleinden waarvoor de persoonsgegevens zijn bestemd en de rechtsgrond van de verwerking. Een voorbeeld van zo'n signalisatie is te zien in Figuur \ref{anpr-aanduiding}.
@@ -104,9 +104,6 @@ Hieruit volgt dan ook dat indien de verwerker kan aantonen dat hij de betrokkene
 \subsection{Functionaris voor gegevensbescherming}
 Een functionaris voor gegevensbescherming of data protection officer (DPO) is iemand met deskundingheid op het gebied van gegevensbescherming. Een DPO wordt aangewezen om de verwerkingsverantwoordelijke of de verwerker te informeren en adviseren over hun verplichtingen van de GDPR en andere wetten over gegevensbescherming.
 
-\paragraph{Taken}
-De DPO dient de verwerkingsverantwoordelijke of de verwerker te informeren en adviseren over hun rechten en verplichtingen, het toezien op het naleven van de GDPR, samenwerken met de toezichthoudende autoriteit en optreden als contactpunt voor de toezichthoudende autoriteit.
-
 \paragraph{Voorwaarden voor het aanstellen}
 Een DPO dient aangesteld te worden in volgende gevallen:
 \begin{itemize}
@@ -116,6 +113,10 @@ Een DPO dient aangesteld te worden in volgende gevallen:
 \end{itemize}
 
 Er kan verondersteld worden dat het verwerken van persoonsgegevens over twee campussen niet groot genoeg is om een DPO aan te stellen.
+
+\paragraph{Taken}
+De DPO dient de verwerkingsverantwoordelijke of de verwerker te informeren en adviseren over hun rechten en verplichtingen, het toezien op het naleven van de GDPR, samenwerken met de toezichthoudende autoriteit en optreden als contactpunt voor de toezichthoudende autoriteit.
+
 
 \section{Belgische Camerawetgeving}
 Sinds 25 mei 2018 is de nieuwe camerawetgeving ingevoerd, dit is een herziening van de Camerawetgeving uit 2007 en viel niet toevallig samen met de dag dat de GDPR is ingevoerd. Deze wet slaat op bewakingscamera's en geldt enkel wanneer deze als doel hebben:
@@ -130,10 +131,12 @@ Natuurlijk zal er wel nog rekening gehouden moeten worden met de AVG omdat er pe
 \section{Toegepast op een ANPR-systeem}
 De GDPR is een uitgebreide wetgeving die vele voorwaarden opstelt voor het verwerken van persoonsgegevens. Het is niet mogelijk om een volledige checklist te geven, maar enkele basisrichtlijnen geven een goed beeld van de mogelijkheid om dit te implementeren. Een ANPR-systeem brengt een pak meer persoonsgegevens met zich mee dan een simpel tokensysteem of RFID-systeem.
 
-Indien men een ANPR-systeem wilt implementeren, zullen alle reguleringen rond de verwerkte gegevens moeten voldaan worden. Zo zal men moeten:
+Indien men een ANPR-systeem wilt implementeren, zullen alle reguleringen rond de verwerkte gegevens moeten voldaan worden. Dit wordt in de volgende punten verduidelijkt.
 
 \subsection{Een verwerking dient gerechtigd te zijn.}
 Ieder contact met gegevens, of het nu lezen, verwijderen of verplaatsen is, is een verwerking. Indien men geen gewettigde reden heeft om de data te verwerken, riskeert u om hierop beboet te worden. Ga dus na op welke basis u data wilt verwerken en zorg dat u deze rechtmatigheid kan bevestigen.
+
+Er zijn enkele gronden waardoor het gerechtigd is om persoonsgegevens te verwerken. In onderdeel \ref{rechtmatigheid-van-verwerking} is reeds beschreven hoe een dergelijk camerasysteem het best rust op de het gerechtvaardigde belang, waarbij de belangen van de verwerking meer doorwegen dan de belangen van de betrokkene. 
 
 \subsection{Verwerk enkel de data die benodigd is voor uw doeleinden.}
 Dataminimalisatie berust erop dat u geen data verwerkt dat u niet nodig hebt om uw doelen te bereiken. Indien u een ANPR-systeem opstelt als toegangssysteem, dient u geen foto's van toevallige voorbijgangers bij te houden.
@@ -156,7 +159,7 @@ De co-promotor van dit onderzoek, Vado-Solutions, heeft reeds een idee van een i
 
 Verder zouden de genomen foto's niet worden opgeslaan in het systeem. De analyse van de foto's gebeurt onmiddelijk, waarna ze verwijderd worden. Dit geeft het voordeel dat hier geen databank van moet worden bijgehouden en dat er geen extra werk in kruipt op vlak van GDPR. Indien een betrokkene zijn foto's zou willen laten verwijderen is het onmogelijk, er worden namelijk geen foto's opgeslagen.
 
-Enkel op vlak van het nemen van foto's zou er nog moeten beschreven worden hoe dit exact valt onder het gerechtvaardigd belang. Dit is namelijk de enigste grond waarop een dergelijk ANPR-systeem onder gerecht zou kunnen zijn.
+Enkel op vlak van het nemen van foto's zou er nog moeten beschreven worden hoe dit exact valt onder het gerechtvaardigd belang. Dit is namelijk de enigste grond waarop een dergelijk ANPR-systeem gerechtigd zou kunnen zijn.
 
 Als besluit zou deze zeer minieme oplossing zeker mogelijk zijn om te implementeren op de campussen. De kleine voetafdruk van persoonlijke gegevens verminderen de lasten van de GDPR en zolang de schaal over enkele campussen blijft zou er geen DPO moeten worden aangesteld worden, wat kosten bespaart. Indien men een checklist wenst uit te voeren biedt gdpr.eu een degelijke checklist aan op https://gdpr.eu/checklist/.
 

@@ -1,5 +1,5 @@
 
-\chapter{\IfLanguageName{dutch}{Maatregelen voor ANPR}{Implementation guide for ANPR}}
+\chapter{\IfLanguageName{dutch}{Maatregelen rond ANPR}{Implementation guide for ANPR}}
 \label{ch:maatregelenanpr}
 
 In deze sectie beoordelen we welke maatregelen genomen moeten worden bij het implementeren van een ANPR systeem met oog op de parking aan de UGent.
@@ -17,7 +17,7 @@ Verder is het aangeraden om de camera hoger te plaatsen dan de koplampen van de 
 De gedetecteerde nummerplaten horen parallel te staan met de randen van de afbeelding. Dit omdat de datasets voor OpenANPR getraint zijn met afbeeldingen van horizontale nummerplaten, maar niet van gedraaide. Indien het niet mogelijk is om een rechte afbeelding te nemen kan de afbeelding ook later gedraaid worden.
 
 \subsection{Pixeldichtheid}
-Het aantal pixels van de foto waaruit een nummerplaat bestaat is van belang voor OpenALPR voor een duidelijke herkenning. Indien een foto van veraf is genomen zal deze laag zijn en van dichtbij zal deze dan weer hoog zijn. OpenALPR verwacht voor Europeaanse nummerplaten minstens een wijdte van 75 pixels en een grootte meer dan 250 pixels verhoogt niet opmerkelijk de accuraatheid. \autocite{openalprcameraplacement}
+Het aantal pixels van de foto waaruit een nummerplaat bestaat is van belang voor OpenALPR voor een duidelijke herkenning. Indien een foto van veraf is genomen zal de pixeldichtheid laag zijn en van dichtbij zal deze dan weer hoog zijn. OpenALPR verwacht voor Europeaanse nummerplaten minstens een wijdte van 75 pixels en een grootte meer dan 250 pixels verhoogt niet opmerkelijk de accuraatheid  \autocite{openalprcameraplacement}. Dit is te merken in het onderzoek zelf in figuur \ref{ressterrecomparison}.
 
 \section{Camera instellingen}
 De belangrijkste factor van een performant ANPR-systeem is een correct ingestelde camera. Het nemen van foto's is de eerste stap in het proces en indien hierop nummerplaten niet duidelijk zijn kan OpenALPR onmogelijk iets detecteren. In dit onderdeel worden de belangrijkste instellingen verduidelijkt die bijdragen tot een correcte foto voor gebruik bij nummerplaatdetectie.
@@ -80,9 +80,9 @@ Om scherpe afbeeldingen te verkrijgen moet de depth of field (DOF) van een camer
 OpenALPR, de open-source software voor het detecteren van nummerplaten, biedt zelf ook verscheidene instellingen die de accuraatheid van de detectie kan verbeteren. Aangezien de software gebruikt kan worden over heel de wereld zijn en deze nummerplaten heel wat verschillen zijn er meerdere configuraties beschikbaar die specifieker op de regio getraind zijn, maar ook calibratie van de genomen afbeeldingen en patroonmatching zijn beschikbaar.
 
 \subsection{Pattern matching}
-\textcite{arrieta2019prototype} en \textcite{buhus2016automatic} concluderen beiden dat openalpr standaard goede resultaten biedt, maar nog hogere resulaten bereikt kunnen worden indien er verduidelijkt wordt welk type nummerplaten er verwacht wordt. Dit houdt factoren in zoals de juiste dataset van het land gebruiken en de volgorde van de kentekenkarakters aanduiden.
+\textcite{arrieta2019prototype} en \textcite{buhus2016automatic} concluderen beiden dat OpenALPR standaard degelijke resultaten biedt, maar nog hogere resulaten bereikt kunnen worden indien er verduidelijkt wordt welk type nummerplaten er verwacht wordt. Dit houdt factoren in zoals de juiste dataset van het land gebruiken en de volgorde van de kentekenkarakters aanduiden.
 
-Door pattern matching toe te passen kunnen resultaten nog nauwkeuriger zijn. Hierbij wordt een reguliere expressie op alle top N resultaten uitgevoerd en worden de non-matching resultaten verworpen.
+Door pattern matching toe te passen kunnen resultaten nog nauwkeuriger zijn. Hierbij wordt een reguliere expressie op alle top N resultaten uitgevoerd en worden de niet-matching resultaten verworpen.
 
 Een voorbeeld hiervan is op nummerplaten in Tsjechië, verkregen van \textcite{openalpr2015pattern}
 Er wordt nummerplaatdetectie uitgevoerd op afbeelding \ref{patternmatching} met volgende regexpatronen die voorkomen in Tsjechië:
@@ -122,7 +122,7 @@ Hieruit is te zien dat bij de top 7 resultaten het middelste karakter als de let
 
 \subsection{Calibratie van afbeeldingen}
 \label{alprcalib}
-In vele situaties is het niet mogelijk om de camera frontaal te richten op een nummerplaat. Indien de camera te diagonaal gericht is, zoals in afbeelding \ref{calibration-openalpr}, is het zeer waarschijnlijk dat de accuraatheid van OpenALPR zal zakken. Dit komt omdat OpenALPR getraind is op afbeeldingen die horizontaal gealigneerd zijn met een maximale hoek van 30$^{\circ}$. Gelukkig biedt OpenALPR een eigen tool aan om foto's te kalibreren. Deze is te zien in afbeelding \ref{calibration-openalpr-after}, waar de x- en y-as rotatie en schaal aangepast worden om de afbeelding toch recht te trekken.
+In vele situaties is het niet mogelijk om de camera frontaal te richten op een nummerplaat. Indien de camera te diagonaal gericht is, zoals in figuur \ref{calibration-openalpr}, is het zeer waarschijnlijk dat de accuraatheid van OpenALPR zal zakken. Dit komt omdat OpenALPR getraind is op afbeeldingen die horizontaal gealigneerd zijn met een maximale hoek van 30$^{\circ}$. Gelukkig biedt OpenALPR een eigen tool aan om foto's te kalibreren. Deze is te zien in afbeelding \ref{calibration-openalpr-after}, waar de x- en y-as rotatie en schaal aangepast worden om de nummerplaat toch recht te trekken.
 
 \begin{figure}[h!]
 	\centering
@@ -139,9 +139,9 @@ In vele situaties is het niet mogelijk om de camera frontaal te richten op een n
 \end{figure}
 
 \subsection{Buitenlandse nummerplaten}
-OpenALPR heeft verscheidene configuraties voor Europa, Amerika en andere continenten. Door één van deze te selecteren wordt een ander model gekozen dat specifiek voor deze regio is getraind. Bij een keuze van de Europese databank worden er dan ook geen tot weinig fouten verwacht aangezien het model met nummerplaten over heel Europa getraind is.
+OpenALPR heeft verscheidene configuraties voor Europa, Amerika en andere continenten. Door één van deze datasets te selecteren wordt een ander model gekozen dat specifiek voor deze regio is getraind. Bij een keuze van de Europese dataset worden er dan ook geen tot weinig fouten verwacht aangezien het model met nummerplaten over heel Europa getraind is.
 
 \subsection{Commerciële upgrades}
 OpenALPR biedt ook een commerciële versie aan. Deze zou naar eigen zeggen een hogere nauwkeurigheid bieden in cases waar de Open Source versie slecht presteert \autocite{openalpr2019benchmark}. Er wordt verondersteld dat deze verbeteringen direct zouden vertalen naar het onderzoek zelf en een hogere performantie zal leveren.
 
-De commerciële versie van OpenALPR kost op het moment dat dit onderzoek gepubliceerd is 49 dollar per maand, wat omgerekend 44,1 euro is. Dit onderzoek focust zich op een goedkope implementatie van ANPR, hierdoor wordt de commerciële versie niet overwogen.
+De commerciële versie van OpenALPR kost op het moment dat dit onderzoek gepubliceerd is 49 dollar per maand, wat omgerekend 44,1 euro is. Dit onderzoek focust zich op een goedkope implementatie van ANPR, waardoor de commerciële versie niet overwogen wordt.
