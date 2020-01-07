@@ -20,7 +20,7 @@ subalpr <- alpr[ which(alpr$location == "sterre-depintelaan4"), ]
 pint <- table(subalpr$correct)
 
 # Create an overview table
-tab <- rbind(kruis, coup, galg, pint)
+tab <- rbind(kruis, galg, pint)
 tab <- addmargins(tab)
 tab <- cbind(tab, (tab[,2]/tab[,3]))
 colnames(tab) <- c("Incorrect", "Correct", "Totaal", "Ratio")

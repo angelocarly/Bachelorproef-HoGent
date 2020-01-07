@@ -43,18 +43,17 @@ Het nemen van de foto's is een fysiek onderdeel van dit onderzoek en werd uitgev
 \end{itemize}
 
 Deze foto's werden gemaakt met de PiNoIR camera verbonden aan de Raspberry Pi mbv. het raspistill commando. Per auto die de parking wilt verlaten worden er adhv. een handmatige trigger 6 foto's gemaakt in een burst van 3 seconden met 500 ms per foto. Dit aan de hand van het raspistill commando:  
-\begin{verbatim}
+\begin{lstlisting}[language=Bash, breaklines=true]
 #!/bin/bash
 
 # -t : De timeout waarover foto's genomen worden
-# -bm : Gebruik de camera in burst mode, hierdoor moet de camera niet 
-        telkens opnieuw focussen tussen iedere genomen foto
+# -bm : Gebruik de camera in burst mode, hierdoor moet de camera niet telkens opnieuw focussen tussen iedere genomen foto
 # -tl : Tijd tussen iedere foto in burst mode
 # --width --height : De resolutie van de bekomen foto's
 # --nopreview : schakel de preview uit aangezien er geen monitor verbonden is
 raspistill -t 3000 -bm -tl 500 --width 1280 --height 720 --nopreview
 -o `date +%d%m%Y_%H%M%S`%04d.jpg
-\end{verbatim}
+\end{lstlisting}
 
 \subsubsection{Triggering van de camera}
 De camera zelf werd in dit onderzoek handmatig getriggerd aangezien een implementatie opstellen voor automatische triggering een te grote tijdsnood zou hebben op het maken van dit onderzoek.
@@ -137,9 +136,9 @@ In sommige gevallen zijn de foto's allemaal van een veel te verre afstand genome
 
 \section{Verwerking van gegevens}
 
-Nadat de foto's van een uitgang verzameld zijn, werd op iedere foto nummerplaatdetectie uitgevoerd mbv. OpenALPR. Het resultaat van deze detectie werd opgeslaan in een JSON bestand naast de corresponderende afbeelding. Hiervoor werd de volgende code gebruikt:
+Nadat de foto's van een uitgang verzameld zijn, werd op iedere foto nummerplaatdetectie uitgevoerd mbv. OpenALPR. Het resultaat van deze detectie werd opgeslaan in een JSON bestand naast de corresponderende afbeelding. Hiervoor werd de volgende bash code gebruikt:
 
-\begin{verbatim}
+\begin{lstlisting}[language=Bash, breaklines=true]
 #!/bin/bash
 
 FILES=$(ls -tr *.jpg)
@@ -149,9 +148,9 @@ fname="${fullname%.*}"
 alpr -p be -c eu --config alpr.config -j $fullname | jq '.' > "${fname}.json"
 echo "processed file ${fname}.json" 
 done
-\end{verbatim}
+\end{lstlisting}
 
-Vervolgens werd de deze genoteerd in een CSV-bestand, tesamen de volgende data afgeleid uit de afbeeldingen:
+Vervolgens werd alle data van de afbeeldingen verzameld in een algemeen CSV bestand, tesamen met de bekomen nummerplaten van OpenALPR.
 \begin{itemize}
 	\item \textbf{identifier:} Unieke identifier per auto.
 	\item \textbf{file:} De bestandsnaam van de foto.
@@ -161,6 +160,8 @@ Vervolgens werd de deze genoteerd in een CSV-bestand, tesamen de volgende data a
 	\item \textbf{lighting:} De belichting van de nummerplaten, bestaat uit 2 velden, "bright"\ en "very\_bright". Bright betekent dat de nummerplaat duidelijk leesbaar is voor mensen onder normaal daglicht. very\_bright betekent dat deze niet onmiddelijk leesbaar is.
 	\item \textbf{location:} De uitgang waar de foto is genomen, bestaat uit "coupure-kruisboogstraat", "coupure-coupurelinks", "sterre-galglaan"\ en "sterre-depintelaan".
 \end{itemize}
+
+Ten laatste zijn deze resultaten verwerkt in de statistische taal 'R'. De code voor deze bewerkingen zijn te vinden in bijlage \ref{ch:bijlageperfoto} en bijlage \ref{ch:bijlageperauto}.
 
 \subsection{Calibratie van de afbeeldingen}
 Origineel waren alle resultaten van de nummerplaatdetectie aan de zeer lage kant, aangezien de afbeeldingen nog niet gekalibreerd waren. Maar met de tools beschreven in onderdeel \ref{alprcalib}, was het mogelijk om een algemene transformatie op de afbeeldingen uit te voeren.
@@ -346,6 +347,8 @@ Deze locatie is een verbetering tov. de vorige posities. Allereerst staan alle a
 
 Ondanks deze voordelen is de nauwkeurigheid niet hoog genoeg en zijn er toch 6 auto's die niet gedetecteerd zijn. Na deze na foto's te gaan is het duidelijk dat dit komt door de grote afstand en bijgevolg lagere resolutie van de nummerplaten. Een voorbeeld hiervan is te zien op figuur \ref{fig:lowressterre}.
 
+Verder is één voertuig niet gedetecteerd niet door de lage resolutie maar door de hoogte van de slagboom, deze vrachtagen zijn nummerplaat is te hoog aan het voertuig gemonteerd waardoor de slagboom ervoor staat op de foto. Dit is te zien in figuur \ref{fig:slagboomster}. Deze situatie is wellicht uitzonderlijk. Alle andere auto's hun nummerplaat zit ruim onder de slagboom.
+
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.49\linewidth}
@@ -358,19 +361,17 @@ Ondanks deze voordelen is de nauwkeurigheid niet hoog genoeg en zijn er toch 6 a
 	\label{fig:lowressterre}
 \end{figure}
 
-Verder is één voertuig niet gedetecteerd niet door de lage resolutie maar door de hoogte van de slagboom, deze vrachtagen zijn nummerplaat is te hoog aan het voertuig gemonteerd waardoor de slagboom ervoor staat op de foto. Dit is te zien in figuur \ref{fig:slagboomster}. Deze situatie is wellicht uitzonderlijk. Alle andere auto's hun nummerplaat zit ruim onder de slagboom.
-
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.99\linewidth}
 		\includegraphics[width=\linewidth]{img/sterachter/sterachter3.jpg}
 	\end{subfigure}
-	\caption{Niet te detecteren nummerplaat omwille van slagboom die het zicht verhinderd.}
+	\caption{Niet te detecteren nummerplaat omwille van slagboom die het zicht verhindert.}
 	\label{fig:slagboomster}
 \end{figure}
 
 \subsubsection{Positie achteraan de uitgang - hoge resolutie}
-Ten laatste is het onderzoek op de vorige locatie opnieuw uitgevoerd. De nauwkeurigheid van de PiNoIR camera biedt echter een veel hogere resolutie aan. Dit maakte het mogelijk om softwarematig in te zoomen op de foto's met een betere kwaliteit. In afbeelding \ref{fig:ressterrecomparison} is dit verschil van de foto's duidelijk te zien.
+Ten laatste is de steekproef op de vorige positie opnieuw uitgevoerd. De nauwkeurigheid van de PiNoIR camera biedt echter een veel hogere resolutie aan dan origineel ingesteld. Dit maakte het mogelijk om softwarematig in te zoomen op de foto's met een betere kwaliteit. In afbeelding \ref{fig:ressterrecomparison} is dit verschil van de foto's duidelijk te zien.
 
 \begin{figure}[h!]
 	\centering
@@ -507,9 +508,11 @@ De uitgang aan de Coupure Links, afgebeeld in figuur \ref{fig:coupure-links}, ha
 
 Er werd in dit onderzoek vertrokken met de hypothese dat in een steekproef met nummerplaatdetectie een nauwkeurigheid boven de 95\% behaald kon worden. Dit resultaat was dan ook bevestigd bij twee van de drie beschreven uitgangen in tabel \ref{tab:percar}.
 
-Een goedkope implementatie voor nummerplaatdetectie is dan ook in zekere mate mogelijk. Op twee van de drie uitgangen is het mogelijk om de camera's op de metalen constructie naast de hefbomen te plaatsen. Enkel op de uitgang aan de De Pintelaan is er noodzaak aan een uitgebreidere implementatie om de camera te kunnen monteren.
+Een goedkope implementatie voor nummerplaatdetectie is dan ook in zekere mate mogelijk. Op twee van de drie geteste uitgangen is het mogelijk om de camera's op de metalen constructie naast de hefbomen te plaatsen en degelijke resultaten te behalen. Enkel op de uitgang aan de De Pintelaan is er noodzaak aan een uitgebreidere implementatie om de camera te kunnen monteren.
 
-Het is niet mogelijk om aan te nemen dat deze resultaten toepasselijk zijn op de volledige populatie, maar de resultaten stellen zeker de weg open naar breder onderzoek.
+Aan de De Pintelaan voldeed de positie op de metalen constructie niet om degelijke resultaten te behalen en was een verhogen en verplaatsing noodzakelijk. Om nummerplaatdetectie aan deze uitgang te voorzien zou er dus een extra investering gemaakt moeten worden in het opzetten van een verhoging voor de camera en het leggen van kabels naar deze positie.
+
+In het algemeen zijn de resultaten van dit onderzoek veelbelovend, maar kan er niet aangenomen worden dat deze gelden voor de volledige populatie. Toch stellen deze zeker de weg open naar breder onderzoek.
 
 %\section{Uitbreidingen}
 %Locatie van de sensor kan mss in het midden van balk \autocite{buhus2016automatic}.

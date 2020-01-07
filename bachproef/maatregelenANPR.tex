@@ -16,18 +16,21 @@ Verder is het aangeraden om de camera hoger te plaatsen dan de koplampen van de 
 \subsection{Camera oriëntatie}
 De gedetecteerde nummerplaten horen parallel te staan met de randen van de afbeelding. Dit omdat de datasets voor OpenANPR getraint zijn met afbeeldingen van horizontale nummerplaten, maar niet van gedraaide. Indien het niet mogelijk is om een rechte afbeelding te nemen kan de afbeelding ook later gedraaid worden.
 
+\subsection{Camerahoogte}
+Indien een ANPR-systeem geplaatst zou worden is het belangrijk om de camera's niet op een te lage locatie te plaatsen. In slechte of donkere weersomstandigheden, wanneer voertuigen hun koplampen aanzetten, kan het licht van de koplampen voor een hoge interferentie zorgen in de afbeelding. Dit kan geremedieert worden door de camera's hoog genoeg uit dit licht te plaatsen of een IR-filter te gebruiken dat het zichtbare licht wegfiltert en enkel IR licht doorlaat.
+
 \subsection{Pixeldichtheid}
-Het aantal pixels van de foto waaruit een nummerplaat bestaat is van belang voor OpenALPR voor een duidelijke herkenning. Indien een foto van veraf is genomen zal de pixeldichtheid laag zijn en van dichtbij zal deze dan weer hoog zijn. OpenALPR verwacht voor Europeaanse nummerplaten minstens een wijdte van 75 pixels en een grootte meer dan 250 pixels verhoogt niet opmerkelijk de accuraatheid  \autocite{openalprcameraplacement}. Dit is te merken in het onderzoek zelf in figuur \ref{ressterrecomparison}.
+Het aantal pixels van de foto waaruit een nummerplaat bestaat is van belang voor OpenALPR voor een duidelijke herkenning. Indien een foto van veraf is genomen zal de pixeldichtheid laag zijn en van dichtbij zal deze dan weer hoog zijn. OpenALPR verwacht voor Europeaanse nummerplaten minstens een wijdte van 75 pixels en een grootte meer dan 250 pixels verhoogt niet opmerkelijk de accuraatheid  \autocite{openalprcameraplacement}.
 
 \section{Camera instellingen}
-De belangrijkste factor van een performant ANPR-systeem is een correct ingestelde camera. Het nemen van foto's is de eerste stap in het proces en indien hierop nummerplaten niet duidelijk zijn kan OpenALPR onmogelijk iets detecteren. In dit onderdeel worden de belangrijkste instellingen verduidelijkt die bijdragen tot een correcte foto voor gebruik bij nummerplaatdetectie.
+De belangrijkste factor in een performant ANPR-systeem is een correct ingestelde camera. Het nemen van foto's is de eerste stap in het proces en indien hierop al geen nummerplaten duidelijk zijn zal OpenALPR zelf onmogelijk iets kunnen detecteren. In dit onderdeel worden de belangrijkste camerainstellingen verduidelijkt die bijdragen tot een correcte afbeelding voor gebruik bij nummerplaatdetectie.
 
 \subsection{Shuttersnelheid}
 %\textcite{guo2017vehicle} stelt een trainingsmodel voor dat rekening houdt met blur.
 
 Camera shutterspeed is de snelheid dat een camera foto's neemt. In een klaarlichte dag kan de shutterspeed zo'n 1/10000 seconden halen terwijl in het donker dit wel een volle seconde kan duren om genoeg licht te behalen. \autocite{openalprcameraplacement}
 
-Bij een lange shutterspeed kan het dus zijn dat een voertuig een meter vooruit is gereden, terwijl bij een kleine shutterspeed dit bv. maar een centimeter is. Een korte shutterspeed is dus interessant voor het implementeren van nummerplaatdetectie aangezien de auto minder ver is gereden en dus minder motion blur op de foto staat.
+Bij een lange shutterspeed kan het dus zijn dat een voertuig een meter vooruit is gereden, terwijl bij een kleine shutterspeed dit maar een centimeter zou zijn. Een korte shutterspeed is dus interessant voor het implementeren van nummerplaatdetectie aangezien de auto minder ver is gereden en dus minder motion blur op de foto staat. Een voorbeeld van het verschil in shuttersnelheid is te zien op figuur \ref{fig:ntlpc}
 %
 \begin{figure}[h!]
 	\centering
@@ -39,14 +42,14 @@ Bij een lange shutterspeed kan het dus zijn dat een voertuig een meter vooruit i
 		\includegraphics[width=\linewidth]{img/shutter-fast.jpg}
 		\caption{Shutter speed van 1/250}
 	\end{subfigure}
-	\label{fig:ntlpc}
 	\caption{Vergelijking van verschillende shutterinstellingen. \autocite{easy2019shutter}}
+	\label{fig:ntlpc}
 \end{figure}
 
-Het nadeel van een kleine shutterspeed te nemen is dat er veel minder licht aanwezig is op de foto's, wat de detectie dan weer omlaag brengt. Zo krijg je 's nachts bijna volledig zwarte foto's. Dit kan geremedieerd worden door belichting bij te plaatsen.
+Het nadeel van een kleine shutterspeed te gebruiken is dat er veel minder licht aanwezig is op de foto's, wat de detectie dan weer omlaag brengt. Zo worden foto's die 's nachts genomen worden bijna volledig zwart. Dit kan geremedieerd worden door belichting bij te plaatsen.
 
 \subsection{Belichting}
-'s Nachts is het moeilijk een degelijke foto van nummerplaten te verkrijgen. Door het weinige licht moet de camera zeer lang zijn shutter openhouden, wat resulteert in een wazige foto.
+'s Nachts is het moeilijk een degelijke foto van nummerplaten te verkrijgen. Door het weinige licht moet de camera zeer lang zijn shutter openhouden, wat resulteert in een wazige foto. Terwijl de shutter op een laag aantal te houden resulteert in te donkere foto's.
 
 Men kan de nummerplaat zichtbaar maken door het bijzetten van belichting, maar zelfs dan zal de nummerplaat vaak weinig tot niet zichtbaar zijn. Dit komt doordat de koplampen van een auto zeer fel oplichten in de camera en hierdoor de afbeelding overbelichten. Een algemene oplossing voor deze problemen is het gebruik van een IR-camera. Een IR-camera detecteerd enkel IR-licht en heeft dus geen invloed van de koplampen van wagens. Verder is het voordeel hiervan dat IR-licht niet zichtbaar is voor het menselijk oog, en dus ongestoort snachts en overdag gebruikt kan worden. Een voorbeeld hiervan is te zien in figuur \ref{fig:ir-nacht}, waarbij eerst geen IR-filter wordt gebruikt en daarna wel.
 
@@ -144,4 +147,4 @@ OpenALPR heeft verscheidene configuraties voor Europa, Amerika en andere contine
 \subsection{Commerciële upgrades}
 OpenALPR biedt ook een commerciële versie aan. Deze zou naar eigen zeggen een hogere nauwkeurigheid bieden in cases waar de Open Source versie slecht presteert \autocite{openalpr2019benchmark}. Er wordt verondersteld dat deze verbeteringen direct zouden vertalen naar het onderzoek zelf en een hogere performantie zal leveren.
 
-De commerciële versie van OpenALPR kost op het moment dat dit onderzoek gepubliceerd is 49 dollar per maand, wat omgerekend 44,1 euro is. Dit onderzoek focust zich op een goedkope implementatie van ANPR, waardoor de commerciële versie niet overwogen wordt.
+De commerciële versie van OpenALPR kost op het moment dat dit onderzoek gepubliceerd is 49 dollar per maand, wat omgerekend 44,1 euro is. Dit onderzoek focust zich echter op een goedkope implementatie van ANPR, waardoor de commerciële versie van OpenALPR niet overwogen wordt.
