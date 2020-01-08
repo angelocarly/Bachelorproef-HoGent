@@ -1,17 +1,16 @@
 
 \chapter{\IfLanguageName{dutch}{Praktische uitvoering van ANPR}{Implementation of ANPR at UGent}}
 \label{ch:praktischeUitvoering}
-In dit hoofdstuk zal er onderzocht worden of nummerplaatdetectie degelijke resultaten kan leveren op de Campus Sterre en Campus Coupure van UGent. Hiervoor zullen handmatig foto's genomen worden van wagens die de parking willen verlaten met de Pi-NoIR cam. Hierna wordt er gecontroleerd of OpenANPR wel degelijk correcte resultaten levert op de genomen foto's.
+In dit hoofdstuk wordt er onderzocht of nummerplaatdetectie degelijke resultaten kan behalen op de Campus Sterre en Campus Coupure van UGent. Hiervoor zullen handmatig foto's genomen worden van wagens die de parking willen verlaten adhv. een testopstelling van een Raspberry Pi met een Pi-NoIR camera. Vervolgens worden deze foto's verwerkt met OpenALPR en zullen deze resultaten vergeleken worden met de correcte resultaten. Op deze manier wordt de nauwkeurigheid van de nummerplaatdetectie per uitgang bepaalt en kan een conclusie getrokken worden of dit wel degelijk een haalbare technologie is.
 
-
-\section{Hardware en software}
-In dit onderdeel wordt de opstelling en configuratie van de camera's uitgelegd adhv. de informatie verzameld in Hoofdstuk \ref{ch:maatregelenanpr}.
+\section{Opstelling}
+In dit onderdeel wordt de opstelling en configuratie van de camera's uitgelegd adhv. de informatie verzameld in Hoofdstuk \ref{ch:maatregelenanpr}. Bij het maken van deze opstelling werd er getracht om zo veel mogelijk een reële implementatie na te streven.
 
 \subsection{Camera}
 Als camera zal gebruik gemaakt worden van de PiNoIR-Cam. Deze camera is een standaard extensie voor de Raspberry-PI die geen infrarood filtering heeft staan. Standaard wordt infrarood uit afbeeldingen gefilterd omdat deze een ongewenst bijproduct zijn op foto's. De PiNoIR camera filtert geen infrarood uit de afbeeldingen en maken het dus mogelijk om te gebruiken voor infrarood detectie.
 
 \paragraph{Cameraplaatsing}
-Voor de plaatsing van de camera's wordt er gewenst zo veel mogelijk kosten te besparen en wordt er liever niet geopteerd voor een aparte paal voor de ANPR-camera. Daarom zal als fotopunt de metalen constructie van de hefboom gekozen worden. De camera zal hier op de top worden aangehangen zodat deze zo min mogelijk interferentie heeft van de koplampen van de auto's.
+Voor de plaatsing van de camera's wordt er gewenst zo veel mogelijk kosten te besparen en wordt er liever niet geopteerd voor een aparte paal voor de ANPR-camera. Daarom zal als eerste keuze de metalen constructie van de hefboom gekozen worden. De camera zal hier op de top worden aangehangen zodat deze zo min mogelijk interferentie heeft van de koplampen van de auto's.
 
 \begin{figure}[h!]
 	\centering
@@ -20,7 +19,7 @@ Voor de plaatsing van de camera's wordt er gewenst zo veel mogelijk kosten te be
 \end{figure}
 
 \subsection{Opstelling}
-Om de foto's te verkrijgen zal gebruik gemaakt worden van de Raspberry Pi met de PiNoIR camera, deze zal in een behuizing op de juiste hoogte van de paal tijdelijk vastgezet worden tesamen met een powerbank. De Raspberry Pi verbindt vervolgens met een GSM die als hotspot ingesteld staat, waarop vervolgens met een SSH verbinding een commando kan worden uitgevoerd om foto's te nemen.
+Om de foto's te verkrijgen zal gebruik gemaakt worden van de Raspberry Pi met de PiNoIR camera, deze zal in een behuizing op de juiste hoogte van de paal tijdelijk vastgezet worden tezamen met een powerbank. De Raspberry Pi verbindt vervolgens met een GSM die als hotspot ingesteld staat, waarop met een SSH verbinding het commando kan worden uitgevoerd om foto's te nemen. Deze foto's worden vervolgens allemaal verzameld en verwerkt.
 
 Figuur \ref{Opstelling} toont de gemaakte opstelling. Deze bevat De Raspberry Pi, de Pi-Cam en een powerbank met een capaciteit van 700mAh.
 \begin{figure}[h]
@@ -31,7 +30,7 @@ Figuur \ref{Opstelling} toont de gemaakte opstelling. Deze bevat De Raspberry Pi
 \end{figure}
 
 \section{Verzamelen van de gegevens}
-De verzamelde gegevens horen correct te zijn en representatief voor een automatisch geïmplementeerd systeem. Alle uitgevoerde stappen om de gegevens te bekomen zijn in dit onderdeel beschreven tesamen met hun motivaties.
+De verzamelde gegevens horen correct te zijn en representatief voor een automatisch geïmplementeerd systeem. Alle uitgevoerde stappen om de gegevens te bekomen zijn in dit onderdeel beschreven tezamen met hun motivaties.
 
 \subsection{Nemen van de foto's}
 Het nemen van de foto's is een fysiek onderdeel van dit onderzoek en werd uitgevoerd op de volgende locaties:
@@ -61,7 +60,7 @@ De camera zelf werd in dit onderzoek handmatig getriggerd aangezien een implemen
 In een werkelijke implementatie zou deze triggering mogelijk zijn adhv. software dat de beelden van de Raspberry Pi bekijkt en hierop bewegingsdetectie uitvoert. Een voorbeeld hiervan is de 'motion' package die hiervoor een open-source implementatie geeft.
 
 \subsection{Tijdstippen van de genomen foto's}
-In tabel \ref{tab:fototijdstippen} zijn alle momenten genoteerd dat er fysiek foto's verzameld werden. Deze zijn verworven in de vroege namiddag aangezien het op deze momenten nog steeds daglicht is en mensen beginnen te vertrekken van de Campussen. Enkel op de Coupure Links is er later geprobeerd data te verzamelen omdat er overdag bijna geen auto's vertrokken.
+In tabel \ref{tab:fototijdstippen} zijn alle momenten genoteerd dat er fysiek foto's verzameld werden. Deze zijn telkens verworven in de vroege namiddag aangezien er op deze momenten nog steeds daglicht is en mensen beginnen te vertrekken van de Campussen. Enkel op de Coupure Links is er later geprobeerd data te verzamelen omdat er overdag bijna geen auto's vertrokken.
 \begin{table}[h!]
 \centering
 \begin{tabular}{l|l|l|l|l}
@@ -150,7 +149,7 @@ echo "processed file ${fname}.json"
 done
 \end{lstlisting}
 
-Vervolgens werd alle data van de afbeeldingen verzameld in een algemeen CSV bestand, tesamen met de bekomen nummerplaten van OpenALPR.
+Vervolgens werd alle data van de afbeeldingen verzameld in een algemeen CSV bestand, tezamen met de bekomen nummerplaten van OpenALPR.
 \begin{itemize}
 	\item \textbf{identifier:} Unieke identifier per auto.
 	\item \textbf{file:} De bestandsnaam van de foto.
@@ -249,7 +248,7 @@ De uitgang op de Campus Sterre aan de De Pintelaan is de hoofduitgang van UGent 
 
 Door de vele verbindingen is het mogelijk om de parking op allerlei manieren te bereiken, deze zijn te zien op figuur \ref{fig:satellietdepintelaan}. Dit is op zich geen probleem, maar hierdoor moet de nummerplaatdetectie wel in een groot aantal orientaties werken.
 
-Aangezien aan deze uitgang niet direct een optimale camerahoek gevonden was, worden in de volgende onderdelen de geteste camerahoeken beschreven tesamen met hun resultaten. Deze camerahoeken zijn aangeduid met cijfers in figuur \ref{fig:satellietdepintelaan}.
+Aangezien aan deze uitgang niet direct een optimale camerahoek gevonden was, worden in de volgende onderdelen de geteste camerahoeken beschreven tezamen met hun resultaten. Deze camerahoeken zijn aangeduid met cijfers in figuur \ref{fig:satellietdepintelaan}.
 
 \begin{figure}[h!]
 	\centering
@@ -266,7 +265,7 @@ Deze plaatsing van de camera is aangeduid op afbeelding \ref{fig:satellietdepint
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\linewidth]{img/depintelaanorigineel.jpg}
-	\caption{Cameraplaatsing aan de rechterkant van de hefboom op Campus Sterre - De Pintelaan. De locatie van de camera is aangeduid met een rode cirkel.}
+	\caption{Cameraplaatsing aan de rechterkant van de hefboom op Campus Sterre - De Pintelaan. De locatie van de camera is aangeduid met een rode cirkel. De uitrijrichting is van links naar rechts}
 	\label{fig:plaatsingdepintelaanorigineel}
 \end{figure}
 

@@ -27,18 +27,17 @@ Niet enkel tokens worden vandaag de dag gebruikt als toegangssysteem. Enkele and
 \subsection{Tokens}
 
 %Hoe werken de tokens
-Tokens worden aan alle uitgangen van de campussen gebruikt om de parking te verlaten.
-Tokens worden hoofdzakelijk gebruikt om de parking te verlaten, alle uitgangen beschikken over een tokenslikker. Op deze manier kunnen studenten of bezoekers de campus verlaten nadat zij een token gaan afhalen op het onthaal.
+Tokens worden aan alle uitgangen van de campussen gebruikt om de parking te verlaten, alle uitgangen beschikken over een tokenslikker. Op deze manier kunnen studenten of bezoekers de campus verlaten nadat zij een token gaan afhalen op het onthaal.
 
 %Nadelen van tokens
 De tokens zelf vallen momenteel niet in goede aard omdat deze enkele nadelen met zich meebrengen:
 \begin{itemize}
 	\item De tokens worden veel misbruikt op faciliteiten buiten UGent zoals automaten, carwashes en meer.
 	\item De tokens zelf kunnen makkelijk verloren geraken, wat niet milieubewust is.
-	\item De tokens zelf redelijk duur aan een kost van 1,5 euro per stuk.
+	\item De tokens zelf zijn redelijk duur aan een kost van 1,5 euro per stuk.
 \end{itemize}
 
-Deze punten geven aan dat tokens niet de gewenste oplossing zijn voor de campussen van UGent. Dit is te merken aan de hoofduitgang van de Campus Coupure waar sommige uitgangen af en toe vrij zijn om te verlaten zonder een token in te werpen, door het teveel aan werk van de tokenslikkers te legen.
+Deze punten geven aan dat tokens niet de gewenste oplossing zijn voor de campussen van UGent. Dit is te merken aan de hoofduitgang van de Campus Coupure waar sommige uitgangen af en toe vrij zijn om te verlaten zonder een token in te werpen, dit door het teveel aan werk om de tokenslikkers te legen.
 
 \begin{figure}[h!]
 	\centering
@@ -52,14 +51,14 @@ Deze punten geven aan dat tokens niet de gewenste oplossing zijn voor de campuss
 Radio frequency Identication (RFID) is een technologie die aan de hand van elektromagnetische golven objecten kan identificeren. Dit met het voordeel dat er geen direct contact of zicht moet zijn tussen de scanner en het object. RFID gebeurt a.d.h.v een RFID reader en een RFID tag. De reader zendt een elektromagnetisch signaal uit. De tag ontvangt deze golven en kan op zijn beurt de opgevraagde informatie verzenden. \autocite{li2009design}
 
 %RFID op UGent
-Aan iedere uitgang op UGent zijn RFID-kaartlezers te vinden. Deze zijn voorzien om een vlotte toegang te verlenen aan werknemers en worden via een centraal beheerd systeem.
+Aan iedere uitgang op UGent zijn RFID-kaartlezers te vinden. Deze zijn voorzien om een vlotte toegang te verlenen aan werknemers en worden via een centraal systeem beheerd.
 
-Het is geen optie om rfid voor alle bezoekers te gebruiken aangezien er vaak bezoekers binnentreden die maar 1 dag op de campus zijn. In dat geval zou er voor iedere dagbezoeker een RFID-kaart moet gemaakt worden. Aangezien de prijs van een RFID-kaart over de 10 euro is, is het zeker geen optie om dit als oplossing te gebruiken.
+Het is geen optie om RFID voor alle bezoekers te gebruiken aangezien er vaak bezoekers binnentreden die maar 1 dag op de campus zijn. In dat geval zou er voor iedere dagbezoeker een RFID-kaart moet gemaakt worden. Aangezien de prijs van een RFID-kaart over de 10 euro is, is het zeker geen optie om dit als oplossing te gebruiken.
 
 \subsection{Barcodes}
-In een poging tot de tokens te vervangen heeft UGent één uitgang op de parking UFO en het rectoraat waar barcodes worden gebruikt. Deze worden eerst geprint op de campus zelf, waarna de gebruiker de barcode in een slikker kan invoeren en toegang krijgt om de parking te verlaten.
+In een poging om de tokens te vervangen heeft UGent één uitgang op de parking UFO en het rectoraat waar momenteel barcodes worden gebruikt. Deze worden eerst geprint op de campus zelf, waarna de gebruiker de barcode in een slikker kan invoeren en toegang krijgt om de parking te verlaten.
 
-Deze barcodes hebben het grote voordeel dat ze goedkoper zijn in het gebruik. Maar hebben nog steeds het probleem dat iedere gebruiker telkens aan het onthaal een nieuw ticket moeten opvragen, en dat er slikkers aanwezig moeten zijn die tijdelijk geleegd worden.
+Deze barcodes hebben het grote voordeel dat ze goedkoper zijn in het gebruik. Maar hebben nog steeds het probleem dat iedere gebruiker telkens aan het onthaal een nieuw ticket moeten opvragen, en dat er slikkers aanwezig moeten zijn die tijdig geleegd worden.
 
 Op vlak van nadelen zijn de volgende punten te vinden:
 \begin{itemize}
@@ -94,25 +93,25 @@ Maar ook volgende nadelen zijn te vinden:
 	\item Hedendaagse ANPR-camera's zijn een redelijke investering.
 \end{itemize}
 \par
-Voor de herkenning van nummerplaten zijn een aantal technologieën beschikbaar. Deze werken adhv. Artificial Intelligence (AI) en zijn specifiek getraind op het detecteren en uitlezen van nummerplaten.
-De technologie die in dit onderwerp gebruikt zal worden is OpenALPR, een Open-Source library gemaakt voor nummerplaatdetectie. Hiervoor is gekozen omdat OpenALPR een gratis Open-Source product is \autocite{openalprgithub}.
+Voor de herkenning van nummerplaten zijn een aantal technologieën beschikbaar. Deze werken a.d.h.v. Artificial Intelligence (AI) en zijn specifiek getraind op het detecteren en uitlezen van nummerplaten.
+De technologie die in dit onderwerp gebruikt zal worden is OpenALPR, een Open-Source library gemaakt voor nummerplaatdetectie. Hiervoor is gekozen omdat OpenALPR een gratis Open-Source product is, wat kosten kan verminderen \autocite{openalprgithub}.
 
 
 \section{Privacy en GDPR}
 \label{sec:privacy-en-gdpr}
 
-Sinds 25 Mei 2018 is de General Data Protection Regulation (GDPR) in gang gezet, een regulatie die ingevoerd is om het huidige  en toekomstige digitale tijdperk veiliger te maken voor alle EU inwoners.
+Sinds 25 Mei 2018 is de General Data Protection Regulation (GDPR) in werking getreden, een regulatie die ingevoerd is om het huidige en toekomstige digitale tijdperk veiliger te maken voor alle EU inwoners.
 Deze wetgeving is gedreven op het concept dat privacy een mensenrecht is, en dat online-data ook zo behandeld moet worden. Dit is data die direct of indirect gelinkt kan worden aan een individu zoals locatie-data, cookies en ip-adressen \autocite{goddard2017eu}.
 
-Hierdoor komen er een groot aantal extra regels op bedrijven te liggen, zo zijn ze bvb. verplicht om te toestemming vragen om persoonsgegevens te mogen verwerken. Dit is merkbaar online, waar vele sites toestemming vragen om advertentie-cookies te mogen opslaan. Een heleboel andere regels zijn er ook bijgekomen, wat het moeilijk kan maken om een nieuw systeem te maken die aan al deze voldoet.
+Hierdoor komen er een groot aantal extra regels op bedrijven te liggen, zo zijn ze bv. verplicht om te toestemming vragen om persoonsgegevens te mogen verwerken. Dit is merkbaar online, waar vele sites toestemming vragen om advertentie-cookies te mogen opslaan. Een heleboel andere regels zijn er ook bijgekomen, wat het moeilijk kan maken om een nieuw systeem te maken die aan al deze voldoet.
 
 \section{Hardware}
-Om deze nummerplaatdetectie uit te voeren is gekozen voor een Raspberry PI Model B+. Deze hardware wordt vandaag de dag veel gebruikt bij IOT-applicaties door zijn lage kost en gemakkelijke bruikbaarheid.  
+Om deze nummerplaatdetectie uit te voeren is gekozen voor een Raspberry PI Model B+. Deze hardware wordt vandaag de dag veel gebruikt bij IOT-applicaties door zijn lage kost en gebruiksvriendelijkheid.  
 
 De Raspberry PI Model B+ beschikt over een 1.4GHz quad-core processor, 1GB LPDDR2 RAM, een on-board WiFi-kaart en de mogelijkheid om een Raspberry Pi Camera te verbinden \autocite{raspberrypisitemodelbplus} .
 
 \subsection{Camera}
-De camera die gebruikt wordt is een Pi-NoIR camera. Deze camera is ook geproduceerd door de Raspberry Pi Foundation en biedt afbeeldingen en video in een 8-MegaPixel formaat. In dit onderzoek is voor deze camera gekozen omdat deze makkelijk te verbinden is met de Raspberry Pi, relatief goedkoop is en geen IR-filter heeft. Dit maakt de camera direct ook interessant voor foto's te nemen in donkere omgevingen. \autocite{raspberrypisitemodelpinoir}
+De camera die gebruikt wordt is een Pi-NoIR camera. Deze camera is ook geproduceerd door de Raspberry Pi Foundation en levert afbeeldingen en video in een 8-MegaPixel formaat. In dit onderzoek is voor deze camera gekozen omdat deze makkelijk te verbinden is met de Raspberry Pi, relatief goedkoop is en geen IR-filter heeft. Dit maakt de camera direct ook interessant om foto's te nemen in donkere omgevingen. \autocite{raspberrypisitemodelpinoir}
 
 \section{Software}
-De software die gebruikt wordt in dit onderzoek is het open-source framework OpenALPR. Deze software is geschreven om nummerplaatdetectie uit te voeren en kan video's en foto's verwerken in een groot aanbod van programmeertalen \autocite{openalprgithub}. De keuze voor deze software is gemaakt door Vado-Solutions omdat OpenALPR open-source is, wat kosten dekt. Verder kan deze software ook gebruikt worden op Linux, wat noodzakelijk is om dit onderzoek uit te voeren met een Raspberry Pi.
+De software die gebruikt wordt in dit onderzoek is het open-source framework OpenALPR. Deze software is geschreven om nummerplaatdetectie uit te voeren en kan video's en foto's verwerken in een groot aantal programmeertalen \autocite{openalprgithub}. De keuze voor deze software is gemaakt door Vado-Solutions omdat OpenALPR open-source is, wat kosten dekt. Verder kan deze software ook gebruikt worden op Linux, wat noodzakelijk is om dit onderzoek uit te voeren met een Raspberry Pi.
