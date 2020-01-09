@@ -2,9 +2,9 @@
 \chapter{\IfLanguageName{dutch}{Maatregelen rond ANPR}{Implementation guide for ANPR}}
 \label{ch:maatregelenanpr}
 
-In deze sectie beoordelen we welke maatregelen genomen moeten worden bij het implementeren van een ANPR systeem met oog op de parking aan de UGent.
+In deze sectie wordt er beoordeeld welke maatregelen genomen moeten worden bij het implementeren van een ANPR systeem met oog op de parking aan de UGent.
 
-Nummerplaatdetectie is al sterk geevolueerd sinds vroeger, maar heeft nog steeds enkele drawbacks. Zo spelen factoren zoals weer, belichting en plaatsing van de camera's een invloed op de nauwkeurigheid van de uitlezingen. Indien we met beperkte hardware werken kunnen deze omstandigheden niet altijd gemakkelijk direct verholpen worden, maar is het de bedoeling dat toch een optimale instelling behaald wordt.
+Nummerplaatdetectie is al sterk geëvolueerd sinds vroeger, maar heeft nog steeds enkele drawbacks. Zo hebben factoren zoals weer, belichting en plaatsing van de camera's een invloed op de nauwkeurigheid van de uitlezingen. Indien we met beperkte hardware werken kunnen deze omstandigheden niet altijd gemakkelijk direct verholpen worden, maar is het de bedoeling dat er toch een optimale instelling behaald wordt.
 
 \section{Cameraplaatsing}
 
@@ -14,13 +14,13 @@ Uit een prototype van \textcite{arrieta2019prototype} bleek dat nummerplaten nie
 Verder is het aangeraden om de camera hoger te plaatsen dan de koplampen van de auto, dit om te voorkomen dat de camera verblind wordt door het sterke licht.
 
 \subsection{Camera oriëntatie}
-De gedetecteerde nummerplaten horen parallel te staan met de randen van de afbeelding. Dit omdat de datasets voor OpenANPR getraint zijn met afbeeldingen van horizontale nummerplaten, maar niet van gedraaide. Indien het niet mogelijk is om een rechte afbeelding te nemen kan de afbeelding ook later gedraaid worden.
+De gedetecteerde nummerplaten horen parallel te staan met de randen van de afbeelding. Dit omdat de datasets voor OpenANPR getraind zijn met afbeeldingen van horizontale nummerplaten, maar niet van gedraaide. Indien het niet mogelijk is om een rechte afbeelding te nemen kan de afbeelding ook later gedraaid worden.
 
 \subsection{Camerahoogte}
-Indien een ANPR-systeem geplaatst zou worden is het belangrijk om de camera's niet op een te lage locatie te plaatsen. In slechte of donkere weersomstandigheden, wanneer voertuigen hun koplampen aanzetten, kan het licht van de koplampen voor een hoge interferentie zorgen in de afbeelding. Dit kan geremedieert worden door de camera's hoog genoeg uit dit licht te plaatsen of een IR-filter te gebruiken dat het zichtbare licht wegfiltert en enkel IR licht doorlaat.
+Indien een ANPR-systeem geplaatst zou worden is het belangrijk om de camera's niet op een te lage locatie te plaatsen. In slechte of donkere weersomstandigheden, wanneer voertuigen hun koplampen aanzetten, kan het licht van de koplampen voor een hoge interferentie zorgen in de afbeelding. Dit kan geremedieerd worden door de camera's hoog genoeg uit dit licht te plaatsen of een IR-filter te gebruiken dat het zichtbare licht wegfiltert en enkel IR licht doorlaat.
 
 \subsection{Pixeldichtheid}
-Het aantal pixels van de foto waaruit een nummerplaat bestaat is van belang voor OpenALPR voor een duidelijke herkenning. Indien een foto van veraf is genomen zal de pixeldichtheid laag zijn en van dichtbij zal deze dan weer hoog zijn. OpenALPR verwacht voor Europeaanse nummerplaten minstens een wijdte van 75 pixels en een grootte meer dan 250 pixels verhoogt niet opmerkelijk de accuraatheid  \autocite{openalprcameraplacement}.
+Het aantal pixels van de foto waaruit een nummerplaat bestaat is van belang voor OpenALPR voor een duidelijke herkenning. Indien een foto van veraf is genomen zal de pixeldichtheid laag zijn en van dichtbij zal deze dan weer hoog zijn. OpenALPR verwacht voor Europese nummerplaten minstens een hoogte van 75 pixels en een breedte van meer dan 250 pixels verhoogt niet opmerkelijk de accuraatheid  \autocite{openalprcameraplacement}.
 
 \section{Camera instellingen}
 De belangrijkste factor in een performant ANPR-systeem is een correct ingestelde camera. Het nemen van foto's is de eerste stap in het proces en indien hierop al geen nummerplaten duidelijk zijn zal OpenALPR zelf onmogelijk iets kunnen detecteren. In dit onderdeel worden de belangrijkste camerainstellingen verduidelijkt die bijdragen tot een correcte afbeelding voor gebruik bij nummerplaatdetectie.
@@ -30,7 +30,7 @@ De belangrijkste factor in een performant ANPR-systeem is een correct ingestelde
 
 Camera shutterspeed is de snelheid dat een camera foto's neemt. In een klaarlichte dag kan de shutterspeed zo'n 1/10000 seconden halen terwijl in het donker dit wel een volle seconde kan duren om genoeg licht te behalen. \autocite{openalprcameraplacement}
 
-Bij een lange shutterspeed kan het dus zijn dat een voertuig een meter vooruit is gereden, terwijl bij een kleine shutterspeed dit maar een centimeter zou zijn. Een korte shutterspeed is dus interessant voor het implementeren van nummerplaatdetectie aangezien de auto minder ver is gereden en dus minder motion blur op de foto staat. Een voorbeeld van het verschil in shuttersnelheid is te zien op figuur \ref{fig:ntlpc}
+Bij een lange shutterspeed kan het dus zijn dat een voertuig een meter vooruit is gereden, terwijl bij een kleine shutterspeed dit maar een centimeter zou zijn. Een korte shutterspeed is dus interessant voor het implementeren van nummerplaatdetectie aangezien de auto minder ver is gereden en er dus minder motion blur op de foto staat. Een voorbeeld van het verschil in shuttersnelheid is te zien op figuur \ref{fig:ntlpc}
 %
 \begin{figure}[h!]
 	\centering
@@ -46,12 +46,12 @@ Bij een lange shutterspeed kan het dus zijn dat een voertuig een meter vooruit i
 	\label{fig:ntlpc}
 \end{figure}
 
-Het nadeel van een kleine shutterspeed te gebruiken is dat er veel minder licht aanwezig is op de foto's, wat de detectie dan weer omlaag brengt. Zo worden foto's die 's nachts genomen worden bijna volledig zwart. Dit kan geremedieerd worden door belichting bij te plaatsen.
+Het nadeel van een kleine shutterspeed is dat er veel minder licht aanwezig is op de foto's, wat de detectie dan weer omlaag brengt. Zo worden foto's die 's nachts genomen worden bijna volledig zwart. Dit kan geremedieerd worden door er belichting bij te plaatsen.
 
 \subsection{Belichting}
-'s Nachts is het moeilijk een degelijke foto van nummerplaten te verkrijgen. Door het weinige licht moet de camera zeer lang zijn shutter openhouden, wat resulteert in een wazige foto. Terwijl de shutter op een laag aantal te houden resulteert in te donkere foto's.
+'s Nachts is het moeilijk om een degelijke foto van nummerplaten te verkrijgen. Door het weinige licht moet de camera zeer lang zijn shutter openhouden, wat resulteert in een wazige foto. Terwijl de shutter op een hoge snelheid te houden resulteert in te donkere foto's.
 
-Men kan de nummerplaat zichtbaar maken door het bijzetten van belichting, maar zelfs dan zal de nummerplaat vaak weinig tot niet zichtbaar zijn. Dit komt doordat de koplampen van een auto zeer fel oplichten in de camera en hierdoor de afbeelding overbelichten. Een algemene oplossing voor deze problemen is het gebruik van een IR-camera. Een IR-camera detecteerd enkel IR-licht en heeft dus geen invloed van de koplampen van wagens. Verder is het voordeel hiervan dat IR-licht niet zichtbaar is voor het menselijk oog, en dus ongestoort snachts en overdag gebruikt kan worden. Een voorbeeld hiervan is te zien in figuur \ref{fig:ir-nacht}, waarbij eerst geen IR-filter wordt gebruikt en daarna wel.
+Men kan de nummerplaat zichtbaar maken door het bijzetten van belichting, maar zelfs dan zal de nummerplaat vaak weinig tot niet zichtbaar zijn. Dit komt doordat de koplampen van een auto zeer fel oplichten in de camera en hierdoor de afbeelding overbelichten. Een algemene oplossing voor deze problemen is het gebruik van een IR-camera. Een IR-camera detecteert enkel IR-licht en heeft dus geen invloed van de koplampen van wagens. Verder is het voordeel hiervan dat IR-licht niet zichtbaar is voor het menselijk oog, en dus ongestoord 's nachts en overdag gebruikt kan worden. Een voorbeeld hiervan is te zien in figuur \ref{fig:ir-nacht}, waarbij eerst geen IR-filter wordt gebruikt en daarna wel.
 
 \begin{figure}[h!]
 	\centering
@@ -68,7 +68,7 @@ Men kan de nummerplaat zichtbaar maken door het bijzetten van belichting, maar z
 \end{figure}
 
 \subsection{Depth of field}
-Om scherpe afbeeldingen te verkrijgen moet de depth of field (DOF) van een camera correct ingesteld staan. Deze bepaald in welke range een afbeelding scherp is. Hoe groter de DOF, hoe verder de objecten in focus zijn. Bij afstanden onder de 10m is de DOF aan de kleine kant en moet deze heel nauwkeurig ingesteld worden \autocite{axis2019license}. In vele camera's gebeurt het instellen van de DOF automatisch en moet hier niet echt naar gekeken worden. Een verduidelijking van DOF is te zien in figuur \ref{fig:dof}.
+Om scherpe afbeeldingen te verkrijgen moet de depth of field (DOF) van een camera correct ingesteld staan. Deze bepaalt in welke range een afbeelding scherp is. Hoe groter de DOF, hoe verder de objecten in focus zijn. Bij afstanden onder de 10m is de DOF aan de kleine kant en moet deze heel nauwkeurig ingesteld worden \autocite{axis2019license}. In vele camera's gebeurt het instellen van de DOF automatisch en moet hier niet echt naar gekeken worden. Een verduidelijking van DOF is te zien in figuur \ref{fig:dof}.
 
 \begin{figure}[h!]
 	\centering
@@ -80,12 +80,12 @@ Om scherpe afbeeldingen te verkrijgen moet de depth of field (DOF) van een camer
 
 \section{Configuratie van OpenALPR}
 
-OpenALPR, de open-source software voor het detecteren van nummerplaten, biedt zelf ook verscheidene instellingen die de accuraatheid van de detectie kan verbeteren. Aangezien de software gebruikt kan worden over heel de wereld zijn en deze nummerplaten heel wat verschillen zijn er meerdere configuraties beschikbaar die specifieker op de regio getraind zijn, maar ook calibratie van de genomen afbeeldingen en patroonmatching zijn beschikbaar.
+OpenALPR, de open-source software voor het detecteren van nummerplaten, biedt zelf ook verscheidene instellingen die de accuraatheid van de detectie kan verbeteren. Deze software biedt verscheidene configuraties aan om verschillende soorten nummerplaten over de wereld te detecteren. Verder is er ook de optie tot afbeeldingkalibratie en pattern-matching.
 
 \subsection{Pattern matching}
-\textcite{arrieta2019prototype} en \textcite{buhus2016automatic} concluderen beiden dat OpenALPR standaard degelijke resultaten biedt, maar nog hogere resulaten bereikt kunnen worden indien er verduidelijkt wordt welk type nummerplaten er verwacht wordt. Dit houdt factoren in zoals de juiste dataset van het land gebruiken en de volgorde van de kentekenkarakters aanduiden.
+\textcite{arrieta2019prototype} en \textcite{buhus2016automatic} concluderen beiden dat OpenALPR standaard degelijke resultaten biedt, maar nog hogere resultaten bereikt kunnen worden indien er verduidelijkt wordt welk type nummerplaten er verwacht wordt. Dit houdt factoren in zoals de juiste dataset van het land gebruiken en de volgorde van de kentekenkarakters aanduiden.
 
-Door pattern matching toe te passen kunnen resultaten nog nauwkeuriger zijn. Hierbij wordt een reguliere expressie op alle top N resultaten uitgevoerd en worden de niet-matching resultaten verworpen.
+Door pattern matching toe te passen kunnen resultaten nog nauwkeuriger zijn. Hierbij wordt een reguliere expressie op de resultaten toegepast. Deze expressie test of de gevonden waarden voor de nummerplaten overeenkomen met de verwachte volgorde van letters en/of cijfers. Enkel de resultaten die hieraan voldoen worden geaccepteerd.
 
 Een voorbeeld hiervan is op nummerplaten in Tsjechië, verkregen van \textcite{openalpr2015pattern}
 Er wordt nummerplaatdetectie uitgevoerd op afbeelding \ref{patternmatching} met volgende regexpatronen die voorkomen in Tsjechië:
@@ -123,7 +123,7 @@ plate0: 40 results
 
 Hieruit is te zien dat bij de top 7 resultaten het middelste karakter als de letter O zien i.p.v. het cijfer 0. Door te kijken of de pattern matching succesvol was, zien we dat het achtste resultaat correct is.
 
-\subsection{Calibratie van afbeeldingen}
+\subsection{Kalibratie van afbeeldingen}
 \label{alprcalib}
 In vele situaties is het niet mogelijk om de camera frontaal te richten op een nummerplaat. Indien de camera te diagonaal gericht is, zoals in figuur \ref{calibration-openalpr}, is het zeer waarschijnlijk dat de accuraatheid van OpenALPR zal zakken. Dit komt omdat OpenALPR getraind is op afbeeldingen die horizontaal gealigneerd zijn met een maximale hoek van 30$^{\circ}$. Gelukkig biedt OpenALPR een eigen tool aan om foto's te kalibreren. Deze is te zien in afbeelding \ref{calibration-openalpr-after}, waar de x- en y-as rotatie en schaal aangepast worden om de nummerplaat toch recht te trekken.
 

@@ -1,16 +1,16 @@
 
 \chapter{\IfLanguageName{dutch}{Praktische uitvoering van ANPR}{Implementation of ANPR at UGent}}
 \label{ch:praktischeUitvoering}
-In dit hoofdstuk wordt er onderzocht of nummerplaatdetectie degelijke resultaten kan behalen op de Campus Sterre en Campus Coupure van UGent. Hiervoor zullen handmatig foto's genomen worden van wagens die de parking willen verlaten adhv. een testopstelling van een Raspberry Pi met een Pi-NoIR camera. Vervolgens worden deze foto's verwerkt met OpenALPR en zullen deze resultaten vergeleken worden met de correcte resultaten. Op deze manier wordt de nauwkeurigheid van de nummerplaatdetectie per uitgang bepaalt en kan een conclusie getrokken worden of dit wel degelijk een haalbare technologie is.
+In dit hoofdstuk wordt er onderzocht of nummerplaatdetectie degelijke resultaten kan behalen op de Campus Sterre en Campus Coupure van UGent. Hiervoor zullen handmatig foto's genomen worden van wagens die de parking verlaten a.d.h.v. een testopstelling van een Raspberry Pi met een Pi-NoIR camera. Vervolgens worden deze foto's verwerkt met OpenALPR en zullen deze resultaten vergeleken worden met de correcte resultaten. Op deze manier wordt de nauwkeurigheid van de nummerplaatdetectie per uitgang bepaalt en kan een conclusie getrokken worden of dit wel degelijk een haalbare technologie is.
 
 \section{Opstelling}
-In dit onderdeel wordt de opstelling en configuratie van de camera's uitgelegd adhv. de informatie verzameld in Hoofdstuk \ref{ch:maatregelenanpr}. Bij het maken van deze opstelling werd er getracht om zo veel mogelijk een reële implementatie na te streven.
+In dit onderdeel wordt de opstelling en configuratie van de camera's uitgelegd a.d.h.v. de informatie verzameld in Hoofdstuk \ref{ch:maatregelenanpr}.
 
 \subsection{Camera}
-Als camera zal gebruik gemaakt worden van de PiNoIR-Cam. Deze camera is een standaard extensie voor de Raspberry-PI die geen infrarood filtering heeft staan. Standaard wordt infrarood uit afbeeldingen gefilterd omdat deze een ongewenst bijproduct zijn op foto's. De PiNoIR camera filtert geen infrarood uit de afbeeldingen en maken het dus mogelijk om te gebruiken voor infrarood detectie.
+Als camera wordt gebruik gemaakt van de PiNoIR-Cam. Deze camera is een uitbreiding voor de Raspberry-PI dat geen infrarood filtering heeft staan. Bij andere camera's wordt infrarood licht uit afbeeldingen gefilterd aangezien dit een ongewenste verkleuring aan de afbeeldingen geeft. Door dit licht toch door te laten wordt het mogelijk om 's nachts foto's te nemen.
 
 \paragraph{Cameraplaatsing}
-Voor de plaatsing van de camera's wordt er gewenst zo veel mogelijk kosten te besparen en wordt er liever niet geopteerd voor een aparte paal voor de ANPR-camera. Daarom zal als eerste keuze de metalen constructie van de hefboom gekozen worden. De camera zal hier op de top worden aangehangen zodat deze zo min mogelijk interferentie heeft van de koplampen van de auto's.
+De plaatsing van de camera's dient zo kostenefficiënt mogelijk te zijn, waardoor liefst geen aparte paal voor de ANPR-camera wordt bijgeplaatst. Hierdoor is eerste keuze om de ANPR-camera te monteren de metalen constructie van de hefboom zelf. De camera is hier zo hoog mogelijk aangehangen zodat deze het minst interferentie heeft van de koplampen van de auto's.
 
 \begin{figure}[h!]
 	\centering
@@ -19,7 +19,7 @@ Voor de plaatsing van de camera's wordt er gewenst zo veel mogelijk kosten te be
 \end{figure}
 
 \subsection{Opstelling}
-Om de foto's te verkrijgen zal gebruik gemaakt worden van de Raspberry Pi met de PiNoIR camera, deze zal in een behuizing op de juiste hoogte van de paal tijdelijk vastgezet worden tezamen met een powerbank. De Raspberry Pi verbindt vervolgens met een GSM die als hotspot ingesteld staat, waarop met een SSH verbinding het commando kan worden uitgevoerd om foto's te nemen. Deze foto's worden vervolgens allemaal verzameld en verwerkt.
+Om de foto's te verkrijgen is gebruik gemaakt van de Raspberry Pi met de PiNoIR camera, deze is op de juiste hoogte van de paal tijdelijk vastgezet worden tezamen met een powerbank. De Raspberry Pi is geconnecteerd met een GSM die als hotspot ingesteld staat, waarop met een SSH verbinding het commando kan worden uitgevoerd om foto's te nemen. Deze foto's worden vervolgens allemaal verzameld en verwerkt.
 
 Figuur \ref{Opstelling} toont de gemaakte opstelling. Deze bevat De Raspberry Pi, de Pi-Cam en een powerbank met een capaciteit van 700mAh.
 \begin{figure}[h]
@@ -41,7 +41,7 @@ Het nemen van de foto's is een fysiek onderdeel van dit onderzoek en werd uitgev
 	\item Campus Sterre - Uitgang Galglaan
 \end{itemize}
 
-Deze foto's werden gemaakt met de PiNoIR camera verbonden aan de Raspberry Pi mbv. het raspistill commando. Per auto die de parking wilt verlaten worden er adhv. een handmatige trigger 6 foto's gemaakt in een burst van 3 seconden met 500 ms per foto. Dit aan de hand van het raspistill commando:  
+Deze foto's werden gemaakt met de PiNoIR camera verbonden aan de Raspberry Pi m.b.v. het raspistill commando. Per auto die de parking verlaat worden er a.d.h.v. een handmatige trigger 6 foto's gemaakt in een burst van 3 seconden met 500 ms per foto. Dit aan de hand van het raspistill commando:  
 \begin{lstlisting}[language=Bash, breaklines=true]
 #!/bin/bash
 
@@ -55,9 +55,9 @@ raspistill -t 3000 -bm -tl 500 --width 1280 --height 720 --nopreview
 \end{lstlisting}
 
 \subsubsection{Triggering van de camera}
-De camera zelf werd in dit onderzoek handmatig getriggerd aangezien een implementatie opstellen voor automatische triggering een te grote tijdsnood zou hebben op het maken van dit onderzoek.
+De camera zelf werd in dit onderzoek handmatig getriggerd aangezien een implementatie opstellen voor automatische triggering niet paste binnen het tijdsschema van dit onderzoek.
 
-In een werkelijke implementatie zou deze triggering mogelijk zijn adhv. software dat de beelden van de Raspberry Pi bekijkt en hierop bewegingsdetectie uitvoert. Een voorbeeld hiervan is de 'motion' package die hiervoor een open-source implementatie geeft.
+In een werkelijke implementatie zou deze triggering mogelijk zijn a.d.h.v. software dat de beelden van de Raspberry Pi bekijkt en hierop bewegingsdetectie uitvoert. Een voorbeeld hiervan is de 'motion' package die hiervoor een open-source implementatie geeft.
 
 \subsection{Tijdstippen van de genomen foto's}
 In tabel \ref{tab:fototijdstippen} zijn alle momenten genoteerd dat er fysiek foto's verzameld werden. Deze zijn telkens verworven in de vroege namiddag aangezien er op deze momenten nog steeds daglicht is en mensen beginnen te vertrekken van de Campussen. Enkel op de Coupure Links is er later geprobeerd data te verzamelen omdat er overdag bijna geen auto's vertrokken.
@@ -117,7 +117,7 @@ Foto's die te laat of te vroeg werden genomen worden weggelaten. Enkele voorbeel
 \end{figure}
 
 
-In sommige gevallen zijn de foto's allemaal van een veel te verre afstand genomen, dit is niet representatief aangezien een motion detection systeem foto's over een korte afstand kan nemen. In het geval van Figuur \ref{fig:onlyfar} zijn alle afbeeldingen op een verre afstand genomen. Een motion detection systeem zou in dit geval ook foto's genomen kunnen hebben op een dichtere afstand, hierdoor is deze reeks foto's niet representatief en zal ook helemaal niet opgenomen worden in het onderzoek.
+In sommige gevallen zijn de foto's allemaal van een veel te verre afstand genomen, dit is niet representatief aangezien een motion detection systeem foto's over een korte afstand kan nemen. In het geval van Figuur \ref{fig:onlyfar} zijn alle afbeeldingen op een verre afstand genomen. Een motion detection systeem zou in dit geval ook foto's genomen kunnen hebben op een dichtere afstand, hierdoor is deze reeks foto's niet representatief en zal ook niet opgenomen worden in het onderzoek.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.45\linewidth}
@@ -135,7 +135,7 @@ In sommige gevallen zijn de foto's allemaal van een veel te verre afstand genome
 
 \section{Verwerking van gegevens}
 
-Nadat de foto's van een uitgang verzameld zijn, werd op iedere foto nummerplaatdetectie uitgevoerd mbv. OpenALPR. Het resultaat van deze detectie werd opgeslaan in een JSON bestand naast de corresponderende afbeelding. Hiervoor werd de volgende bash code gebruikt:
+Nadat de foto's van een uitgang verzameld zijn, werd op iedere foto nummerplaatdetectie uitgevoerd m.b.v. OpenALPR. Het resultaat van deze detectie werd opgeslagen in een JSON bestand naast de corresponderende afbeelding. Hiervoor werd de volgende bash code gebruikt:
 
 \begin{lstlisting}[language=Bash, breaklines=true]
 #!/bin/bash
@@ -155,14 +155,14 @@ Vervolgens werd alle data van de afbeeldingen verzameld in een algemeen CSV best
 	\item \textbf{file:} De bestandsnaam van de foto.
 	\item \textbf{license\_plate:} De 'correcte' nummerplaat, handmatig uit de foto gehaald.
 	\item \textbf{result:} De nummerplaat gedetecteerd door OpenALPR.
-	\item \textbf{distance:} De afstand van de camera, bestaat uit 3 velden, "close", "medium"\ en "far". Close betekent een afstand onder de 3 meter, medium tussen 3 en 5 meter en far betekent verder dan 5 meter.
+	\item \textbf{distance:} De afstand van de camera, bestaat uit drie velden, "close", "medium"\ en "far". Close betekent een afstand onder de 3 meter, medium tussen 3 en 5 meter en far betekent verder dan 5 meter.
 	\item \textbf{lighting:} De belichting van de nummerplaten, bestaat uit 2 velden, "bright"\ en "very\_bright". Bright betekent dat de nummerplaat duidelijk leesbaar is voor mensen onder normaal daglicht. very\_bright betekent dat deze niet onmiddelijk leesbaar is.
 	\item \textbf{location:} De uitgang waar de foto is genomen, bestaat uit "coupure-kruisboogstraat", "coupure-coupurelinks", "sterre-galglaan"\ en "sterre-depintelaan".
 \end{itemize}
 
 Ten laatste zijn deze resultaten verwerkt in de statistische taal 'R'. De code voor deze bewerkingen zijn te vinden in bijlage \ref{ch:bijlageperfoto} en bijlage \ref{ch:bijlageperauto}.
 
-\subsection{Calibratie van de afbeeldingen}
+\subsection{Kalibratie van de afbeeldingen}
 Origineel waren alle resultaten van de nummerplaatdetectie aan de zeer lage kant, aangezien de afbeeldingen nog niet gekalibreerd waren. Maar met de tools beschreven in onderdeel \ref{alprcalib}, was het mogelijk om een algemene transformatie op de afbeeldingen uit te voeren.
 \begin{figure}[h!]
 	\centering
@@ -194,7 +194,7 @@ Het verschil in de bekomen resultaten is duidelijk merkbaar. In tabel \ref{tab:k
 Nummerplaten kunnen soms foutief gedetecteerd worden door letters en nummers die op elkaar lijken. Zo is er maar een klein verschil tussen de O, 0 en Q. 
 Hierdoor kan het zijn dat een nummerplaat zoals 1-NOP-123 gelezen wordt als 1-N0P-123. In de gevallen dat deze de structuur van de reeksen tekens in de nummerplaten verhinderen, kunnen deze gemakkelijk opgelost worden door gebruik van OpenALPR's patroon matching.
 
-Wat patroon matching doet is zoals de naam zegt; het controleren of een bekomen nummerplaat voldoet aan een bepaald patroon. In Belgie en nederland zijn deze sinds 2010 een 1 met 3 letters en 3 cijfers.
+Wat patroon matching doet is zoals de naam zegt; het controleren of een bekomen nummerplaat voldoet aan een bepaald patroon. In België en Nederland zijn deze sinds 2010 een 1 met 3 letters en 3 cijfers.
 
 \section{Resultaten}
 
@@ -212,7 +212,7 @@ De uitgang aan de Galglaan is één van de twee uitgangen op de campus Sterre. D
 	\label{fig:galglaan}
 \end{figure}
 
-Aan de hand van de informatie bekomen in hoofdstuk \ref{ch:maatregelenanpr}, is er besloten om de camera op de metalen constructie van de hefboom te plaatsen. Deze is te zien in figuur \ref{fig:galglaan} en is gekozen op basis van de volgende standpunten:
+Aan de hand van de informatie bekomen in hoofdstuk \ref{ch:maatregelenanpr}, werd er besloten om de camera op de metalen constructie van de hefboom te plaatsen. Deze is te zien in figuur \ref{fig:galglaan} en is gekozen op basis van de volgende standpunten:
 \begin{itemize}
 	\item De hoogte van de metalen constructie is hoog genoeg om direct licht van koplampen te verhelpen.
 	\item Vanuit deze locatie is een grote afstand van de rijbaan zichtbaar van aankomende voertuigen. Dit geeft het systeem een grotere kans om een auto te identificeren.
@@ -246,7 +246,7 @@ De enkele foutieve wagen, getoond in figuur \ref{foutiefgalglaan}, heeft geen op
 \subsection{Campus Sterre - Uitgang De Pintelaan}
 De uitgang op de Campus Sterre aan de De Pintelaan is de hoofduitgang van UGent Campus Sterre en was een uitdaging om correct te configureren. Deze is verbonden met drie straten die enkele grote parkings verbinden, bijgevolg wordt deze het meest gebruikt van alle uitgangen. Het is dan ook belangrijk dat hier een goede detectie is.
 
-Door de vele verbindingen is het mogelijk om de parking op allerlei manieren te bereiken, deze zijn te zien op figuur \ref{fig:satellietdepintelaan}. Dit is op zich geen probleem, maar hierdoor moet de nummerplaatdetectie wel in een groot aantal orientaties werken.
+Door de vele verbindingen is het mogelijk om de parking op allerlei manieren te bereiken, deze zijn te zien op figuur \ref{fig:satellietdepintelaan}. Dit is op zich geen probleem, maar hierdoor moet de nummerplaatdetectie wel in een groot aantal oriëntaties werken.
 
 Aangezien aan deze uitgang niet direct een optimale camerahoek gevonden was, worden in de volgende onderdelen de geteste camerahoeken beschreven tezamen met hun resultaten. Deze camerahoeken zijn aangeduid met cijfers in figuur \ref{fig:satellietdepintelaan}.
 
@@ -313,7 +313,7 @@ Hierdoor verkrijgen we volgende resultaten:
 		Per individuele foto 	& 50 & 31	& 19	& 38.0\%\\
 		Per auto				& 17 & 8	& 9 	& 52.9\%\\
 	\end{tabular}
-\caption{Resultaten van OpenALPR aan Campus Sterre - Uitgang Depintelaan, camerahoek 2.}
+\caption{Resultaten van OpenALPR aan Campus Sterre - Uitgang De Pintelaan, camerahoek 2.}
 \label{tab:alprdepintelaan2}
 \end{table}
 
@@ -338,15 +338,15 @@ Volgende resultaten zijn bekomen aan de uitgang:
 		Per individuele foto 	& 75 & 35	& 40	& 53.3\%\\
 		Per auto				& 24 & 6	& 18 	& 75.0\%\\
 	\end{tabular}
-\caption{Resultaten van OpenALPR aan Campus Sterre - Uitgang Depintelaan, camerahoek 3.}
+\caption{Resultaten van OpenALPR aan Campus Sterre - Uitgang De Pintelaan, camerahoek 3.}
 \label{tab:alprdepintelaan3}
 \end{table}
 
-Deze locatie is een verbetering tov. de vorige posities. Allereerst staan alle auto's op dezelfde locatie ongeacht van inrijrichting. Dit maakt de configuratie van OpenALPR een pak aangenamer en betrouwbaarder.
+Deze locatie is een verbetering t.o.v. de vorige posities. Allereerst staan alle auto's op dezelfde locatie ongeacht van inrijrichting. Dit maakt de configuratie van OpenALPR een pak aangenamer en betrouwbaarder.
 
 Ondanks deze voordelen is de nauwkeurigheid niet hoog genoeg en zijn er toch 6 auto's die niet gedetecteerd zijn. Na deze na foto's te gaan is het duidelijk dat dit komt door de grote afstand en bijgevolg lagere resolutie van de nummerplaten. Een voorbeeld hiervan is te zien op figuur \ref{fig:lowressterre}.
 
-Verder is één voertuig niet gedetecteerd niet door de lage resolutie maar door de hoogte van de slagboom, deze vrachtagen zijn nummerplaat is te hoog aan het voertuig gemonteerd waardoor de slagboom ervoor staat op de foto. Dit is te zien in figuur \ref{fig:slagboomster}. Deze situatie is wellicht uitzonderlijk. Alle andere auto's hun nummerplaat zit ruim onder de slagboom.
+Verder is één voertuig niet gedetecteerd niet door de lage resolutie maar door de hoogte van de slagboom, deze vrachtwagen zijn nummerplaat is te hoog aan het voertuig gemonteerd waardoor de slagboom ervoor staat op de foto. Dit is te zien in figuur \ref{fig:slagboomster}. Deze situatie is wellicht uitzonderlijk. Alle andere auto's hun nummerplaat zit ruim onder de slagboom.
 
 \begin{figure}[h!]
 	\centering
@@ -394,7 +394,7 @@ Na de camera vervolgens opnieuw te kalibreren zijn volgende resultaten bekomen:
 		Per individuele foto 	& 19 & 45	& 64	& 70.3\%\\
 		Per auto				& 2 & 24	& 26 	& 92.0\%\\
 	\end{tabular}
-\caption{Resultaten van OpenALPR aan Campus Sterre - Uitgang Depintelaan, camerahoek 3 met hogere resolutie.}
+\caption{Resultaten van OpenALPR aan Campus Sterre - Uitgang De Pintelaan, camerahoek 3 met hogere resolutie.}
 \label{tab:alprdepintelaan4}
 \end{table}
 
@@ -404,7 +404,7 @@ Deze zijn een enorm verschil met het vorig resultaat van 75\% van de vorige foto
 Indien een camera op deze locatie moet gezet worden zullen er enkele maatregelingen nodig zijn om de camera te plaatsen en van stroom te voorzien. Een paal zou in de straat moeten vastgezet worden en een reeks kabels voor stroom en data moeten naar de metalen constructie van de hefboom lopen. Dit vraagt een redelijke hoeveelheid meer werk en kosten dan een systeem dat op de behuizing zelf staat.
 
 \paragraph{Verbeteringen}
-De camera is niet direct te hoog geplaatst, dit was uit voorzorg dat de hefboom van de toegang het beeld van de nummerplaten overlapt. Na de foto's te analyseren bleek het toch dat er nog ruim veel plaats was om de camera hoger te zetten. Dit is een vereiste om mogelijkse voorbijgangers te beletten van vandalisme. Er wordt verondersteld dat het verhogen van de camera geen direct negatieve invloed op de resultaten zal hebben, dit zolang de kalibratie opnieuw wordt uitgevoerd.
+De camera is niet direct te hoog geplaatst, dit was uit voorzorg dat de hefboom van de toegang het beeld van de nummerplaten overlapt. Na de foto's te analyseren bleek het toch dat er nog ruim veel plaats was om de camera hoger te zetten. Dit is een vereiste om mogelijke voorbijgangers te beletten van vandalisme. Er wordt verondersteld dat het verhogen van de camera geen direct negatieve invloed op de resultaten zal hebben, dit zolang de kalibratie opnieuw wordt uitgevoerd.
 
 \subsection{Campus Coupure - Uitgang Kruisboogstraat}
 
@@ -413,14 +413,14 @@ De uitgang aan de Kruisboogstraat is de hoofduitgang van de Campus Coupure. Deze
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\linewidth]{img/kruisboog/sateliet-kruisboog.jpg}
-	\caption{Satellietafbeelding van de uitgang aan de Kruisboogstraat. De uitgang zelf is aangeduidt met een rode cirkel. \autocite{ugent2019google}}
+	\caption{Satellietafbeelding van de uitgang aan de Kruisboogstraat. De uitgang zelf is aangeduid met een rode cirkel. \autocite{ugent2019google}}
 	\label{fig:sat-kruisboog}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.9\linewidth]{img/kruisboog/kruisboog-uitgang.jpg}
-	\caption{Close-up foto van de uitgang aan de kruisboogstraat. De locatie van de camera is aangeduid met een rode cirkel.}
+	\caption{Close-up foto van de uitgang aan de Kruisboogstraat. De locatie van de camera is aangeduid met een rode cirkel.}
 	\label{fig:Kruisboog-uitgang}
 \end{figure}
 
@@ -456,7 +456,7 @@ Op 1 auto na zijn alle auto's correct geïdentificeerd. De incorrecte afbeelding
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\linewidth]{img/kruisboog/kruisboog-incorrect.jpg}
-	\caption{Een niet-geïdentificeerd voortuig aan de uitgang Kruisboogstraat. Enkele tekens van de nummerplaat zijn onleesbaar gemaakt uit privacy van de bestuurder.}
+	\caption{Een niet-geïdentificeerd voertuig aan de uitgang Kruisboogstraat. Enkele tekens van de nummerplaat zijn onleesbaar gemaakt uit privacy van de bestuurder.}
 	\label{fig:kruisboog-incorrect}
 \end{figure}
 

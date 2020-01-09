@@ -14,7 +14,7 @@
 
 %\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
 
-In dit hoofdstuk zal er uitgelegd worden wat de huidige stand van zaken is van de parking aan de parking van UGent en welke andere technologieën hiervoor hedendaags gebruikt worden.
+In dit hoofdstuk zal er uitgelegd worden wat de huidige stand van zaken is aan de parking van UGent en welke andere technologieën hiervoor hedendaags gebruikt worden.
 Verder wordt er besproken wat de GDPR inhoudt en waar deze op slaat. Ten laatste wordt er bekeken wat de voorgestelde hardware betreft voor dit onderzoek.
 
 \section{Huidige situatie UGent}
@@ -48,7 +48,7 @@ Deze punten geven aan dat tokens niet de gewenste oplossing zijn voor de campuss
 \subsection{Radio frequency Identification}
 
 %Wat is RFID
-Radio frequency Identication (RFID) is een technologie die aan de hand van elektromagnetische golven objecten kan identificeren. Dit met het voordeel dat er geen direct contact of zicht moet zijn tussen de scanner en het object. RFID gebeurt a.d.h.v een RFID reader en een RFID tag. De reader zendt een elektromagnetisch signaal uit. De tag ontvangt deze golven en kan op zijn beurt de opgevraagde informatie verzenden. \autocite{li2009design}
+Radio Frequency Identication (RFID) is een technologie die aan de hand van elektromagnetische golven objecten kan identificeren. Dit met het voordeel dat er geen direct contact of zicht moet zijn tussen de scanner en de kaart. RFID gebeurt a.d.h.v een RFID reader en een RFID tag. De reader zendt een elektromagnetisch signaal uit. De tag ontvangt deze golven en kan op zijn beurt de opgevraagde informatie verzenden. \autocite{li2009design}
 
 %RFID op UGent
 Aan iedere uitgang op UGent zijn RFID-kaartlezers te vinden. Deze zijn voorzien om een vlotte toegang te verlenen aan werknemers en worden via een centraal systeem beheerd.
@@ -73,7 +73,7 @@ De vorige beschreven technologieën zijn weliswaar niet de enige mogelijke oplos
 
 Automatic Number Plate Recognition (ANPR) is de techniek om automatisch nummerplaten te herkennen. Deze techniek wordt al sinds 1976 gebruikt voor voor de detectie van gestolen wagens \autocite{uk2011anpr}. Hedendaags is ANPR al veel toegankelijker en kan het op vele plaatsen teruggevonden worden zoals bij bv. trajectcontrole \autocite{de2014snelheidscamera}, parkeersystemen, etc.
 \par
-ANPR heeft nog vele andere acroniemen zoals Automatic License Plate Recognition (ALPR), Automatic Vehicle Identification (AVI), Vehicle Plate recognition (VLPR), Vehicle Recognition Identifier (VRI), Car plate Recognition (CPR) en Car Plate Reader (CPR) \autocite{axis2019license}. In dit onderzoek zal voor nummerplaatdetectie het acroniem ANPR gebruikt worden.
+ANPR heeft nog vele andere acroniemen zoals Automatic License Plate Recognition (ALPR), Automatic Vehicle Identification (AVI), Vehicle Plate recognition (VLPR), Vehicle Recognition Identifier (VRI), Car Plate Recognition (CPR) en Car Plate Reader (CPR) \autocite{axis2019license}. In dit onderzoek zal voor nummerplaatdetectie het acroniem ANPR gebruikt worden.
 \par
 %Voordelen
 Het gebruik van ANPR brengt enkele voordelen met zich mee:
@@ -100,10 +100,10 @@ De technologie die in dit onderwerp gebruikt zal worden is OpenALPR, een Open-So
 \section{Privacy en GDPR}
 \label{sec:privacy-en-gdpr}
 
-Sinds 25 Mei 2018 is de General Data Protection Regulation (GDPR) in werking getreden, een regulatie die ingevoerd is om het huidige en toekomstige digitale tijdperk veiliger te maken voor alle EU inwoners.
+Sinds 25 mei 2018 is de General Data Protection Regulation (GDPR) in werking getreden, een regulatie die ingevoerd is om het huidige en toekomstige digitale tijdperk veiliger te maken voor alle EU inwoners.
 Deze wetgeving is gedreven op het concept dat privacy een mensenrecht is, en dat online-data ook zo behandeld moet worden. Dit is data die direct of indirect gelinkt kan worden aan een individu zoals locatie-data, cookies en ip-adressen \autocite{goddard2017eu}.
 
-Hierdoor komen er een groot aantal extra regels op bedrijven te liggen, zo zijn ze bv. verplicht om te toestemming vragen om persoonsgegevens te mogen verwerken. Dit is merkbaar online, waar vele sites toestemming vragen om advertentie-cookies te mogen opslaan. Een heleboel andere regels zijn er ook bijgekomen, wat het moeilijk kan maken om een nieuw systeem te maken die aan al deze voldoet.
+Hierdoor worden er een groot aantal regels op bedrijven gelegd, zo zijn ze bv. verplicht om toestemming te vragen om persoonsgegevens te mogen verwerken. Dit is merkbaar online, waar vele sites toestemming vragen om advertentie-cookies te mogen opslaan. Een heleboel andere regels zijn er ook bijgekomen, wat het moeilijk kan maken om een nieuw systeem te maken die aan al deze voldoet.
 
 \section{Hardware}
 Om deze nummerplaatdetectie uit te voeren is gekozen voor een Raspberry PI Model B+. Deze hardware wordt vandaag de dag veel gebruikt bij IOT-applicaties door zijn lage kost en gebruiksvriendelijkheid.  
